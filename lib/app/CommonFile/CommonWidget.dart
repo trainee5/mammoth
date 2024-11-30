@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 import '../color/ApkColors.dart';
 
 class CommonWidget {
@@ -343,89 +343,102 @@ class CommonWidget {
   static Widget searchBar({
     Color? fillColor,
     Color? textColor,
-    String? hinttext,
+    String? hintText,
     double? height,
-    double? horizontalmargin,
-    double? borderredius,
-    double? textfontsize,
-    TextStyle? hintstyle,
-    TextStyle? textfieldstyle,
-    Icon? searchicon,
-    Icon? backhicon,
-    FocusNode? focusnode,
+    double? horizontalMargin,
+    double? borderRadius,
+    double? textFontSize,
+    TextStyle? hintStyle,
+    TextStyle? textFieldStyle,
+    Icon? searchIcon,
+    //Icon? ,
+    FocusNode? focusNode,
     required VoidCallback onPressed,
-    VoidCallback? onPressededitbox,
+    VoidCallback? onPressedEditBox,
   }) {
     return Material(
       color: Colors.transparent,
-      child: Stack(
-        children: [
-          Container(
-            height: height ?? 40,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(left: 5, top: 5),
-            decoration: BoxDecoration(
-                color: fillColor ?? ApkColors.backgroundColor,
-                borderRadius: BorderRadius.circular(borderredius ?? 20)),
-            width: 40,
-            child: IconButton(
-              onPressed: onPressed,
-              icon: backhicon ??
-                  const Icon(
-                    CupertinoIcons.back,
-                    color: ApkColors.orangeColor,
-                  ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 50, right: 15),
-            decoration: BoxDecoration(
-                color: ApkColors.backgroundColor,
-                borderRadius: BorderRadius.circular(15)),
-            child: Row(
-              children: [
-                Expanded(
-                    child: TextField(
-                  textAlign: TextAlign.start,
-                  cursorColor: ApkColors.orangeColor,
-                  onTap: onPressededitbox ?? () {},
-                  focusNode: focusnode ?? FocusNode(),
-                  style: textfieldstyle ??
-                      TextStyle(
-                        fontSize: textfontsize ?? 15,
-                        fontFamily: 'Poppins',
-                        color: textColor ?? ApkColors.orangeColor,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 24.px),
+        decoration: BoxDecoration(
+          color: ApkColors.primaryColor,
+          borderRadius: BorderRadius.circular(10.px),
+          border:
+              Border.all(width: 1.0.px, color: ApkColors.backgroundColor80p),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+                child:  TextField(
+                textAlign: TextAlign.start,
+                cursorColor: ApkColors.orangeColor,
+                onTap: onPressedEditBox ?? () {},
+                focusNode: focusNode ?? FocusNode(),
+                style: textFieldStyle ??
+                  TextStyle(
+                    fontSize: textFontSize ?? 15,
+                    fontFamily: 'Poppins',
+                    color: textColor ?? ApkColors.orangeColor,
                         fontWeight: FontWeight.bold,
                       ),
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      prefixIcon: searchicon ??
-                          const Icon(
-                            Icons.search,
-                            color: ApkColors.orangeColor,
-                          ),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          Get.snackbar("title", "hhj");
-                        },
-                        icon: Icon(
-                          Icons.settings,
-                          color: ApkColors.orangeColor,
-                        ),
-                      ),
-                      hintText: hinttext ?? "Search here your collage...",
-                      hintStyle: hintstyle ??
-                          TextStyle(
-                            fontSize: textfontsize ?? 15,
+                  prefixIcon: Container(
+                    margin: EdgeInsets.only(left: 18.px,right: 8.px),
+                    child: Row(
+                      children: [
+                        searchIcon ??
+                            SvgPicture.asset(
+                              "assets/svgs/search-01.svg",
+                              height:  32.px,
+                              width:  32.px,
+                              color: ApkColors.backgroundColor80p,
+                            ),
+                        SizedBox(width: 8.px,),
+                        Text("Search",
+                          style: TextStyle(
+                            fontSize: textFontSize ?? 20.px,
                             fontFamily: 'Poppins',
-                            color: textColor ?? ApkColors.orangeColor,
-                            fontWeight: FontWeight.bold,
+                            color: textColor ?? ApkColors.backgroundColor80p,
+                            fontWeight: FontWeight.w400,
+                          ),
+
+
+                        )
+                      ],
+                    )
+
+
+
+                  ),
+                      suffixIcon: Container(
+                        height: 56.px,
+                        margin: EdgeInsets.all(4.px),
+                        padding: EdgeInsets.all(13.px),
+                        width: 56.px,
+                        decoration: BoxDecoration(
+                          color: ApkColors.orangeColor,
+                          borderRadius: BorderRadius.circular(10.px),
+                        ),
+                        child: SvgPicture.asset(
+                          "assets/svgs/preference-horizontal.svg",
+                          height:  32.px,
+                          width:  32.px,
+                          color: ApkColors.backgroundColor,
+                        ),
+
+                      ),
+                  hintText: hintText ?? "",
+                  hintStyle: hintStyle ??
+                      TextStyle(
+                        fontSize: textFontSize ?? 20.px,
+                        fontFamily: 'Poppins',
+                        color: textColor ?? ApkColors.backgroundColor80p,
+                            fontWeight: FontWeight.w400,
                           )),
                 )),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -441,7 +454,7 @@ class CommonWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    ApkColors.darkgreenColor,
+                    ApkColors.textEditColor,
                     ApkColors.backgroundColor
                   ]),
               borderRadius: BorderRadius.circular(30)),
