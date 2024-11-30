@@ -92,26 +92,19 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                       suffixIcon: IconButton(
                         icon:  controller.passwordVisible
                             ? SvgPicture.asset(
-                          "assets/svgs/eye.svg",
+                          IconPath.eyeIcon,
                           height:  24.px,
                           width:  24.px,
                           color: ApkColors.passEditColor,
                         )
                         : SvgPicture.asset(
-                          "assets/svgs/view-off.svg",
+                          IconPath.viewOffIcon,
                           height:  24.px,
                           width:  24.px,
                           color: ApkColors.passEditColor,
                         ),
 
 
-                        // Icon(
-                        //   // Based on passwordVisible state choose the icon
-                        //   controller.passwordVisible
-                        //       ? Icons.visibility
-                        //       : Icons.visibility_off,
-                        //   color: ApkColors.primaryColor,
-                        // ),
                         onPressed: () {
                           controller.increment();
                           controller.passwordVisible =
@@ -177,13 +170,13 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                       suffixIcon:  IconButton(
                         icon:  controller.conformPasswordVisible
                             ? SvgPicture.asset(
-                          "assets/svgs/eye.svg",
+                          IconPath.eyeIcon,
                           height:  24.px,
                           width:  24.px,
                           color: ApkColors.passEditColor,
                         )
                             : SvgPicture.asset(
-                          "assets/svgs/view-off.svg",
+                          IconPath.viewOffIcon,
                           height:  24.px,
                           width:  24.px,
                           color: ApkColors.passEditColor,

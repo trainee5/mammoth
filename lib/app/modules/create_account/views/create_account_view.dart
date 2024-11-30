@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -122,27 +123,12 @@ class CreateAccountView extends GetView<CreateAccountController> {
                         padding: EdgeInsets.only(bottom: 8.px),
                         // width: double.infinity,
                         child: Text(
-                          StringConstants.enterEmail,
+                          StringConstants.createStrongPassword,
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
-                        ),
-                      ),
-                      Container(
-                        //color: ApkColors.primaryColor,
-                        //margin: EdgeInsets.only(right: 50.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
-                        //width: double.infinity,
-                        child: Text(
-                          "*",
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                              color: ApkColors.orangeColor,
                               fontSize: 18.px),
                         ),
                       ),
@@ -155,18 +141,24 @@ class CreateAccountView extends GetView<CreateAccountController> {
                       child: CommonWidget.commonTextField(
                           validator: controller.Passwordvalidator,
                           // labelText: StringConstants.enterEmail,
-                          hintText: StringConstants.enterEmail,
+                          hintText: StringConstants.createPassword,
                           autofocus: false,
                           obscureText: controller.passwordVisible,
                           maxLine: 1,
                           wntsuffixIcon: true,
                           suffixIcon: IconButton(
-                            icon: Icon(
-                              // Based on passwordVisible state choose the icon
-                              controller.passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: ApkColors.primaryColor,
+                            icon: controller.passwordVisible
+                                ? SvgPicture.asset(
+                              "assets/svgs/eye.svg",
+                              height:  24.px,
+                              width:  24.px,
+                              color: ApkColors.passEditColor,
+                            )
+                                : SvgPicture.asset(
+                              "assets/svgs/view-off.svg",
+                              height:  24.px,
+                              width:  24.px,
+                              color: ApkColors.passEditColor,
                             ),
                             onPressed: () {
                               controller.increment();
@@ -250,7 +242,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                     return Container(
                       margin: EdgeInsets.symmetric(horizontal: 24.px),
                       child: CommonWidget.commonButton(
-                          text: StringConstants.logIn,
+                          text: StringConstants.signUp,
 
                           onPressed: () {
                             Get.toNamed(Routes.HOME);

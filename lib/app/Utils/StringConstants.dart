@@ -25,6 +25,7 @@ class StringConstants {
 
   static const String newPassword = 'New Password';
   static const String confirmNewPassword = 'Confirm New password';
+  static const String createStrongPassword = 'Create Strong Password';
   static const String changePassword = 'Change password';
   static const String createYourAccount = 'Create your Account';
   static const String alreadyAccount = 'Already with Us?';

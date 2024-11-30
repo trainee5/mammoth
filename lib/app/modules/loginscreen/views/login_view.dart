@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mammoth/app/color/ApkColors.dart';
 import 'package:mammoth/app/routes/app_pages.dart';
@@ -158,12 +159,27 @@ class LoginView extends GetView<LoginController> {
                           maxLine: 1,
                           wntsuffixIcon: true,
                           suffixIcon: IconButton(
-                            icon: Icon(
-                              // Based on passwordVisible state choose the icon
-                              controller.passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: ApkColors.primaryColor,
+                            icon: IconButton(
+                              icon:  controller.passwordVisible
+                                  ? SvgPicture.asset(
+                                IconPath.eyeIcon,
+                                height:  24.px,
+                                width:  24.px,
+                                color: ApkColors.passEditColor,
+                              )
+                                  : SvgPicture.asset(
+                                IconPath.viewOffIcon,
+                                height:  24.px,
+                                width:  24.px,
+                                color: ApkColors.passEditColor,
+                              ),
+
+
+                              onPressed: () {
+                                controller.increment();
+                                controller.passwordVisible =
+                                !controller.passwordVisible;
+                              },
                             ),
                             onPressed: () {
                               controller.increment();

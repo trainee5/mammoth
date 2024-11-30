@@ -85,6 +85,9 @@ flutter:
           fonts:
             - asset: assets/fonts/Poppins-Regular.ttf
 
+        - family: Poppins-bold
+          fonts:
+            - asset: assets/fonts/Poppins-Bold.ttf
 
   #   - family: Trajan Pro
   #     fonts:
