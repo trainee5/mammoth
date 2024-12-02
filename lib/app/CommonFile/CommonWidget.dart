@@ -1,13 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:mammoth/app/Utils/StringConstants.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../Utils/icon_path.dart';
 import '../color/ApkColors.dart';
 
 class CommonWidget {
 
+
+
+  //
   static appBar(
       {String? title,
       bool wantBackButton = true,
@@ -60,7 +62,7 @@ class CommonWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SvgPicture.asset(
-          IconPath.arrowLeftIcon,
+          "assets/svgs/arrowleft.svg",
           height: height ?? 24.px,
           width: width ?? 24.px,
           color: ApkColors.backgroundColor,
@@ -213,6 +215,17 @@ class CommonWidget {
             fontWeight: FontWeight.w400,
           ),
 
+        // label: Text(
+        //   labelText ?? 'Full Name',
+        //   style: TextStyle(
+        //     fontSize: 12.px,
+        //     fontFamily: 'Poppins',
+        //     color: ApkColors.hintColor,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
+        // isCollapsed: true,
+        //  errorText: errorText ?? 'erddror',
         errorStyle: errorStyle ??
             const TextStyle(
                 fontSize: 10,
@@ -236,7 +249,13 @@ class CommonWidget {
                       color: ApkColors.primaryColorLite,
                     ),
                     onPressed: onPressed
-
+                    //     () {
+                    //   // Update the state i.e. toogle the state of passwordVisible variable
+                    //   setState(() {
+                    //     ConFormPasswordVisible =
+                    //     !ConFormPasswordVisible;
+                    //   });
+                    // },
                     )
             : null,
         contentPadding: contentPadding ?? EdgeInsets.all(12),
@@ -291,6 +310,7 @@ class CommonWidget {
     double? borderRadius,
     double? textFontSize,
     TextStyle? style,
+   // Gradient? gradientcustom,
     required VoidCallback onPressed,
     bool wantBorder = false,
   }) {
@@ -313,6 +333,7 @@ class CommonWidget {
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   color: textColor ?? ApkColors.backgroundColor,
+                  //backgroundColor: Colors.transparent,
                   fontSize: textFontSize ?? 18.px),
         ),
       ),
@@ -322,91 +343,95 @@ class CommonWidget {
   static Widget searchBar({
     Color? fillColor,
     Color? textColor,
-    Color? iconColor,
-    String? hintText,
-    bool autofocus = false,
+    String? hinttext,
     double? height,
-    double? horizontalMargin,
-    double? borderRadius,
-    double? textFontSize,
-    TextStyle? hintStyle,
-    TextStyle? textFieldStyle,
-    Icon? searchIcon,
-    //Icon? ,
-    FocusNode? focusNode,
-    VoidCallback? onPressedEditBox,
+    double? horizontalmargin,
+    double? borderredius,
+    double? textfontsize,
+    TextStyle? hintstyle,
+    TextStyle? textfieldstyle,
+    Icon? searchicon,
+    Icon? backhicon,
+    FocusNode? focusnode,
+    required VoidCallback onPressed,
+    VoidCallback? onPressededitbox,
   }) {
     return Material(
       color: Colors.transparent,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 24.px),
-        decoration: BoxDecoration(
-          color: fillColor ??  ApkColors.primaryColor,
-          borderRadius: BorderRadius.circular(10.px),
-          border:
-              Border.all(width: 1.0.px, color: ApkColors.backgroundColor80p),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-                child:  TextField(
-                textAlign: TextAlign.start,
-                autofocus: autofocus,
-                cursorColor: ApkColors.orangeColor,
-                onTap: onPressedEditBox ?? () {},
-                focusNode: focusNode ?? FocusNode(),
-                style: textFieldStyle ??
-                  TextStyle(
-                    fontSize: textFontSize ?? 15,
-                    fontFamily: 'Poppins',
-                    color: textColor ?? ApkColors.primaryColor,
+      child: Stack(
+        children: [
+          Container(
+            height: height ?? 40,
+            alignment: Alignment.center,
+            margin: const EdgeInsets.only(left: 5, top: 5),
+            decoration: BoxDecoration(
+                color: fillColor ?? ApkColors.backgroundColor,
+                borderRadius: BorderRadius.circular(borderredius ?? 20)),
+            width: 40,
+            child: IconButton(
+              onPressed: onPressed,
+              icon: backhicon ??
+                  const Icon(
+                    CupertinoIcons.back,
+                    color: ApkColors.orangeColor,
+                  ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 50, right: 15),
+            decoration: BoxDecoration(
+                color: ApkColors.backgroundColor,
+                borderRadius: BorderRadius.circular(15)),
+            child: Row(
+              children: [
+                Expanded(
+                    child: TextField(
+                  textAlign: TextAlign.start,
+                  cursorColor: ApkColors.orangeColor,
+                  onTap: onPressededitbox ?? () {},
+                  focusNode: focusnode ?? FocusNode(),
+                  style: textfieldstyle ??
+                      TextStyle(
+                        fontSize: textfontsize ?? 15,
+                        fontFamily: 'Poppins',
+                        color: textColor ?? ApkColors.orangeColor,
                         fontWeight: FontWeight.bold,
                       ),
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                  prefixIcon:  Padding(
-                    padding: EdgeInsets.all(10.px),
-                    child: SvgPicture.asset(
-                      IconPath.searchIcon,
-                      height:  32.px,
-                      width:  32.px,
-                      color: iconColor ?? ApkColors.backgroundColor80p,
-                    ),
-                  ),
-                      suffixIcon: Container(
-                        height: 56.px,
-                        margin: EdgeInsets.all(4.px),
-                        padding: EdgeInsets.all(13.px),
-                        width: 56.px,
-                        decoration: BoxDecoration(
+                      prefixIcon: searchicon ??
+                          const Icon(
+                            Icons.search,
+                            color: ApkColors.orangeColor,
+                          ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          Get.snackbar("title", "hhj");
+                        },
+                        icon: Icon(
+                          Icons.settings,
                           color: ApkColors.orangeColor,
-                          borderRadius: BorderRadius.circular(10.px),
                         ),
-                        child: SvgPicture.asset(
-                          IconPath.preferenceIcon,
-                          height:  32.px,
-                          width:  32.px,
-                          color: ApkColors.backgroundColor,
-                        ),
-
                       ),
-                  hintText: "Search",
-                  hintStyle: hintStyle ??
-                      TextStyle(
-                        fontSize: textFontSize ?? 20.px,
-                        fontFamily: 'Poppins',
-                        color: textColor ?? ApkColors.backgroundColor80p,
-                            fontWeight: FontWeight.w400,
+                      hintText: hinttext ?? "Search here your collage...",
+                      hintStyle: hintstyle ??
+                          TextStyle(
+                            fontSize: textfontsize ?? 15,
+                            fontFamily: 'Poppins',
+                            color: textColor ?? ApkColors.orangeColor,
+                            fontWeight: FontWeight.bold,
                           )),
                 )),
-          ],
-        ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  static Widget topBarGradient(
-      {double? height, double? paddingTop, Widget? widget}) {
+  static Widget topbargredient(
+      {double? height, double? padingtop, Widget? widget}) {
     return Stack(
       children: [
         Container(
@@ -416,13 +441,13 @@ class CommonWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    ApkColors.textEditColor,
+                    ApkColors.darkgreenColor,
                     ApkColors.backgroundColor
                   ]),
               borderRadius: BorderRadius.circular(30)),
         ),
         Padding(
-          padding: EdgeInsets.only(top: paddingTop ?? 60),
+          padding: EdgeInsets.only(top: padingtop ?? 60),
           child: Container(child: widget),
         ),
       ],

@@ -32,9 +32,27 @@ class StringConstants {
   static const String createAccountUnlock = 'Create an account to unlock job insights and find your perfect match.';
 
 
+  static const String home = 'Home';
+  static const String search = 'Search';
+  static const String privacyPolicy = 'Privacy Policy';
+  static const String termConditions = 'Term & Conditions';
+  static const String fAQ = 'FAQ';
+  static const String newsletter = 'Newsletter';
+  static const String logOut = 'Log Out';
+
+
+
+
+
   static const String userName = 'user_name';
   static const String firstName = 'first_name';
   static const String lastName = 'last_name';
   static const String email = 'last_name';
   static const String password = 'last_name';
+
+  static String design = 'Design';
+
+  static String details = "Details";
+
+  static String applicationForm = "Application form";
 }

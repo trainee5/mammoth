@@ -2,12 +2,22 @@ import 'package:get/get.dart';
 
 import 'package:mammoth/app/modules/CreateNewPassword/bindings/create_new_password_binding.dart';
 import 'package:mammoth/app/modules/CreateNewPassword/views/create_new_password_view.dart';
+import 'package:mammoth/app/modules/application_sent_screen/bindings/application_sent_screen_binding.dart';
+import 'package:mammoth/app/modules/application_sent_screen/views/application_sent_screen_view.dart';
+import 'package:mammoth/app/modules/appliction_form_screen/bindings/appliction_form_screen_binding.dart';
+import 'package:mammoth/app/modules/appliction_form_screen/views/appliction_form_screen_view.dart';
 import 'package:mammoth/app/modules/create_account/bindings/create_account_binding.dart';
 import 'package:mammoth/app/modules/create_account/views/create_account_view.dart';
+import 'package:mammoth/app/modules/details_screen/bindings/details_screen_binding.dart';
+import 'package:mammoth/app/modules/details_screen/views/details_screen_view.dart';
 import 'package:mammoth/app/modules/forgotpassword/bindings/forgotpassword_binding.dart';
 import 'package:mammoth/app/modules/forgotpassword/views/forgotpassword_view.dart';
+import 'package:mammoth/app/modules/job_tab_screen/bindings/job_tab_screen_binding.dart';
+import 'package:mammoth/app/modules/job_tab_screen/views/job_tab_screen_view.dart';
 import 'package:mammoth/app/modules/loginscreen/bindings/Login_binding.dart';
 import 'package:mammoth/app/modules/loginscreen/views/login_view.dart';
+import 'package:mammoth/app/modules/search_screen/bindings/search_screen_binding.dart';
+import 'package:mammoth/app/modules/search_screen/views/search_screen_view.dart';
 import 'package:mammoth/app/modules/welcome/bindings/welcome_binding.dart';
 import 'package:mammoth/app/modules/welcome/views/welcome_view.dart';
 
@@ -58,6 +68,31 @@ class AppPages {
       name: _Paths.CREATE_NEW_PASSWORD,
       page: () => CreateNewPasswordView(),
       binding: CreateNewPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH_SCREEN,
+      page: () => SearchScreenView(),
+      binding: SearchScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.JOB_TAB_SCREEN,
+      page: () => JobTabScreenView(),
+      binding: JobTabScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAILS_SCREEN,
+      page: () => DetailsScreenView(),
+      binding: DetailsScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.APPLICTION_FORM_SCREEN,
+      page: () => ApplicationFormScreenView(),
+      binding: ApplicationFormScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.APPLICATION_SENT_SCREEN,
+      page: () => ApplicationSentScreenView(),
+      binding: ApplicationSentScreenBinding(),
     ),
   ];
 }
