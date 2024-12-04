@@ -2,6 +2,7 @@
 class IconPath {
   static const String elispCircle = "assets/images/elispe.png";
   static const String hiFiIcon = "assets/images/hiipng.png";
+  static const String emojiDown = "assets/images/emoge-Down.png";
   static const String mailIcon = "assets/images/mail.png";
   static const String passLockIcon = "assets/images/passlock.png";
   static const String splashLogoIcon = "assets/images/splash_logo.png";
@@ -15,6 +16,15 @@ class IconPath {
   static const String welcomeGroupImg = "assets/images/wlcmgrupimg.png";
   static const String submitImg = "assets/images/Submitimg.png";
   static const String emailNewsLatter= "assets/images/email_news_latter.png";
+
+
+
+  ///web material..........................................
+  static const String mammothOneSt= "assets/images/mammoth_web_logo.png";
+
+
+
+
 
   static const String menuIcon = "assets/svgs/menusvg.svg";
   static const String notificationIcon = "assets/svgs/notification-03.svg";
@@ -38,4 +48,13 @@ class IconPath {
   static const String usersSvg = "assets/svgs/user.svg";
   static const String smartPhone = "assets/svgs/smart-phone.svg";
   static const String mailSvg = "assets/svgs/mail-svg.svg";
+  static const String arrowDown = "assets/svgs/arrow-down-01.svg";
+  static const String arrowUP = "assets/svgs/arrow-up.svg";
+  static const String pdf = "assets/svgs/pdf-02.svg";
+
+
+
+  static const String svgs1st = "assets/svgs/1st-mammoth.svg";
+
+
 }

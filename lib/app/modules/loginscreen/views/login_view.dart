@@ -78,7 +78,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                   Container(
                     //color: ApkColors.primaryColor,
-                    margin: EdgeInsets.symmetric(horizontal: 50.px),
+                    margin: EdgeInsets.symmetric(horizontal:24.px),
                     padding: EdgeInsets.only(bottom: 8.px),
                     width: double.infinity,
                     child: Text(
@@ -94,10 +94,9 @@ class LoginView extends GetView<LoginController> {
                   Obx(() {
                     controller.count.value;
                     return Container(
-                      padding: EdgeInsets.symmetric(horizontal: 50.px),
-                      height: 64.px,
+                      margin: EdgeInsets.symmetric(horizontal:24.px),
                       child: CommonWidget.commonTextField(
-                          validator: controller.Emailvalidator,
+                          validator: controller.emailValidator,
                          // labelText: StringConstants.enterHint,
                           hintText: StringConstants.enterHint,
                           autofocus: false,
@@ -112,7 +111,8 @@ class LoginView extends GetView<LoginController> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10.px))),
                           keyboardType: TextInputType.emailAddress,
-                          controller: controller.EmailAddressController),
+
+                          controller: controller.emailAddressController),
                     );
                   }),
                   SizedBox(height:24.px,),
@@ -120,7 +120,7 @@ class LoginView extends GetView<LoginController> {
                     children: [
                       Container(
                         //color: ApkColors.primaryColor,
-                        margin: EdgeInsets.only(left: 50.px),
+                        margin: EdgeInsets.only(left:24.px),
                         padding: EdgeInsets.only(bottom: 8.px),
                         // width: double.infinity,
                         child: Text(
@@ -153,9 +153,9 @@ class LoginView extends GetView<LoginController> {
                   Obx(() {
                     controller.count.value;
                     return Container(
-                      padding: EdgeInsets.symmetric(horizontal: 50.px),
+                      margin: EdgeInsets.symmetric(horizontal:24.px),
                       child: CommonWidget.commonTextField(
-                          validator: controller.Passwordvalidator,
+                          validator: controller.passwordValidator,
                          // labelText: StringConstants.enterEmail,
                           hintText: StringConstants.enterPassword,
                           autofocus: false,
@@ -170,7 +170,7 @@ class LoginView extends GetView<LoginController> {
                             },
                             child: controller.passwordVisible
                                 ? Padding(
-                                    padding: EdgeInsets.all(10.px),
+                                    padding: EdgeInsets.all(12.px),
                                     child: SvgPicture.asset(
                                       IconPath.eyeIcon,
                                       height: 24.px,
@@ -178,7 +178,7 @@ class LoginView extends GetView<LoginController> {
                                     ),
                                   )
                                 : Padding(
-                                    padding: EdgeInsets.all(10.px),
+                                    padding: EdgeInsets.all(12.px),
                                     child: SvgPicture.asset(
                                       IconPath.viewOffIcon,
                                       height: 24.px,
@@ -199,7 +199,7 @@ class LoginView extends GetView<LoginController> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10.px))),
                           keyboardType: TextInputType.visiblePassword,
-                          controller: controller.PasswordController
+                          controller: controller.passwordController
                       ),
                     );
                   }),
@@ -214,7 +214,7 @@ class LoginView extends GetView<LoginController> {
                         Container(
                           width: 24.px,
                           height: 24.px,
-                          margin: EdgeInsets.only(left: 50.px),
+                          margin: EdgeInsets.only(left:24.px),
                           //color: Colors.black,
                           child: Checkbox(
                             side: const BorderSide(
@@ -225,18 +225,18 @@ class LoginView extends GetView<LoginController> {
                               borderRadius: BorderRadius.circular(5.px),
                             ),
 
-                            value: controller.checkboxvalue,
+                            value: controller.checkBoxValue,
                             checkColor: ApkColors.backgroundColor,
                             activeColor: ApkColors.orangeColor,
                             onChanged: (bool? value) {
-                              controller.checkboxvalue = value!;
+                              controller.checkBoxValue = value!;
                               controller.increment();
                             },
                           ),
                         ),
                         SizedBox(width: 8.px),
                         SizedBox(
-                            height: 30,
+                            height: 30.px,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -248,7 +248,7 @@ class LoginView extends GetView<LoginController> {
                                       color: ApkColors.primaryColor,
                                       fontSize: 15.px),
                                 ),
-                                SizedBox(width: 30.px,),
+                                SizedBox(width: 80.px,),
                                 GestureDetector(
                                   onTap: () {},
                                   child:  Text(
@@ -269,20 +269,62 @@ class LoginView extends GetView<LoginController> {
                     height: 40.px,
                   ),
                   Obx(() {
-                    controller.count.value;
+                    controller.animateButton.value;
                     return Container(
                       margin: EdgeInsets.symmetric(horizontal: 24.px),
-                      child: CommonWidget.commonButton(
-                          text: StringConstants.logIn,
-
-                          onPressed: () {
-                            Get.toNamed(Routes.ForgotPassword);
-                          //  controller.formKey.currentState!.validate();
-                          //  controller.animatedBtnLoad();
-                          }
+                      child:  GestureDetector(
+                        onTap: () {
+                          controller.playLoginAnimation();
+                          controller.formKey.currentState!.validate();
+                          controller.animatedBtnLoad();
+                          controller.increment();
+                        },
+                        child: AnimatedOpacity(
+                          duration: Duration(milliseconds: 1000),
+                          opacity: controller.completed ? 0.0 : 1.0,
+                          child: Container(
+                              width: controller.loginButtonSizeAnimation.value,
+                              height: 64.px,
+                              alignment: FractionalOffset.center,
+                              decoration: BoxDecoration(
+                                  color: ApkColors.orangeColor,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(32.0.px))),
+                              child: !controller.isLoading
+                                  ?  Text(
+                                  StringConstants.logIn,
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                      color: ApkColors.backgroundColor,
+                                      fontSize: 18.px,))
+                                  :  RefreshProgressIndicator(
+                                color: ApkColors.orangeColor,
+                                backgroundColor:
+                                ApkColors.backgroundColor,
+                              )),
+                        ),
                       ),
+
+
+                      // CommonWidget.commonButton(
+                      //     text: StringConstants.logIn,
+                      //
+                      //     onPressed: () {
+                      //       Get.toNamed(Routes.ForgotPassword);
+                      //     //  controller.formKey.currentState!.validate();
+                      //     //  controller.animatedBtnLoad();
+                      //     }
+                      // ),
+
+
+
+
                     );
                   }),
+
+
+
                   SizedBox(
                     height: 24.px,
                   ),
@@ -325,19 +367,25 @@ class LoginView extends GetView<LoginController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CardyContainer(
-                        blurRadius: 20.px,
+                        blurRadius: 0.px,
                         height: 72.px,
                         width: 72.px,
-                        color: ApkColors.primaryLite8p,
                         borderRadius: BorderRadius.all(Radius.circular(12.px)),
                         blurStyle: BlurStyle.normal,
                         shadowColor: ApkColors.blackShadow,
                         shadowOffset: Offset(
                             0.px,4.px
                         ),
-                        child: Image.asset(IconPath.googleImg,
-                          height: 40.px,
-                          width: 40.px,
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: ApkColors.primaryLite8p,
+                            borderRadius: BorderRadius.all(Radius.circular(12.px)),
+                          ),
+                          child: Image.asset(IconPath.googleImg,
+                            height: 40.px,
+                            width: 40.px,
+                          ),
                         ),
 
 
@@ -346,19 +394,25 @@ class LoginView extends GetView<LoginController> {
                         width: 16.px,
                       ),
                       CardyContainer(
-                        blurRadius: 20.px,
+                        blurRadius: 0.px,
                         height: 72.px,
                         width: 72.px,
-                        color: ApkColors.primaryLite8p,
                         borderRadius: BorderRadius.all(Radius.circular(12.px)),
                         blurStyle: BlurStyle.normal,
                         shadowColor: ApkColors.blackShadow,
                         shadowOffset: Offset(
                             0.px,4.px
                         ),
-                        child: Image.asset(IconPath.appleImg,
-                          height: 40.px,
-                          width: 40.px,
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: ApkColors.primaryLite8p,
+                            borderRadius: BorderRadius.all(Radius.circular(12.px)),
+                          ),
+                          child: Image.asset(IconPath.appleImg,
+                            height: 40.px,
+                            width: 40.px,
+                          ),
                         ),
 
 
@@ -388,7 +442,9 @@ class LoginView extends GetView<LoginController> {
                     width: 5.px,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(Routes.CreateAccount);
+                    },
                     child:  Text(
                       StringConstants.signUp,
                       style: TextStyle(

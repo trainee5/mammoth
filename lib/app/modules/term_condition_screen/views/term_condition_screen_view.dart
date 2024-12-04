@@ -36,7 +36,6 @@ class TermConditionScreenView extends GetView<TermConditionScreenController> {
                         IconPath.arrowLeftIcon,
                         height: 32.px,
                         width: 32.px,
-                        color: ApkColors.backgroundColor,
                       ),
                       onPressed: () {
                         Get.back();

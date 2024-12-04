@@ -39,7 +39,7 @@ class WelcomeView extends GetView<WelcomeController> {
                 height: 60.px,
               ),
               Obx(() {
-                controller.count.value;
+                controller.animateCount.value;
                 return GestureDetector(
                   onTap: (){
                    Get.offNamed(Routes.LOGIN);
@@ -54,31 +54,35 @@ class WelcomeView extends GetView<WelcomeController> {
                         color: ApkColors.primaryColor,
                         borderRadius:
                         BorderRadius.all(Radius.circular(30.px))),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Stack(
+
                       children: [
-                        SizedBox(
-                          width: 60.px,
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                              StringConstants.getStarted,
+                            style:
+                            TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.backgroundColor,
+                                fontSize: 18.px)
+                          ),
                         ),
-                        Text(
-                            StringConstants.getStarted,
-                          style:
-                          TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: ApkColors.backgroundColor,
-                              fontSize: 18.px)
-                        ),
-                        Container(
-                            height:  60.px,
-                            width:  60.px,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color:  ApkColors.orangeColor,
-                                borderRadius:
-                                BorderRadius.all(Radius.circular( 30.px))),
-                            child: Icon(CupertinoIcons.forward,color: ApkColors.backgroundColor
-                            ))
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                              height:  60.px,
+                              width: controller.loginButtonSizeAnimation.value,
+                              padding: EdgeInsets.all(15.px),
+                              alignment: Alignment.centerRight,
+                              decoration: BoxDecoration(
+                                  color:  ApkColors.orangeColor,
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular( 30.px))),
+                              child: Icon(CupertinoIcons.forward,color: ApkColors.backgroundColor
+                              )),
+                        )
                       ],
                     ),
                   ),

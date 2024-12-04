@@ -309,23 +309,26 @@ class HomeView extends GetView<HomeController> {
                             crossAxisCount: 2,
                             mainAxisSpacing: 27.px,
                             crossAxisSpacing: 12.px,
-                            mainAxisExtent: 160.px,
+                            mainAxisExtent: 144.px,
                           ),
 
                           itemBuilder: (context, index) {
                                   final item = SampleModel.cateItem[index];
                                   return GestureDetector(
                                     child: Container(
-                                      height: 160.px,
+                                      height: 144.px,
                                       alignment: Alignment.center,
                                       // padding: EdgeInsets.only(bottom: 18.px,left: 15.px,right: 15.px),
 
                                 decoration: BoxDecoration(
-                                  color: ApkColors.orangeColor,
+                                  color: (index == 0)
+                                      ? ApkColors.orangeColor
+                                      : ApkColors.textEditColor,
                                   borderRadius:
                                       BorderRadius.circular(12.px),
                                 ),
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     SizedBox(
                                       height: 18.px,
@@ -334,25 +337,27 @@ class HomeView extends GetView<HomeController> {
                                       height: 48.px,
                                       width: 48.px,
                                       child: SvgPicture.asset(
-                                        IconPath.doctorIcon,
+                                        (index == 0) ? IconPath.doctorIcon : IconPath.assistantIcon,
                                         height: 32.px,
                                         width: 32.px,
                                         //color: ApkColors.backgroundColor,
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 16.px,
+                                      height: 8.px,
                                     ),
                                     Text(
                                       item.name,
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w500,
-                                          color: ApkColors.backgroundColor,
+                                          color: (index == 0)
+                                              ? ApkColors.backgroundColor
+                                              : ApkColors.primaryColor,
                                           fontSize: 20.px),
                                     ),
                                     SizedBox(
-                                      height: 8.px,
+                                      height: 5.px,
                                     ),
                                     Text(
                                       item.title,
@@ -360,8 +365,13 @@ class HomeView extends GetView<HomeController> {
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w500,
                                           color:
-                                              ApkColors.backgroundColor980p,
+                                          (index == 0)
+                                              ? ApkColors.backgroundColor980p
+                                              : ApkColors.primaryColor80p,
                                           fontSize: 15.px),
+                                    ),
+                                    SizedBox(
+                                      height: 15.px,
                                     ),
                                   ],
                                 ),

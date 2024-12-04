@@ -121,6 +121,7 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
 
                           child: SvgPicture.asset(
                             IconPath.cameraAdd,
+                            color: ApkColors.backgroundColor,
                           ),
                         ),
                       ),

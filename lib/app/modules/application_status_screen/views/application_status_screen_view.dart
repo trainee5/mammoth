@@ -29,7 +29,7 @@ class ApplicationStatusScreenView
                     height: 60.px,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.px),
+                    padding: EdgeInsets.symmetric(horizontal: 24.px),
                     child: Row(
                       children: <Widget>[
                         IconButton(
@@ -52,6 +52,13 @@ class ApplicationStatusScreenView
                               fontWeight: FontWeight.w500,
                               color: ApkColors.backgroundColor,
                               fontSize: 26.px),
+                        ),
+                        Spacer(),
+                        SvgPicture.asset(
+                          IconPath.searchIcon,
+                          height: 32.px,
+                          width: 32.px,
+                          color: ApkColors.backgroundColor,
                         ),
                       ],
                     ),

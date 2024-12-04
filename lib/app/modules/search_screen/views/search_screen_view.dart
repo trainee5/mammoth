@@ -207,7 +207,6 @@ class SearchScreenView extends GetView<SearchScreenController> {
                             IconPath.menuIcon,
                             height: 32.px,
                             width: 32.px,
-                            color: ApkColors.backgroundColor,
                           ),
                           onPressed: () {
                             // controller.openDrawer();
@@ -227,7 +226,6 @@ class SearchScreenView extends GetView<SearchScreenController> {
                             IconPath.notificationIcon,
                             height:  32.px,
                             width:  32.px,
-                            color: ApkColors.backgroundColor,
                           ),
                           onPressed: () {
                             // controller.openDrawer();
@@ -238,7 +236,6 @@ class SearchScreenView extends GetView<SearchScreenController> {
                             IconPath.bookmarkIcon,
                             height:  32.px,
                             width:  32.px,
-                            color: ApkColors.backgroundColor,
                           ),
                           onPressed: () {
                             Get.toNamed(Routes.JOB_TAB_SCREEN);
@@ -274,9 +271,9 @@ class SearchScreenView extends GetView<SearchScreenController> {
                         ? ApkColors.primaryColor
                         : ApkColors.backgroundColor90p,
                     onPressedEditBox: () {
-                      controller.increment();
-                      controller.searchViewVisible =
-                      true;
+                      // controller.increment();
+                      // controller.searchViewVisible =
+                      // true;
                       /// Get.offNamed(Routes.ForgotPassword);
                     },
                     onPressed: () {},
@@ -331,7 +328,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                 alignment: Alignment.center,
 
                                 decoration: BoxDecoration(
-                                    color: ApkColors.backgroundColor,
+                                    color: (index == 0) ? ApkColors.orangeColor :  ApkColors.backgroundColor,
                                     borderRadius:
                                     BorderRadius.circular(18.px),
                                     border: Border.all(
@@ -354,7 +351,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                             borderRadius:
                                             BorderRadius.circular(
                                                 10.px),
-                                            color: ApkColors.orangeColor,
+                                            color: (index == 0) ? Colors.deepPurpleAccent :  ApkColors.orangeColor,
                                           ),
                                           child: GestureDetector(
                                             child: ClipRRect(
@@ -381,8 +378,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   fontFamily: 'Poppins',
                                                   fontWeight:
                                                   FontWeight.w500,
-                                                  color: ApkColors
-                                                      .primaryColor,
+                                                  color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor,
                                                   fontSize: 20.px),
                                             ),
                                             Text(
@@ -391,8 +387,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   fontFamily: 'Poppins',
                                                   fontWeight:
                                                   FontWeight.w500,
-                                                  color: ApkColors
-                                                      .primaryColor70p,
+                                                  color: (index == 0) ? ApkColors.backgroundColor90p :  ApkColors.primaryColor70p,
                                                   fontSize: 16.px),
                                             )
                                           ],
@@ -416,7 +411,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                             // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                             decoration: BoxDecoration(
                                                 color:
-                                                ApkColors.textEditColor,
+                                                (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
                                                 borderRadius:
                                                 BorderRadius.all(
                                                     Radius.circular(
@@ -431,7 +426,6 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                     IconPath.locationIcon,
                                                     height: 22.px,
                                                     width: 22.px,
-                                                    color: ApkColors.primaryColor,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -442,8 +436,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,
-                                                      color: ApkColors
-                                                          .primaryColor80p,
+                                                      color: (index == 0) ? ApkColors.primaryColor :  ApkColors.primaryColor80p,
                                                       fontSize: 15.px),
                                                 ),
                                                 SizedBox(
@@ -465,7 +458,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                             // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                             decoration: BoxDecoration(
                                                 color:
-                                                ApkColors.textEditColor,
+                                                (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
                                                 borderRadius:
                                                 BorderRadius.all(
                                                     Radius.circular(
@@ -480,7 +473,6 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                     IconPath.locationIcon,
                                                     height: 22.px,
                                                     width: 22.px,
-                                                    color: ApkColors.primaryColor,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -491,8 +483,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,
-                                                      color: ApkColors
-                                                          .primaryColor80p,
+                                                      color: (index == 0) ? ApkColors.primaryColor :  ApkColors.primaryColor80p,
                                                       fontSize: 15.px),
                                                 ),
                                                 SizedBox(
@@ -525,7 +516,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                             // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                             decoration: BoxDecoration(
                                                 color:
-                                                ApkColors.textEditColor,
+                                                (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
                                                 borderRadius:
                                                 BorderRadius.all(
                                                     Radius.circular(
@@ -540,7 +531,6 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                     IconPath.locationIcon,
                                                     height: 22.px,
                                                     width: 22.px,
-                                                    color: ApkColors.primaryColor,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -551,8 +541,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,
-                                                      color: ApkColors
-                                                          .primaryColor80p,
+                                                      color: (index == 0) ? ApkColors.primaryColor :  ApkColors.primaryColor80p,
                                                       fontSize: 15.px),
                                                 ),
                                                 SizedBox(
@@ -582,7 +571,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                             IconPath.locationIcon,
                                             height: 22.px,
                                             width: 22.px,
-                                            color: ApkColors.primaryColor,
+                                            color:  (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
                                           ),
                                         ),
                                         SizedBox(
@@ -593,8 +582,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                           style: TextStyle(
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w500,
-                                              color: ApkColors
-                                                  .primaryColor80p,
+                                              color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
                                               fontSize: 16.px),
                                         ),
                                         Spacer(),
@@ -603,7 +591,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                             IconPath.time,
                                             height: 22.px,
                                             width: 22.px,
-                                            color: ApkColors.primaryColor,
+                                            color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
                                           ),
                                         ),
                                         SizedBox(
@@ -614,8 +602,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                           style: TextStyle(
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w500,
-                                              color: ApkColors
-                                                  .primaryColor80p,
+                                              color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
                                               fontSize: 16.px),
                                         ),
                                         SizedBox(

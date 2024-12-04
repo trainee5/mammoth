@@ -16,47 +16,53 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
     return Scaffold(
         backgroundColor: ApkColors.backgroundColor,
         appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(120),
-            child: Container(
-              color: ApkColors.primaryColor,
-              padding: EdgeInsets.only(top: 60.px, bottom: 24.px),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 24.px,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Column(
-                      children: [
-                        CommonWidget.appIcons(
-                          height: 40.px,
-                          width: 40.px, //assetName: '',
+          //preferredSize:  Size.fromHeight(80.0)
+          preferredSize: Size.fromHeight(136.px),
+          child: Container(
+            decoration: BoxDecoration(color: ApkColors.primaryColor),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(
+                  height: 70.px,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: <Widget>[
+                      IconButton(
+                        icon: SvgPicture.asset(
+                          IconPath.arrowLeftIcon,
+                          height: 32.px,
+                          width: 32.px,
                         ),
-                      ],
-                    ),
+                        onPressed: () {
+                          Get.back();
+                        },
+                      ),
+                      SizedBox(
+                        width: 12.px,
+                      ),
+                      Text(
+                        StringConstants.createNewPassword,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: 26.px),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 10.px,
-                  ),
-                  SizedBox(
-                    //color: Colors.cyanAccent,
-                    height: 60.px,
-                    child: Text(
-                      StringConstants.createNewPassword,
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                          color: ApkColors.backgroundColor,
-                          fontSize: 26.px),
-                    ),
-                  ),
-                ],
-              ),
-            )),
-        body: SingleChildScrollView(
+                ),
+                SizedBox(
+                  height: 30.px,
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: Form(
+          key: controller.formKey,
           child: Column(
             children: [
               SizedBox(
@@ -64,7 +70,7 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
               ),
               Container(
                 //color: ApkColors.primaryColor,
-                margin: EdgeInsets.symmetric(horizontal: 50.px),
+                margin: EdgeInsets.symmetric(horizontal: 24.px),
                 padding: EdgeInsets.only(bottom: 8.px),
                 width: double.infinity,
                 child: Text(
@@ -80,9 +86,9 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
               Obx(() {
                 controller.count.value;
                 return Container(
-                  padding: EdgeInsets.symmetric(horizontal: 50.px),
+                  margin: EdgeInsets.symmetric(horizontal: 24.px),
                   child: CommonWidget.commonTextField(
-                      validator: controller.Passwordvalidator,
+                      validator: controller.passwordValidator,
                       // labelText: StringConstants.enterEmail,
                       hintText: StringConstants.createPassword,
                       autofocus: false,
@@ -121,7 +127,7 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                           borderSide: BorderSide(color: ApkColors.primaryColorLite),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       keyboardType: TextInputType.visiblePassword,
-                      controller: controller.PasswordController
+                      controller: controller.passwordController
                   ),
                 );
               }),
@@ -130,7 +136,7 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
               ),
               Container(
                 //color: ApkColors.primaryColor,
-                margin: EdgeInsets.symmetric(horizontal: 50.px),
+                margin: EdgeInsets.symmetric(horizontal: 24.px),
                 padding: EdgeInsets.only(bottom: 8.px),
                 width: double.infinity,
                 child: Text(
@@ -146,14 +152,14 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
               Obx(() {
                 controller.count.value;
                 return Container(
-                  padding: EdgeInsets.symmetric(horizontal: 50.px),
+                  margin: EdgeInsets.symmetric(horizontal: 24.px),
                   child: CommonWidget.commonTextField(
                       validator:  (String? value) {
                         var passNonNullValue = value ?? "";
                         if (passNonNullValue.isEmpty) {
                           return ("Conform Password is required");
                         }
-                        if (controller.confermPasswordController.text != value) {
+                        if (controller.confirmPasswordController.text != value) {
                           return "Enter Right Conform Password";
                         } else {
                           return null;
@@ -196,13 +202,11 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                           borderSide: BorderSide(color: ApkColors.primaryColorLite),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       keyboardType: TextInputType.visiblePassword,
-                      controller: controller.confermPasswordController
+                      controller: controller.confirmPasswordController
                   ),
                 );
               }),
-              SizedBox(
-                height: 400.px,
-              ),
+              Spacer(),
               Obx(() {
                 controller.count.value;
                 return Container(
@@ -212,13 +216,20 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                       text: StringConstants.changePassword,
 
                       onPressed: () {
-                        Get.toNamed(Routes.CreateAccount);
+                        controller.createNewPassword();
+
+                        controller.formKey.currentState!.validate();
+
                         //  controller.formKey.currentState!.validate();
                         //  controller.animatedBtnLoad();
                       }
                   ),
                 );
               }),
+
+              SizedBox(
+                height: 28.px,
+              )
             ],
           ),
         ));

@@ -1,19 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
+
 class CreateNewPasswordController extends GetxController {
-  //TODO: Implement CreateNewPasswordController
 
   final count = 0.obs;
 
-  TextEditingController PasswordController = TextEditingController();
-  TextEditingController confermPasswordController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
+
+  var formKey = GlobalKey<FormState>();
 
   bool passwordVisible = false;
   bool emailTextValueCheck = false;
   bool passwordTextValueCheck = false;
   bool conformPasswordVisible = false;
-  bool checkboxvalue = false;
+  bool checkBoxValue = false;
   @override
   void onInit() {
     super.onInit();
@@ -24,7 +28,7 @@ class CreateNewPasswordController extends GetxController {
     super.onReady();
   }
 
-  FormFieldValidator<String>? Passwordvalidator = (String? value) {
+  FormFieldValidator<String>? passwordValidator = (String? value) {
     RegExp regex =
     RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
     var passNonNullValue = value ?? "";
@@ -40,5 +44,31 @@ class CreateNewPasswordController extends GetxController {
 
   @override
   void onClose() {}
+
+
+
   void increment() => count.value++;
+
+  void createNewPassword() {
+
+    if (passwordController.text.trim().isNotEmpty && confirmPasswordController.text.trim().isNotEmpty ) {
+      //isLoading = false;
+      try {
+       // isLoading = true;
+      } catch (e) {
+      //  isLoading = true;
+        Get.snackbar("An error acquired", e.toString());
+      }
+    } else {
+     // isLoading = false;
+      Get.snackbar("please", 'Enter All field');
+    }
+
+   // isLoading = false;
+
+    Get.toNamed(Routes.CreateAccount);
+
+
+
+  }
 }

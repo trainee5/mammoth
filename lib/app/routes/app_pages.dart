@@ -10,6 +10,8 @@ import 'package:mammoth/app/modules/appliction_form_screen/bindings/appliction_f
 import 'package:mammoth/app/modules/appliction_form_screen/views/appliction_form_screen_view.dart';
 import 'package:mammoth/app/modules/create_account/bindings/create_account_binding.dart';
 import 'package:mammoth/app/modules/create_account/views/create_account_view.dart';
+import 'package:mammoth/app/modules/dashboard_web_screen/bindings/dashboard_web_screen_binding.dart';
+import 'package:mammoth/app/modules/dashboard_web_screen/views/dashboard_web_screen_view.dart';
 import 'package:mammoth/app/modules/details_screen/bindings/details_screen_binding.dart';
 import 'package:mammoth/app/modules/details_screen/views/details_screen_view.dart';
 import 'package:mammoth/app/modules/faq_screen/bindings/faq_screen_binding.dart';
@@ -142,6 +144,11 @@ class AppPages {
       name: _Paths.NEWSLATTER_SCREEN,
       page: () => NewslatterScreenView(),
       binding: NewslatterScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.DASHBOARD_WEB_SCREEN,
+      page: () => DashboardWebScreenView(),
+      binding: DashboardWebScreenBinding(),
     ),
   ];
 }

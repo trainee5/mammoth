@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -69,6 +70,7 @@ class FaqScreenView extends GetView<FaqScreenController> {
       body:Obx((){
         controller.count.value;
         return SingleChildScrollView(
+
           child: Column(
             children: [
               ListView.builder(
@@ -80,7 +82,10 @@ class FaqScreenView extends GetView<FaqScreenController> {
                 itemBuilder: (context, index) {
                   //final item = SampleModel.cateItem[index];
                   return GestureDetector(
-                    onTap: (){
+                    onTap: (){ controller.increment();
+                    controller.onClick =
+                    !controller.onClick;
+
                       // Get.toNamed(Routes.);
                     },
                     child: ExpansionTile(
@@ -88,7 +93,7 @@ class FaqScreenView extends GetView<FaqScreenController> {
                       enableFeedback: false,
                       childrenPadding: EdgeInsets.only(bottom: 18.px),
                       minTileHeight: 48.px,
-                      showTrailingIcon: false,
+                      showTrailingIcon: true,
                       title:  Container(
                         height: 48.px,
                         alignment: Alignment.centerLeft,
@@ -103,16 +108,32 @@ class FaqScreenView extends GetView<FaqScreenController> {
                           ),
 
                         ),
-                        child: Text(
-                          "How do I create an account?",
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight:
-                              FontWeight.w500,
-                              color: ApkColors
-                                  .primaryColor,
-                              fontSize: 16.px),
+                        child: Row(
+                          children: [
+                            Text(
+                              "How do I create an account?",
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight:
+                                  FontWeight.w500,
+                                  color: ApkColors
+                                      .primaryColor,
+                                  fontSize: 16.px),
+                            ),
+                            Spacer(),
+                            controller.onClick
+                                ? SvgPicture.asset(
+                              IconPath.arrowUP,
+                              height: 32.px,
+                              width: 32.px,
+                            )
+                                : SvgPicture.asset(
+                        IconPath.arrowDown,
+                        height: 32.px,
+                        width: 32.px,
+                      )
+                          ],
                         ),
                       ),
                       children: <Widget>[
@@ -120,40 +141,39 @@ class FaqScreenView extends GetView<FaqScreenController> {
                             title:  Container(
                               alignment: Alignment.centerLeft,
                               padding: EdgeInsets.symmetric(horizontal: 14.px),
-
+              
                               decoration: BoxDecoration(
                                 color: ApkColors.textEditColor,
                                 borderRadius: BorderRadius.circular(12.px),
-
+              
                               ),
-                              child: Flexible(
-                                child: Text(
-                                  "You can track your job applications under the My Applications tab in your dashboard. You’ll see the status of each application, such as Under Review or Shortlisted,",
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontWeight:
-                                      FontWeight.w500,
-                                      color: ApkColors
-                                          .primaryColor,
-                                      fontSize: 16.px),
-                                ),
+                              child: Text(
+                                "You can track your job applications under the My Applications tab in your dashboard. You’ll see the status of each application, such as Under Review or Shortlisted,",
+                                textAlign: TextAlign.start,
+                                maxLines: 5,
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight:
+                                    FontWeight.w500,
+                                    color: ApkColors
+                                        .primaryColor,
+                                    fontSize: 16.px),
                               ),
                             ),),
                       ],
                     ),
-
-
-
-
-
+              
+              
+              
+              
+              
                   );
                 },
               ),
               SizedBox(
                 height: 50.px,
               )
-
+          
             ],
           ),
         );

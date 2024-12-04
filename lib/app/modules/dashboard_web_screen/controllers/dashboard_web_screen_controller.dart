@@ -1,13 +1,9 @@
 import 'package:get/get.dart';
 
-class FaqScreenController extends GetxController {
-  //TODO: Implement FaqScreenController
+class DashboardWebScreenController extends GetxController {
+  //TODO: Implement DashboardWebScreenController
 
   final count = 0.obs;
-
-  bool onClick = false;
-
-
   @override
   void onInit() {
     super.onInit();

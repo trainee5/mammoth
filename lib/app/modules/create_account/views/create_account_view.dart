@@ -53,7 +53,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                               width: 10.px,
                             ),
                             Image.asset(
-                              IconPath.hiFiIcon,
+                              IconPath.emojiDown,
                               height: 38.px,
                               width: 38.px,
                             ),
@@ -78,7 +78,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                   ),
                   Container(
                     //color: ApkColors.primaryColor,
-                    margin: EdgeInsets.symmetric(horizontal: 50.px),
+                    margin: EdgeInsets.symmetric(horizontal: 24.px),
                     padding: EdgeInsets.only(bottom: 8.px),
                     width: double.infinity,
                     child: Text(
@@ -94,9 +94,9 @@ class CreateAccountView extends GetView<CreateAccountController> {
                   Obx(() {
                     controller.count.value;
                     return Container(
-                      padding: EdgeInsets.symmetric(horizontal: 50.px),
+                      margin: EdgeInsets.symmetric(horizontal: 24.px),
                       child: CommonWidget.commonTextField(
-                          validator: controller.Emailvalidator,
+                          validator: controller.emailValidator,
                           // labelText: StringConstants.enterHint,
                           hintText: StringConstants.enterHint,
                           autofocus: false,
@@ -110,7 +110,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                               borderSide: BorderSide(color: ApkColors.primaryColorLite),
                               borderRadius: BorderRadius.all(Radius.circular(10))),
                           keyboardType: TextInputType.emailAddress,
-                          controller: controller.EmailAddressController),
+                          controller: controller.emailAddressController),
                     );
                   }),
                   SizedBox(height:24.px,),
@@ -118,7 +118,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                     children: [
                       Container(
                         //color: ApkColors.primaryColor,
-                        margin: EdgeInsets.only(left: 50.px),
+                        margin: EdgeInsets.symmetric(horizontal: 24.px),
                         padding: EdgeInsets.only(bottom: 8.px),
                         // width: double.infinity,
                         child: Text(
@@ -136,32 +136,38 @@ class CreateAccountView extends GetView<CreateAccountController> {
                   Obx(() {
                     controller.count.value;
                     return Container(
-                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      margin: EdgeInsets.symmetric(horizontal: 24.px),
                       child: CommonWidget.commonTextField(
-                          validator: controller.Passwordvalidator,
+                          validator: controller.passwordValidator,
                           // labelText: StringConstants.enterEmail,
                           hintText: StringConstants.createPassword,
                           autofocus: false,
                           obscureText: controller.passwordVisible,
                           maxLine: 1,
                           wntsuffixIcon: true,
-                          suffixIcon: IconButton(
-                            icon: controller.passwordVisible
-                                ? SvgPicture.asset(
-                              "assets/svgs/eye.svg",
-                              height:  24.px,
-                              width:  24.px,
-                            )
-                                : SvgPicture.asset(
-                              "assets/svgs/view-off.svg",
-                              height:  24.px,
-                              width:  24.px,
-                            ),
-                            onPressed: () {
+                          suffixIcon:  GestureDetector(
+                            onTap: () {
                               controller.increment();
                               controller.passwordVisible =
                               !controller.passwordVisible;
                             },
+                            child: controller.passwordVisible
+                                ? Padding(
+                              padding: EdgeInsets.all(12.px),
+                              child: SvgPicture.asset(
+                                IconPath.eyeIcon,
+                                height: 24.px,
+                                width: 24.px,
+                              ),
+                            )
+                                : Padding(
+                              padding: EdgeInsets.all(12.px),
+                              child: SvgPicture.asset(
+                                IconPath.viewOffIcon,
+                                height: 24.px,
+                                width: 24.px,
+                              ),
+                            ),
                           ),
                           filled: true,
                           fillColor:controller.passwordTextValueCheck
@@ -175,7 +181,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                               borderSide: BorderSide(color: ApkColors.primaryColorLite),
                               borderRadius: BorderRadius.all(Radius.circular(10))),
                           keyboardType: TextInputType.visiblePassword,
-                          controller: controller.PasswordController
+                          controller: controller.passwordController
                       ),
                     );
                   }),
@@ -190,7 +196,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                         Container(
                           width: 24.px,
                           height: 24.px,
-                          margin: EdgeInsets.only(left: 50.px),
+                          margin: EdgeInsets.only(left: 24.px),
                           //color: Colors.black,
                           child: Checkbox(
                             side: const BorderSide(
@@ -201,11 +207,11 @@ class CreateAccountView extends GetView<CreateAccountController> {
                               borderRadius: BorderRadius.circular(5.px),
                             ),
 
-                            value: controller.checkboxvalue,
+                            value: controller.checkBoxValue,
                             checkColor: ApkColors.backgroundColor,
                             activeColor: ApkColors.orangeColor,
                             onChanged: (bool? value) {
-                              controller.checkboxvalue = value!;
+                              controller.checkBoxValue = value!;
                               controller.increment();
                             },
                           ),
@@ -242,8 +248,8 @@ class CreateAccountView extends GetView<CreateAccountController> {
                           text: StringConstants.signUp,
 
                           onPressed: () {
-                            Get.toNamed(Routes.HOME);
-                            //  controller.formKey.currentState!.validate();
+                            controller.createNewAccount();
+                            controller.formKey.currentState!.validate();
                             //  controller.animatedBtnLoad();
                           }
                       ),
@@ -322,7 +328,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                       ),
                     ],
                   ),
-                  SizedBox(height:80.px,),
+                  SizedBox(height:60.px,),
                 ],
               ),
             ),

@@ -183,113 +183,127 @@ class CommonWidget {
       bool wntsuffixIcon = false,
       bool wantPrefixIcon = true,
       InputBorder? enableBorder}) {
-    return TextFormField(
-      controller: controller,
-      keyboardType: keyboardType ?? TextInputType.text,
-      cursorColor: ApkColors.orangeColor,
-      cursorErrorColor: ApkColors.orangeColor,
-      maxLength: maxLength,
-      maxLines: maxLine,
-      minLines: minLine,
-      autofocus: autofocus,
-      onTap: onTap ?? () {},
-      readOnly: readOnly,
-      textInputAction: textInputAction ?? TextInputAction.next,
-      //textCapitalization: textCapitalization ?? TextCapitalization.none,
-      textAlignVertical: TextAlignVertical.top,
-      style: style ??
-          const TextStyle(
-            fontSize: 12,
-            fontFamily: 'Poppins',
-            color: ApkColors.primaryColor,
-            fontWeight: FontWeight.bold,
+    return SizedBox(
+      height: 64.px,
+      child: TextFormField(
+        controller: controller,
+        onTapOutside: (event) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        keyboardType: keyboardType ?? TextInputType.text,
+        cursorColor: ApkColors.orangeColor,
+        cursorErrorColor: ApkColors.orangeColor,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        maxLength: maxLength,
+        maxLines: maxLines,
+        minLines: minLine,
+
+        autofocus: autofocus,
+        onTap: onTap ?? () {},
+        readOnly: readOnly,
+        textInputAction: textInputAction ?? TextInputAction.next,
+        //textCapitalization: textCapitalization ?? TextCapitalization.none,
+        textAlignVertical: TextAlignVertical.top,
+        style: style ??
+            TextStyle(
+              fontSize: 16.px,
+              fontFamily: 'Poppins',
+              color: ApkColors.hintColor,
+              fontWeight: FontWeight.w400,
+            ),
+        validator: validator,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          // labelText: labelText ?? 'Full Name',
+
+          hintText: hintText ?? 'hint ',
+          hintStyle:  TextStyle(
+              fontSize: 16.px,
+              fontFamily: 'Poppins',
+              color: ApkColors.hintColor,
+              fontWeight: FontWeight.w400,
+            ),
+
+          // label: Text(
+          //   labelText ?? 'Full Name',
+          //   style: TextStyle(
+          //     fontSize: 12.px,
+          //     fontFamily: 'Poppins',
+          //     color: ApkColors.hintColor,
+          //     fontWeight: FontWeight.bold,
+          //   ),
+          // ),
+          // isCollapsed: true,
+          //  errorText: errorText ?? 'erddror',
+          errorStyle: errorStyle ??
+              const TextStyle(
+                  fontSize: 0.01,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400,
+                  color: ApkColors.orangeColor),
+          prefixIcon: wantPrefixIcon
+              ? prefixIcon ??
+                  const Icon(
+                    Icons.account_circle,
+                    color: ApkColors.orangeColor,
+                  )
+              : null,
+          suffixIcon: wntsuffixIcon
+              ? suffixIcon ??
+                  IconButton(
+                      icon: Icon(
+                        // Based on passwordVisible state choose the icon
+                        conFormPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: ApkColors.primaryColorLite,
+                      ),
+                      onPressed: onPressed
+                      //     () {
+                      //   // Update the state i.e. toogle the state of passwordVisible variable
+                      //   setState(() {
+                      //     ConFormPasswordVisible =
+                      //     !ConFormPasswordVisible;
+                      //   });
+                      // },
+                      )
+              : null,
+          contentPadding: contentPadding ?? EdgeInsets.symmetric(vertical: 20.px),
+          labelStyle: labelStyle ??
+              const TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Poppins',
+                  color: ApkColors.orangeColor),
+
+          // focusColor: Colors.green,
+
+
+          fillColor: fillColor ?? ApkColors.backgroundColor,
+          filled: filled ?? true,
+          //constraints:  BoxConstraints(maxHeight: 64.px, minHeight: 64.px),
+
+
+          border: UnderlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(width: 3.0),
           ),
-      validator: validator,
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        // labelText: labelText ?? 'Full Name',
-
-        hintText: hintText ?? 'hint ',
-        hintStyle:  TextStyle(
-            fontSize: 16.px,
-            fontFamily: 'Poppins',
-            color: ApkColors.hintColor,
-            fontWeight: FontWeight.w400,
-          ),
-
-        // label: Text(
-        //   labelText ?? 'Full Name',
-        //   style: TextStyle(
-        //     fontSize: 12.px,
-        //     fontFamily: 'Poppins',
-        //     color: ApkColors.hintColor,
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        // ),
-        // isCollapsed: true,
-        //  errorText: errorText ?? 'erddror',
-        errorStyle: errorStyle ??
-            const TextStyle(
-                fontSize: 10,
-                fontFamily: 'Poppins',
-                color: ApkColors.orangeColor),
-        prefixIcon: wantPrefixIcon
-            ? prefixIcon ??
-                const Icon(
-                  Icons.account_circle,
-                  color: ApkColors.orangeColor,
-                )
-            : null,
-        suffixIcon: wntsuffixIcon
-            ? suffixIcon ??
-                IconButton(
-                    icon: Icon(
-                      // Based on passwordVisible state choose the icon
-                      conFormPasswordVisible
-                          ? Icons.visibility
-                          : Icons.visibility_off,
-                      color: ApkColors.primaryColorLite,
-                    ),
-                    onPressed: onPressed
-                    //     () {
-                    //   // Update the state i.e. toogle the state of passwordVisible variable
-                    //   setState(() {
-                    //     ConFormPasswordVisible =
-                    //     !ConFormPasswordVisible;
-                    //   });
-                    // },
-                    )
-            : null,
-        contentPadding: contentPadding ?? EdgeInsets.all(12),
-        labelStyle: labelStyle ??
-            const TextStyle(
-                fontSize: 12,
-                fontFamily: 'Poppins',
-                color: ApkColors.orangeColor),
-        // focusColor: Colors.green,
-
-        fillColor: fillColor ?? ApkColors.backgroundColor,
-        filled: filled ?? true,
-        border: const UnderlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(width: 3.0),
+          enabledBorder: enableBorder ??
+               OutlineInputBorder(
+                  borderSide: BorderSide(color: ApkColors.orangeColor),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ApkColors.orangeColor),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+          errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+          focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ApkColors.orangeColor),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+          disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ApkColors.orangeColor),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
         ),
-        enabledBorder: enableBorder ??
-            const OutlineInputBorder(
-                borderSide: BorderSide(color: ApkColors.orangeColor),
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ApkColors.orangeColor),
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ApkColors.orangeColor),
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ApkColors.orangeColor),
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ApkColors.orangeColor),
-            borderRadius: BorderRadius.all(Radius.circular(10))),
       ),
     );
   }
@@ -312,7 +326,6 @@ class CommonWidget {
     double? borderRadius,
     double? textFontSize,
     TextStyle? style,
-   // Gradient? gradientcustom,
     required VoidCallback onPressed,
     bool wantBorder = false,
   }) {
@@ -396,7 +409,7 @@ class CommonWidget {
                               IconPath.searchIcon,
                               height: 32.px,
                               width: 32.px,
-                              color: iconColor ?? ApkColors.backgroundColor90p,
+                              color: iconColor ?? ApkColors.primaryColor,
                             ),
                       ),
                       suffixIcon: GestureDetector(
@@ -456,7 +469,7 @@ class CommonWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    ApkColors.darkgreenColor,
+                    ApkColors.orangeColor,
                     ApkColors.backgroundColor
                   ]),
               borderRadius: BorderRadius.circular(30)),

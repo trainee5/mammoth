@@ -55,6 +55,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                           fontSize: 26.px),
                     ),
 
+
                   ],
                 ),
 
@@ -237,7 +238,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                   prefixIcon: Padding(
                     padding: EdgeInsets.all(12.px),
                     child: SvgPicture.asset(
-                      IconPath.usersSvg,
+                      IconPath.pdf,
                       height: 24.px,
                       width: 24.px,
                     
