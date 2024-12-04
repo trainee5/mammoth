@@ -95,13 +95,11 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                           IconPath.eyeIcon,
                           height:  24.px,
                           width:  24.px,
-                          color: ApkColors.passEditColor,
                         )
                         : SvgPicture.asset(
                           IconPath.viewOffIcon,
                           height:  24.px,
                           width:  24.px,
-                          color: ApkColors.passEditColor,
                         ),
 
 
@@ -173,13 +171,11 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                           IconPath.eyeIcon,
                           height:  24.px,
                           width:  24.px,
-                          color: ApkColors.passEditColor,
                         )
                             : SvgPicture.asset(
                           IconPath.viewOffIcon,
                           height:  24.px,
                           width:  24.px,
-                          color: ApkColors.passEditColor,
                         ),
 
                         onPressed: () {

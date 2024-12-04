@@ -12,7 +12,7 @@ void main() {
     statusBarColor: Colors.transparent,
     systemNavigationBarColor:  ApkColors.primaryColor,
     statusBarIconBrightness: Brightness.light,
-    statusBarBrightness: Brightness.light,
+    statusBarBrightness: Brightness.dark,
     //systemNavigationBarIconBrightness: Brightness.dark));
   ));
   runApp(

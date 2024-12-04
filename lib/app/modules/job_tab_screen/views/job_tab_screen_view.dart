@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -40,11 +39,10 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                         IconPath.arrowLeftIcon,
                         height: 32.px,
                         width: 32.px,
-                        color: ApkColors.backgroundColor,
                       ),
                       onPressed: () {
-                        // controller.openDrawer();
-                      },
+                          Get.back();
+                        },
                     ),
                     SizedBox(width: 12.px,),
                     Text(
@@ -61,7 +59,6 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                         IconPath.preferenceIcon,
                         height:  32.px,
                         width:  32.px,
-                        color: ApkColors.backgroundColor,
                       ),
                       onPressed: () {
                         //controller.openDrawer();
@@ -93,8 +90,8 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                 SizedBox(
                   width: double.infinity,
                   child: Text(
-                    "45 jobs available",
-                    style: TextStyle(
+                      StringConstants.jobsAvailable,
+                      style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
                         color: ApkColors.primaryColor,
@@ -111,7 +108,6 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                   itemCount: SampleModel.cateItem.length,
                   //padding: EdgeInsets.symmetric(vertical: 34.px),
                   itemBuilder: (context, index) {
-                    final item = SampleModel.cateItem[index];
                     return Padding(
                       padding: EdgeInsets.only(bottom: 18.px),
                       child: GestureDetector(
@@ -183,9 +179,8 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                             fontFamily: 'Poppins',
                                             fontWeight:
                                             FontWeight.w500,
-                                            color: ApkColors
-                                                .primaryColor70p,
-                                            fontSize: 16.px),
+                                            color: ApkColors.primaryColor80p,
+                                              fontSize: 16.px),
                                       )
                                     ],
                                   ),
@@ -223,7 +218,6 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                               IconPath.locationIcon,
                                               height: 22.px,
                                               width: 22.px,
-                                              color: ApkColors.primaryColor,
                                             ),
                                           ),
                                           SizedBox(
@@ -234,9 +228,8 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500,
-                                                color: ApkColors
-                                                    .primaryColor70p,
-                                                fontSize: 15.px),
+                                                color: ApkColors.primaryColor80p,
+                                                  fontSize: 15.px),
                                           ),
                                           SizedBox(
                                             width: 12.px,
@@ -272,7 +265,6 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                               IconPath.locationIcon,
                                               height: 22.px,
                                               width: 22.px,
-                                              color: ApkColors.primaryColor,
                                             ),
                                           ),
                                           SizedBox(
@@ -283,9 +275,8 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500,
-                                                color: ApkColors
-                                                    .primaryColor70p,
-                                                fontSize: 15.px),
+                                                color: ApkColors.primaryColor80p,
+                                                  fontSize: 15.px),
                                           ),
                                           SizedBox(
                                             width: 8.px,
@@ -332,7 +323,6 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                               IconPath.locationIcon,
                                               height: 22.px,
                                               width: 22.px,
-                                              color: ApkColors.primaryColor,
                                             ),
                                           ),
                                           SizedBox(
@@ -343,9 +333,8 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500,
-                                                color: ApkColors
-                                                    .primaryColor70p,
-                                                fontSize: 15.px),
+                                                color: ApkColors.primaryColor80p,
+                                                  fontSize: 15.px),
                                           ),
                                           SizedBox(
                                             width: 12.px,
@@ -374,7 +363,6 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                       IconPath.locationIcon,
                                       height: 22.px,
                                       width: 22.px,
-                                      color: ApkColors.primaryColor,
                                     ),
                                   ),
                                   SizedBox(
@@ -385,9 +373,8 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
-                                        color: ApkColors
-                                            .primaryColor70p,
-                                        fontSize: 16.px),
+                                        color: ApkColors.primaryColor80p,
+                                          fontSize: 16.px),
                                   ),
                                   Spacer(),
                                   SizedBox(
@@ -395,7 +382,6 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                       IconPath.time,
                                       height: 22.px,
                                       width: 22.px,
-                                      color: ApkColors.primaryColor70p,
                                     ),
                                   ),
                                   SizedBox(
@@ -406,9 +392,8 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
-                                        color: ApkColors
-                                            .primaryColor70p,
-                                        fontSize: 16.px),
+                                        color: ApkColors.primaryColor80p,
+                                          fontSize: 16.px),
                                   ),
                                   SizedBox(
                                     width: 24.px,

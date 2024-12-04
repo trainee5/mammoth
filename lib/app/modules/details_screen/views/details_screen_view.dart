@@ -39,10 +39,9 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                           IconPath.arrowLeftIcon,
                           height: 32.px,
                           width: 32.px,
-                          color: ApkColors.backgroundColor,
                         ),
                         onPressed: () {
-                          // controller.openDrawer();
+                          Get.back();
                         },
                       ),
                       SizedBox(width: 12.px,),
@@ -135,7 +134,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                     fontWeight:
                                     FontWeight.w500,
                                     color: ApkColors
-                                        .primaryColor70p,
+                                        .primaryColor80p,
                                     fontSize: 16.px),
                               )
                             ],
@@ -174,7 +173,6 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                       IconPath.locationIcon,
                                       height: 22.px,
                                       width: 22.px,
-                                      color: ApkColors.primaryColor,
                                     ),
                                   ),
                                   SizedBox(
@@ -186,7 +184,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                         color: ApkColors
-                                            .primaryColor70p,
+                                            .primaryColor80p,
                                         fontSize: 15.px),
                                   ),
                                   SizedBox(
@@ -223,7 +221,6 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                       IconPath.walletIcon,
                                       height: 22.px,
                                       width: 22.px,
-                                      color: ApkColors.primaryColor,
                                     ),
                                   ),
                                   SizedBox(
@@ -235,7 +232,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                         color: ApkColors
-                                            .primaryColor70p,
+                                            .primaryColor80p,
                                         fontSize: 15.px),
                                   ),
                                   SizedBox(
@@ -283,7 +280,6 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                       IconPath.briefcaseIcon,
                                       height: 22.px,
                                       width: 22.px,
-                                      color: ApkColors.primaryColor,
                                     ),
                                   ),
                                   SizedBox(
@@ -295,7 +291,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                         color: ApkColors
-                                            .primaryColor70p,
+                                            .primaryColor80p,
                                         fontSize: 15.px),
                                   ),
                                   SizedBox(
@@ -325,7 +321,6 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                               IconPath.locationIcon,
                               height: 22.px,
                               width: 22.px,
-                              color: ApkColors.primaryColor,
                             ),
                           ),
                           SizedBox(
@@ -346,7 +341,6 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                               IconPath.time,
                               height: 22.px,
                               width: 22.px,
-                              color: ApkColors.primaryColor70p,
                             ),
                           ),
                           SizedBox(
@@ -358,7 +352,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
                                 color: ApkColors
-                                    .primaryColor70p,
+                                    .primaryColor,
                                 fontSize: 16.px),
                           ),
                           SizedBox(
@@ -391,7 +385,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                         height: 34.px,
                       ),
                       Text(
-                        "About the Job",
+                        StringConstants.aboutTheJob,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
@@ -413,7 +407,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                         height: 32.px,
                       ),
                       Text(
-                        "Your tasks",
+                        StringConstants.yourTasks,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
@@ -427,6 +421,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                       SizedBox(
                         height: 250.px,
                         child: ListView(
+                          physics: NeverScrollableScrollPhysics(),
                           children: [
                             ListTile(
 
@@ -511,7 +506,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                         height: 30.px,
                       ),
                       Text(
-                        "Requirements",
+                        StringConstants.requirements,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
@@ -525,6 +520,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                       SizedBox(
                         height: 250.px,
                         child: ListView(
+                          physics: NeverScrollableScrollPhysics(),
                           children: [
                             ListTile(
 
@@ -610,7 +606,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                         height: 32.px,
                       ),
                       Text(
-                        "Your contact person",
+                        StringConstants.yourContactPerson,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
@@ -636,6 +632,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                              height: 22.px,
                              width: 22.px,
                              color: ApkColors.backgroundColor,
+
                            ),
                          ),
                         SizedBox(width: 8.px,),
@@ -649,6 +646,9 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                         ),
 
                       ],),
+                      SizedBox(
+                        height: 12.px,
+                      ),
                       Row(children: [
                          Container(
                            height: 32.px,
@@ -699,7 +699,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                   Radius.circular(
                                       32.px))),
                           child: Text(
-                            "Apply Now",
+                            StringConstants.applyNow,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight:
@@ -725,7 +725,8 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
               ],
             ),
           );
-        })
+        }
+        )
     );
   }
 }

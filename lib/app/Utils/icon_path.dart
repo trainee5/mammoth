@@ -11,6 +11,10 @@ class IconPath {
   static const String appleImg = "assets/images/applepng.png";
   static const String frameImage = "assets/images/Frame_image.png";
   static const String frameImage2 = "assets/images/Frame2147223727.png";
+  static const String googlePng = "assets/images/googlepng.png";
+  static const String welcomeGroupImg = "assets/images/wlcmgrupimg.png";
+  static const String submitImg = "assets/images/Submitimg.png";
+  static const String emailNewsLatter= "assets/images/email_news_latter.png";
 
   static const String menuIcon = "assets/svgs/menusvg.svg";
   static const String notificationIcon = "assets/svgs/notification-03.svg";
@@ -29,4 +33,9 @@ class IconPath {
   static const String arrowUpRight = "assets/svgs/arrow-up-right.svg";
   static const String rectangleDesign = "assets/svgs/rectangle_design.svg";
   static const String time = "assets/svgs/time.svg";
+  static const String calendarIcon = "assets/svgs/calendarsvg.svg";
+  static const String cameraAdd = "assets/svgs/camera-add.svg";
+  static const String usersSvg = "assets/svgs/user.svg";
+  static const String smartPhone = "assets/svgs/smart-phone.svg";
+  static const String mailSvg = "assets/svgs/mail-svg.svg";
 }

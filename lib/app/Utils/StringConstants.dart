@@ -34,11 +34,15 @@ class StringConstants {
 
   static const String home = 'Home';
   static const String search = 'Search';
+  static const String viewAll = 'View All';
   static const String privacyPolicy = 'Privacy Policy';
   static const String termConditions = 'Term & Conditions';
   static const String fAQ = 'FAQ';
   static const String newsletter = 'Newsletter';
   static const String logOut = 'Log Out';
+  static const String selectByCategory = 'Select by Category';
+  static const String jobsByPreference = 'Jobs by Preference';
+  static const String jobsAvailable = '45 jobs available';
 
 
 
@@ -46,7 +50,8 @@ class StringConstants {
 
   static const String userName = 'user_name';
   static const String firstName = 'first_name';
-  static const String lastName = 'last_name';
+  static const String fullName = 'Full name';
+  static const String phoneNumber = 'Phone Number';
   static const String email = 'last_name';
   static const String password = 'last_name';
 
@@ -55,4 +60,29 @@ class StringConstants {
   static String details = "Details";
 
   static String applicationForm = "Application form";
+  static String applicationStatus = "Application status";
+
+
+
+  static String cancel = "Cancel";
+  static String save = "Save";
+  static String resume = "Resume";
+  static String uploadHere = "Upload here";
+  static String  submit = "Submit";
+  static String  firstNameHint = "Ex : Roshni Pal";
+  static String notification = "Notification";
+
+
+
+
+  static String aboutTheJob = "About the Job";
+  static String yourTasks = "Your tasks";
+  static String requirements = "Requirements";
+  static String yourContactPerson = "Your contact person";
+  static String applyNow = "Apply Now";
+
+
+
+
+
 }
