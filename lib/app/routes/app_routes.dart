@@ -16,6 +16,13 @@ abstract class Routes {
   static const DETAILS_SCREEN = _Paths.DETAILS_SCREEN;
   static const APPLICTION_FORM_SCREEN = _Paths.APPLICTION_FORM_SCREEN;
   static const APPLICATION_SENT_SCREEN = _Paths.APPLICATION_SENT_SCREEN;
+  static const APPLICATION_STATUS_SCREEN = _Paths.APPLICATION_STATUS_SCREEN;
+  static const PROFILE_SCREEN = _Paths.PROFILE_SCREEN;
+  static const PRIVACY_POLICY_SCREEN = _Paths.PRIVACY_POLICY_SCREEN;
+  static const TERM_CONDITION_SCREEN = _Paths.TERM_CONDITION_SCREEN;
+  static const FAQ_SCREEN = _Paths.FAQ_SCREEN;
+  static const NOTIFICATION_SCREEN = _Paths.NOTIFICATION_SCREEN;
+  static const NEWSLATTER_SCREEN = _Paths.NEWSLATTER_SCREEN;
 }
 
 abstract class _Paths {
@@ -33,4 +40,11 @@ abstract class _Paths {
   static const DETAILS_SCREEN = '/details-screen';
   static const APPLICTION_FORM_SCREEN = '/appliction-form-screen';
   static const APPLICATION_SENT_SCREEN = '/application-sent-screen';
+  static const APPLICATION_STATUS_SCREEN = '/application-status-screen';
+  static const PROFILE_SCREEN = '/profile-screen';
+  static const PRIVACY_POLICY_SCREEN = '/privacy-policy-screen';
+  static const TERM_CONDITION_SCREEN = '/term-condition-screen';
+  static const FAQ_SCREEN = '/faq-screen';
+  static const NOTIFICATION_SCREEN = '/notification-screen';
+  static const NEWSLATTER_SCREEN = '/newslatter-screen';
 }

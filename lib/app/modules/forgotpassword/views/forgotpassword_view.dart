@@ -1,11 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mammoth/app/routes/app_pages.dart';
 import 'package:pinput/pinput.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 import '../../../CommonFile/CommonWidget.dart';
 import '../../../Utils/StringConstants.dart';
-import '../../../Utils/icon_path.dart';
 import '../../../color/ApkColors.dart';
 import '../controllers/forgotpassword_controller.dart';
 
@@ -72,7 +73,9 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       controller: controller.pinController,
                       length: 4,
                       onCompleted: (pin) {
-                        print('Entered OTP: $pin');
+                        if (kDebugMode) {
+                          print('Entered OTP: $pin');
+                        }
                       },
                       submittedPinTheme: PinTheme(
                         width: 84.px,

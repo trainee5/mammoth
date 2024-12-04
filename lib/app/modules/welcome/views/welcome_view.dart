@@ -27,7 +27,7 @@ class WelcomeView extends GetView<WelcomeController> {
                 height: 500.px,
                 //color: ApkColors.backgroundColor,
                 width: 500.px,
-                child: Image.asset(IconPath.elispCircle),
+                child: Image.asset(IconPath.welcomeGroupImg),
               ),
               Image.asset(IconPath.stripIcon),
               SizedBox(

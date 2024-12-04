@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:get/get.dart';
 import 'package:mammoth/app/routes/app_pages.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -178,10 +177,6 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                            // Update the state of the app
-                            // ...
-                            //    controller.dataupload();
-                            // Then close the drawer
                             Navigator.pop(context);
                           },
                         ),
@@ -259,6 +254,16 @@ class SearchScreenView extends GetView<SearchScreenController> {
                   CommonWidget.searchBar(
                     height: 64.px,
                     autofocus: true,
+                    textfontsize: 20.px,
+                    searchIcon: Padding(
+                      padding: EdgeInsets.only(right: 16.px, left: 8.px),
+                      child: SvgPicture.asset(
+                        IconPath.searchIcon,
+                        height: 32.px,
+                        width: 32.px,
+                        color: ApkColors.primaryColor,
+                      ),
+                    ),
                     fillColor: controller.searchViewVisible
                         ? ApkColors.backgroundColor
                         : ApkColors.primaryColor,
@@ -267,19 +272,18 @@ class SearchScreenView extends GetView<SearchScreenController> {
                         : ApkColors.backgroundColor,
                     iconColor: controller.searchViewVisible
                         ? ApkColors.primaryColor
-                        : ApkColors.backgroundColor80p,
+                        : ApkColors.backgroundColor90p,
                     onPressedEditBox: () {
                       controller.increment();
                       controller.searchViewVisible =
                       true;
                       /// Get.offNamed(Routes.ForgotPassword);
                     },
-
+                    onPressed: () {},
                   ),
                   SizedBox(
                     height: 24.px,
                   ),
-
                 ],
               ),
             ),
@@ -315,7 +319,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                         itemCount: SampleModel.cateItem.length,
                         //padding: EdgeInsets.symmetric(vertical: 34.px),
                         itemBuilder: (context, index) {
-                          final item = SampleModel.cateItem[index];
+                         // final item = SampleModel.cateItem[index];
                           return Padding(
                             padding: EdgeInsets.only(bottom: 18.px),
                             child: GestureDetector(
@@ -439,7 +443,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,
                                                       color: ApkColors
-                                                          .primaryColor70p,
+                                                          .primaryColor80p,
                                                       fontSize: 15.px),
                                                 ),
                                                 SizedBox(
@@ -488,7 +492,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,
                                                       color: ApkColors
-                                                          .primaryColor70p,
+                                                          .primaryColor80p,
                                                       fontSize: 15.px),
                                                 ),
                                                 SizedBox(
@@ -548,7 +552,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,
                                                       color: ApkColors
-                                                          .primaryColor70p,
+                                                          .primaryColor80p,
                                                       fontSize: 15.px),
                                                 ),
                                                 SizedBox(
@@ -590,7 +594,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w500,
                                               color: ApkColors
-                                                  .primaryColor70p,
+                                                  .primaryColor80p,
                                               fontSize: 16.px),
                                         ),
                                         Spacer(),
@@ -599,7 +603,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                             IconPath.time,
                                             height: 22.px,
                                             width: 22.px,
-                                            color: ApkColors.primaryColor70p,
+                                            color: ApkColors.primaryColor,
                                           ),
                                         ),
                                         SizedBox(
@@ -611,7 +615,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w500,
                                               color: ApkColors
-                                                  .primaryColor70p,
+                                                  .primaryColor80p,
                                               fontSize: 16.px),
                                         ),
                                         SizedBox(

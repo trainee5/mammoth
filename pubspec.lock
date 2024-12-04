@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  carded:
+    dependency: "direct main"
+    description:
+      name: carded
+      sha256: "0e016a41c14641eddbd40d77e2fd1920ff44d8c84d3ac88c702bb40ab51ab0b0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3+1"
   characters:
     dependency: transitive
     description:

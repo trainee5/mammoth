@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mammoth/app/Utils/StringConstants.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../../../../models/sample_model.dart';
 import '../../../CommonFile/CommonWidget.dart';
 import '../../../Utils/icon_path.dart';
@@ -21,8 +20,10 @@ class HomeView extends GetView<HomeController> {
         backgroundColor: ApkColors.backgroundColor,
         key: controller.scaffoldKey,
         extendBody: true,
-        drawer: Drawer(
+          drawer: SafeArea(
+            child: Drawer(
               backgroundColor: ApkColors.primaryColor,
+              width: 350.px,
               child: Column(
                 children: [
                   SizedBox(
@@ -32,7 +33,7 @@ class HomeView extends GetView<HomeController> {
                     height: 64.px,
                     child: Row(
                       children: [
-                      SizedBox(
+                        SizedBox(
                           width: 24.px,
                         ),
                         Container(
@@ -43,49 +44,57 @@ class HomeView extends GetView<HomeController> {
                             color: ApkColors.backgroundColor,
                           ),
                           child: GestureDetector(
+                            onTap: (){
+                              Get.toNamed(Routes.PROFILE_SCREEN);
+                            },
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(25),
-                              child: Image.asset(
-                                  'assets/images/googlepng.png',
+                                borderRadius: BorderRadius.circular(25),
+                                child: Image.asset(
+                                  IconPath.googleImg,
                                   height: 64.px,
                                   width: 64.px,
                                 )),
                           ),
-                      ),
-                      SizedBox(
+                        ),
+                        SizedBox(
                           width: 18.px,
                         ),
                         SizedBox(
                           height: 64.px,
 
                           //color: Colors.cyan,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                                "Emma Phillips",
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    color: ApkColors.backgroundColor,
-                                    fontSize: 24.px),
-                              ),
-                              Text(
-                                "Graphic Designer",
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    color: ApkColors.backgroundColor,
-                                    fontSize: 12.px),
-                              )
-                            ],
-                        ),
+                          child: GestureDetector(
+                            onTap: (){
+                              Get.toNamed(Routes.PROFILE_SCREEN);
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Emma Phillips",
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                      color: ApkColors.backgroundColor,
+                                      fontSize: 24.px),
+                                ),
+                                Text(
+                                  "Graphic Designer",
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                      color: ApkColors.backgroundColor,
+                                      fontSize: 12.px),
+                                )
+                              ],
+                            ),
+                          ),
 
-                        // child:
-                      ),
-                    ],
+                          // child:
+                        ),
+                      ],
+                    ),
                   ),
-                ),
                   SizedBox(
                     height: 40.px,
                   ),
@@ -100,9 +109,9 @@ class HomeView extends GetView<HomeController> {
                     height: 270.px,
                     child: ListView(
                       // Important: Remove any padding from the ListView.
-                    padding: EdgeInsets.zero,
-                    children: <Widget>[
-                      ListTile(
+                      padding: EdgeInsets.zero,
+                      children: <Widget>[
+                        ListTile(
                           title: Text(
                             StringConstants.privacyPolicy,
                             style: TextStyle(
@@ -112,13 +121,10 @@ class HomeView extends GetView<HomeController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                          // Update the state of the app
-                          // ...
-                          // Then close the drawer
-                          Navigator.pop(context);
-                        },
-                      ),
-                      ListTile(
+                            Get.toNamed(Routes.PRIVACY_POLICY_SCREEN);
+                          },
+                        ),
+                        ListTile(
                           title: Text(
                             StringConstants.termConditions,
                             style: TextStyle(
@@ -128,13 +134,10 @@ class HomeView extends GetView<HomeController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                          // Update the state of the app
-                          // ...
-                          // Then close the drawer
-                          Navigator.pop(context);
-                        },
-                      ),
-                      ListTile(
+                            Get.toNamed(Routes.TERM_CONDITION_SCREEN);
+                          },
+                        ),
+                        ListTile(
                           title: Text(
                             StringConstants.fAQ,
                             style: TextStyle(
@@ -144,13 +147,10 @@ class HomeView extends GetView<HomeController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                          // Update the state of the app
-                          // ...
-                          // Then close the drawer
-                          Navigator.pop(context);
-                        },
-                      ),
-                      ListTile(
+                            Get.toNamed(Routes.FAQ_SCREEN);
+                          },
+                        ),
+                        ListTile(
                           title: Text(
                             StringConstants.newsletter,
                             style: TextStyle(
@@ -160,13 +160,10 @@ class HomeView extends GetView<HomeController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                          // Update the state of the app
-                          // ...
-                          // Then close the drawer
-                          Navigator.pop(context);
-                        },
-                      ),
-                      ListTile(
+                            Get.toNamed(Routes.NEWSLATTER_SCREEN);
+                          },
+                        ),
+                        ListTile(
                           title: Text(
                             StringConstants.logOut,
                             style: TextStyle(
@@ -175,21 +172,16 @@ class HomeView extends GetView<HomeController> {
                                 color: ApkColors.backgroundColor,
                                 fontSize: 22.px),
                           ),
-                          onTap: () {
-                          // Update the state of the app
-                          // ...
-                      //    controller.dataupload();
-                          // Then close the drawer
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ],
+                          onTap: () => Navigator.pop(context),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            )),
-        appBar: PreferredSize(
-          //preferredSize:  Size.fromHeight(80.0)
+                ],
+              ),
+            ),
+          ),
+          appBar: PreferredSize(
             preferredSize: Size.fromHeight(230.px),
             child: Container(
             decoration: BoxDecoration(
@@ -210,10 +202,10 @@ class HomeView extends GetView<HomeController> {
                             IconPath.menuIcon,
                             height: 32.px,
                             width: 32.px,
-                            color: ApkColors.backgroundColor,
+
                           ),
                           onPressed: () {
-                            // controller.openDrawer();
+                            controller.openDrawer();
                           },
                       ),
                       Text(
@@ -230,10 +222,9 @@ class HomeView extends GetView<HomeController> {
                             IconPath.notificationIcon,
                             height: 32.px,
                             width:  32.px,
-                          color: ApkColors.backgroundColor,
                         ),
                         onPressed: () {
-                            // controller.openDrawer();
+                            Get.toNamed(Routes.NOTIFICATION_SCREEN);
                           },
                       ),
                       IconButton(
@@ -241,7 +232,6 @@ class HomeView extends GetView<HomeController> {
                             IconPath.bookmarkIcon,
                             height: 32.px,
                             width:  32.px,
-                          color: ApkColors.backgroundColor,
                         ),
                         onPressed: () {
                             //controller.openDrawer();
@@ -254,18 +244,30 @@ class HomeView extends GetView<HomeController> {
                   height: 30.px,
                 ),
                 CommonWidget.searchBar(
-                  height: 64.px,
-
-
-                  onPressedEditBox: () {
-                    controller.increment();
+                    height: 64.px,
+                    textfontsize: 20.px,
+                    readOnly: true,
+                    searchIcon: Padding(
+                      padding: EdgeInsets.only(right: 16.px, left: 8.px),
+                      child: SvgPicture.asset(
+                        IconPath.searchIcon,
+                        height: 32.px,
+                        width: 32.px,
+                        color: ApkColors.backgroundColor60p,
+                      ),
+                    ),
+                    fillColor: ApkColors.primaryColor,
+                    textColor: ApkColors.backgroundColor,
+                    iconColor: ApkColors.backgroundColor60p,
+                    onPressedEditBox: () {
+                      controller.increment();
                     controller.searchViewVisible =
                     true;
                     Get.toNamed(Routes.SEARCH_SCREEN);
-                  },
-
-                ),
-                SizedBox(
+                    },
+                    onPressed: () {},
+                  ),
+                  SizedBox(
                   height: 24.px,
                 ),
 
@@ -288,7 +290,7 @@ class HomeView extends GetView<HomeController> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "Select by Category",
+                            StringConstants.selectByCategory,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
@@ -298,6 +300,7 @@ class HomeView extends GetView<HomeController> {
                         ),
                         GridView.builder(
                           // scrollDirection: Axis.vertical,
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: SampleModel.cateItem.length,
                           padding: EdgeInsets.symmetric(vertical: 24.px),
@@ -367,7 +370,7 @@ class HomeView extends GetView<HomeController> {
                           },
                         ),
                           Text(
-                          "View All",
+                          StringConstants.viewAll,
                           style: TextStyle(
                                 fontFamily: 'Poppins',
                               decoration: TextDecoration.underline,
@@ -381,7 +384,7 @@ class HomeView extends GetView<HomeController> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "Jobs by Preference",
+                            StringConstants.jobsByPreference,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
@@ -416,7 +419,7 @@ class HomeView extends GetView<HomeController> {
                               mainAxisExtent: 296.px,
                             ),
                             itemBuilder: (context, index) {
-                              final item = SampleModel.cateItem[index];
+                              //final item = SampleModel.cateItem[index];
                               return GestureDetector(
                                 child: Container(
                                   height: 160.px,
@@ -516,7 +519,6 @@ class HomeView extends GetView<HomeController> {
                                               IconPath.locationIcon,
                                               height: 22.px,
                                               width: 22.px,
-                                              color: ApkColors.primaryColor,
                                             ),
                                           ),
                                           SizedBox(
@@ -546,7 +548,6 @@ class HomeView extends GetView<HomeController> {
                                               IconPath.walletIcon,
                                               height: 22.px,
                                               width: 22.px,
-                                              color: ApkColors.primaryColor,
                                             ),
                                           ),
                                           SizedBox(
@@ -576,7 +577,6 @@ class HomeView extends GetView<HomeController> {
                                               IconPath.briefcaseIcon,
                                               height: 22.px,
                                               width: 22.px,
-                                              color: ApkColors.primaryColor,
                                             ),
                                           ),
                                           SizedBox(
@@ -711,7 +711,7 @@ class HomeView extends GetView<HomeController> {
                         mainAxisExtent: 277.px,
                       ),
                       itemBuilder: (context, index) {
-                        final item = SampleModel.cateItem[index];
+                        // final item = SampleModel.cateItem[index];
                         return GestureDetector(
                           child: Container(
                             height: 300.px,

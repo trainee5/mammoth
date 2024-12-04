@@ -40,10 +40,9 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                         IconPath.arrowLeftIcon,
                         height: 32.px,
                         width: 32.px,
-                        color: ApkColors.backgroundColor,
                       ),
                       onPressed: () {
-                        // controller.openDrawer();
+                        Get.back();
                       },
                     ),
                     SizedBox(width: 12.px,),
@@ -81,7 +80,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               padding: EdgeInsets.only(bottom: 8.px),
               width: double.infinity,
               child: Text(
-                "Full Name",
+                StringConstants.fullName,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -95,21 +94,25 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
                 child: CommonWidget.commonTextField(
-                    //validator: controller.Emailvalidator,
-                    // labelText: StringConstants.enterHint,
-                    hintText: "Ex : Roshni Pal",
+                    validator: controller.firstNameValidator,
+                    hintText: StringConstants.firstNameHint,
                     autofocus: false,
                     filled: true,
                     fillColor: ApkColors.textEditColor,
-                    prefixIcon: Image.asset(
-                      IconPath.mailIcon,
-                      height: 17.px,
-                      width: 20.px,),
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.all(12.px),
+                      child: SvgPicture.asset(
+                        IconPath.usersSvg,
+                        height: 24.px,
+                        width: 24.px,
+
+                      ),
+                    ),
                     enableBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: ApkColors.primaryColorLite),
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     keyboardType: TextInputType.emailAddress,
-                    //controller: controller.EmailAddressController
+                    controller: controller.firstNameController
                 ),
               );
             }),
@@ -117,7 +120,6 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               height: 32.px,
             ),
             Container(
-              //color: ApkColors.primaryColor,
               margin: EdgeInsets.symmetric(horizontal: 24.px),
               padding: EdgeInsets.only(bottom: 8.px),
               width: double.infinity,
@@ -136,21 +138,26 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
                 child: CommonWidget.commonTextField(
-                  //validator: controller.Emailvalidator,
+                  validator: controller.emailValidator,
                   // labelText: StringConstants.enterHint,
                   hintText: StringConstants.enterHint,
                   autofocus: false,
                   filled: true,
                   fillColor: ApkColors.textEditColor,
-                  prefixIcon: Image.asset(
-                    IconPath.mailIcon,
-                    height: 17.px,
-                    width: 20.px,),
+                  prefixIcon:  Padding(
+                    padding: EdgeInsets.all(12.px),
+                    child: SvgPicture.asset(
+                      IconPath.mailSvg,
+                      height: 24.px,
+                      width: 24.px,
+
+                    ),
+                  ),
                   enableBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: ApkColors.primaryColorLite),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   keyboardType: TextInputType.emailAddress,
-                  //controller: controller.EmailAddressController
+                  controller: controller.emailAddressController
                 ),
               );
             }),
@@ -163,7 +170,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               padding: EdgeInsets.only(bottom: 8.px),
               width: double.infinity,
               child: Text(
-              "Phone Number",
+              StringConstants.phoneNumber,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -177,21 +184,25 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
                 child: CommonWidget.commonTextField(
-                  //validator: controller.Emailvalidator,
-                  // labelText: StringConstants.enterHint,
+                  validator: controller.mobilValidator,
                   hintText: StringConstants.enterHint,
                   autofocus: false,
                   filled: true,
                   fillColor: ApkColors.textEditColor,
-                  prefixIcon: Image.asset(
-                    IconPath.mailIcon,
-                    height: 17.px,
-                    width: 20.px,),
+                  prefixIcon:  Padding(
+                    padding: EdgeInsets.all(12.px),
+                    child: SvgPicture.asset(
+                      IconPath.smartPhone,
+                      height: 24.px,
+                      width: 24.px,
+
+                    ),
+                  ),
                   enableBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: ApkColors.primaryColorLite),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   keyboardType: TextInputType.emailAddress,
-                  //controller: controller.EmailAddressController
+                  controller: controller.phoneNumberController
                 ),
               );
             }),
@@ -204,7 +215,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               padding: EdgeInsets.only(bottom: 8.px),
               width: double.infinity,
               child: Text(
-                "Resume",
+                StringConstants.resume,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -218,21 +229,24 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
                 child: CommonWidget.commonTextField(
-                  //validator: controller.Emailvalidator,
-                  // labelText: StringConstants.enterHint,
-                  hintText: "Upload here",
+                  hintText: StringConstants.uploadHere,
                   autofocus: false,
                   filled: true,
+                  readOnly: true,
                   fillColor: ApkColors.textEditColor,
-                  prefixIcon: Image.asset(
-                    IconPath.mailIcon,
-                    height: 17.px,
-                    width: 20.px,),
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(12.px),
+                    child: SvgPicture.asset(
+                      IconPath.usersSvg,
+                      height: 24.px,
+                      width: 24.px,
+                    
+                    ),
+                  ),
                   enableBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: ApkColors.primaryColorLite),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   keyboardType: TextInputType.emailAddress,
-                  //controller: controller.EmailAddressController
                 ),
               );
             }),
@@ -258,7 +272,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                         Radius.circular(
                             32.px))),
                 child: Text(
-                  "Submit",
+                  StringConstants.submit,
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight:

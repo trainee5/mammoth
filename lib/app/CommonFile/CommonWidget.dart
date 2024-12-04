@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:mammoth/app/Utils/StringConstants.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../Utils/icon_path.dart';
 import '../color/ApkColors.dart';
 
 class CommonWidget {
@@ -343,44 +345,30 @@ class CommonWidget {
   static Widget searchBar({
     Color? fillColor,
     Color? textColor,
+    Color? iconColor,
     String? hinttext,
     double? height,
+    bool? autofocus,
+    bool? readOnly,
     double? horizontalmargin,
     double? borderredius,
     double? textfontsize,
     TextStyle? hintstyle,
     TextStyle? textfieldstyle,
-    Icon? searchicon,
+    Widget? searchIcon,
     Icon? backhicon,
     FocusNode? focusnode,
     required VoidCallback onPressed,
-    VoidCallback? onPressededitbox,
+    VoidCallback? onPressedEditBox,
   }) {
     return Material(
       color: Colors.transparent,
-      child: Stack(
+      child: Column(
         children: [
           Container(
-            height: height ?? 40,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(left: 5, top: 5),
+            margin:  EdgeInsets.symmetric(horizontal: 24.px),
             decoration: BoxDecoration(
-                color: fillColor ?? ApkColors.backgroundColor,
-                borderRadius: BorderRadius.circular(borderredius ?? 20)),
-            width: 40,
-            child: IconButton(
-              onPressed: onPressed,
-              icon: backhicon ??
-                  const Icon(
-                    CupertinoIcons.back,
-                    color: ApkColors.orangeColor,
-                  ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 50, right: 15),
-            decoration: BoxDecoration(
-                color: ApkColors.backgroundColor,
+                color: fillColor ?? ApkColors.primaryColor,
                 borderRadius: BorderRadius.circular(15)),
             child: Row(
               children: [
@@ -388,39 +376,66 @@ class CommonWidget {
                     child: TextField(
                   textAlign: TextAlign.start,
                   cursorColor: ApkColors.orangeColor,
-                  onTap: onPressededitbox ?? () {},
+                  autofocus: autofocus ?? false ,
+                  readOnly: readOnly ?? false,
+                  onTap: onPressedEditBox ?? () {},
                   focusNode: focusnode ?? FocusNode(),
                   style: textfieldstyle ??
                       TextStyle(
-                        fontSize: textfontsize ?? 15,
+                        fontSize: textfontsize ?? 15.px,
                         fontFamily: 'Poppins',
                         color: textColor ?? ApkColors.orangeColor,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                       ),
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      prefixIcon: searchicon ??
-                          const Icon(
-                            Icons.search,
-                            color: ApkColors.orangeColor,
-                          ),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          Get.snackbar("title", "hhj");
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.only(right: 16.px,left: 8.px),
+                        child: searchIcon ??
+                            SvgPicture.asset(
+                              IconPath.searchIcon,
+                              height: 32.px,
+                              width: 32.px,
+                              color: iconColor ?? ApkColors.backgroundColor90p,
+                            ),
+                      ),
+                      suffixIcon: GestureDetector(
+                        onTap: (){
+
                         },
-                        icon: Icon(
-                          Icons.settings,
-                          color: ApkColors.orangeColor,
+                        child: Container(
+                          height: 56.px,
+                          width: 56.px,
+                          padding: EdgeInsets.all(10.px),
+                          margin: EdgeInsets.all(4.px),
+                          decoration: BoxDecoration(
+                              color: ApkColors.orangeColor,
+                            borderRadius: BorderRadius.circular(10.px)
+                          ),
+                          child: SvgPicture.asset(
+                            IconPath.preferenceIcon,
+                            height: 30.px,
+                            width: 30.px,
+                          ),
+
                         ),
                       ),
-                      hintText: hinttext ?? "Search here your collage...",
+                      hintText: hinttext ?? StringConstants.search,
                       hintStyle: hintstyle ??
                           TextStyle(
                             fontSize: textfontsize ?? 15,
                             fontFamily: 'Poppins',
                             color: textColor ?? ApkColors.orangeColor,
-                            fontWeight: FontWeight.bold,
-                          )),
+                            fontWeight: FontWeight.w400,
+                          ),
+                       enabledBorder:
+                         OutlineInputBorder(
+                            borderSide: BorderSide(color: ApkColors.backgroundColor60p,width: 1.px),
+                            borderRadius: BorderRadius.all(Radius.circular(12.px),)),
+                       focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color:ApkColors.backgroundColor60p),
+                        borderRadius: BorderRadius.all(Radius.circular(12.px))),
+                  ),
                 )),
               ],
             ),

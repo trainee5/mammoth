@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -152,13 +151,11 @@ class CreateAccountView extends GetView<CreateAccountController> {
                               "assets/svgs/eye.svg",
                               height:  24.px,
                               width:  24.px,
-                              color: ApkColors.passEditColor,
                             )
                                 : SvgPicture.asset(
                               "assets/svgs/view-off.svg",
                               height:  24.px,
                               width:  24.px,
-                              color: ApkColors.passEditColor,
                             ),
                             onPressed: () {
                               controller.increment();
@@ -368,6 +365,6 @@ class CreateAccountView extends GetView<CreateAccountController> {
           ],
         ),
       ),
-    );;
+    );
   }
 }
