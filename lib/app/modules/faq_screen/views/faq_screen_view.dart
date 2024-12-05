@@ -82,75 +82,36 @@ class FaqScreenView extends GetView<FaqScreenController> {
                 itemBuilder: (context, index) {
                   //final item = SampleModel.cateItem[index];
                   return GestureDetector(
-                    onTap: (){ controller.increment();
-                    controller.onClick =
-                    !controller.onClick;
+                    onTap: (){
+                      controller.increment();
+                    controller.clickOnItems[index] =
+                    (!controller.clickOnItems[index]);
 
                       // Get.toNamed(Routes.);
                     },
-                    child: ExpansionTile(
-                      enabled: true,
-                      enableFeedback: false,
-                      childrenPadding: EdgeInsets.only(bottom: 18.px),
-                      minTileHeight: 48.px,
-                      showTrailingIcon: true,
-                      title:  Container(
-                        height: 48.px,
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 14.px),
+                    child: Column(
 
-                        decoration: BoxDecoration(
-                          color: ApkColors.backgroundColor,
-                          borderRadius: BorderRadius.circular(12.px),
-                          border: Border.all(
-                              width: 1.px,
-                              color: ApkColors.orangeColor
-                          ),
+                      children: [
+                        Container(
+                          height: 48.px,
+                          alignment: Alignment.centerLeft,
+                          padding: EdgeInsets.symmetric(horizontal: 24.px),
+                          margin: EdgeInsets.only(left: 24.px,right: 24.px,bottom: 18.px),
 
-                        ),
-                        child: Row(
-                          children: [
-                            Text(
-                              "How do I create an account?",
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight:
-                                  FontWeight.w500,
-                                  color: ApkColors
-                                      .primaryColor,
-                                  fontSize: 16.px),
+                          decoration: BoxDecoration(
+                            color: ApkColors.backgroundColor,
+                            borderRadius: BorderRadius.circular(12.px),
+                            border: Border.all(
+                                width: 1.px,
+                                color: ApkColors.orangeColor
                             ),
-                            Spacer(),
-                            controller.onClick
-                                ? SvgPicture.asset(
-                              IconPath.arrowUP,
-                              height: 32.px,
-                              width: 32.px,
-                            )
-                                : SvgPicture.asset(
-                        IconPath.arrowDown,
-                        height: 32.px,
-                        width: 32.px,
-                      )
-                          ],
-                        ),
-                      ),
-                      children: <Widget>[
-                        ListTile(
-                            title:  Container(
-                              alignment: Alignment.centerLeft,
-                              padding: EdgeInsets.symmetric(horizontal: 14.px),
-              
-                              decoration: BoxDecoration(
-                                color: ApkColors.textEditColor,
-                                borderRadius: BorderRadius.circular(12.px),
-              
-                              ),
-                              child: Text(
-                                "You can track your job applications under the My Applications tab in your dashboard. You’ll see the status of each application, such as Under Review or Shortlisted,",
+
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                "How do I create an account?",
                                 textAlign: TextAlign.start,
-                                maxLines: 5,
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontWeight:
@@ -159,9 +120,125 @@ class FaqScreenView extends GetView<FaqScreenController> {
                                         .primaryColor,
                                     fontSize: 16.px),
                               ),
-                            ),),
+                              Spacer(),
+                              controller.clickOnItems[index]
+                                  ? SvgPicture.asset(
+                                IconPath.arrowUP,
+                                height: 32.px,
+                                width: 32.px,
+                              )
+                                  : SvgPicture.asset(
+                                IconPath.arrowDown,
+                                height: 32.px,
+                                width: 32.px,
+                              )
+                            ],
+                          ),
+                        ),
+                        controller.clickOnItems[index]
+                            ? ListTile(
+                          title:  Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.symmetric(horizontal: 24.px),
+                            margin: EdgeInsets.only(bottom: 10.px),
+
+                            decoration: BoxDecoration(
+                              color: ApkColors.textEditColor,
+                              borderRadius: BorderRadius.circular(12.px),
+
+                            ),
+                            child: Text(
+                              "You can track your job applications under the My Applications tab in your dashboard. You’ll see the status of each application, such as Under Review or Shortlisted,",
+                              textAlign: TextAlign.start,
+                              maxLines: 5,
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight:
+                                  FontWeight.w500,
+                                  color: ApkColors
+                                      .primaryColor,
+                                  fontSize: 16.px),
+                            ),
+                          ),)
+                            : SizedBox()
                       ],
-                    ),
+
+                    )
+
+                    // ExpansionTile(
+                    //   enabled: true,
+                    //   enableFeedback: false,
+                    //   childrenPadding: EdgeInsets.only(bottom: 18.px),
+                    //   minTileHeight: 48.px,
+                    //   showTrailingIcon: true,
+                    //   title:  Container(
+                    //     height: 48.px,
+                    //     alignment: Alignment.centerLeft,
+                    //     padding: EdgeInsets.symmetric(horizontal: 14.px),
+                    //
+                    //     decoration: BoxDecoration(
+                    //       color: ApkColors.backgroundColor,
+                    //       borderRadius: BorderRadius.circular(12.px),
+                    //       border: Border.all(
+                    //           width: 1.px,
+                    //           color: ApkColors.orangeColor
+                    //       ),
+                    //
+                    //     ),
+                    //     child: Row(
+                    //       children: [
+                    //         Text(
+                    //           "How do I create an account?",
+                    //           textAlign: TextAlign.start,
+                    //           style: TextStyle(
+                    //               fontFamily: 'Poppins',
+                    //               fontWeight:
+                    //               FontWeight.w500,
+                    //               color: ApkColors
+                    //                   .primaryColor,
+                    //               fontSize: 16.px),
+                    //         ),
+                    //         Spacer(),
+                    //         controller.onClick
+                    //             ? SvgPicture.asset(
+                    //           IconPath.arrowUP,
+                    //           height: 32.px,
+                    //           width: 32.px,
+                    //         )
+                    //             : SvgPicture.asset(
+                    //     IconPath.arrowDown,
+                    //     height: 32.px,
+                    //     width: 32.px,
+                    //   )
+                    //       ],
+                    //     ),
+                    //   ),
+                    //   children: <Widget>[
+                    //     ListTile(
+                    //         title:  Container(
+                    //           alignment: Alignment.centerLeft,
+                    //           padding: EdgeInsets.symmetric(horizontal: 14.px),
+                    //
+                    //           decoration: BoxDecoration(
+                    //             color: ApkColors.textEditColor,
+                    //             borderRadius: BorderRadius.circular(12.px),
+                    //
+                    //           ),
+                    //           child: Text(
+                    //             "You can track your job applications under the My Applications tab in your dashboard. You’ll see the status of each application, such as Under Review or Shortlisted,",
+                    //             textAlign: TextAlign.start,
+                    //             maxLines: 5,
+                    //             style: TextStyle(
+                    //                 fontFamily: 'Poppins',
+                    //                 fontWeight:
+                    //                 FontWeight.w500,
+                    //                 color: ApkColors
+                    //                     .primaryColor,
+                    //                 fontSize: 16.px),
+                    //           ),
+                    //         ),),
+                    //   ],
+                    // ),
               
               
               

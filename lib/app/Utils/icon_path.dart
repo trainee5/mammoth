@@ -51,6 +51,7 @@ class IconPath {
   static const String arrowDown = "assets/svgs/arrow-down-01.svg";
   static const String arrowUP = "assets/svgs/arrow-up.svg";
   static const String pdf = "assets/svgs/pdf-02.svg";
+  static const String mentoring = "assets/svgs/mentoring.svg";
 
 
 

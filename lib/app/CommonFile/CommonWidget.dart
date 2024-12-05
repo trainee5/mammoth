@@ -134,6 +134,11 @@ class CommonWidget {
   //   );
   // }
 
+  static Shader linearGradient = LinearGradient(
+    colors: <Color>[Color(0xffFB5D54), Color(0xffF44D91)],
+  ).createShader(Rect.fromLTRB(90, 0, 180, 0 ),);
+
+
   static Widget commonTextField(
       {double? elevation,
       String? hintText,
@@ -236,11 +241,12 @@ class CommonWidget {
           // isCollapsed: true,
           //  errorText: errorText ?? 'erddror',
           errorStyle: errorStyle ??
-              const TextStyle(
-                  fontSize: 0.01,
+               TextStyle(
+                  fontSize: 16.px,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
-                  color: ApkColors.orangeColor),
+                   foreground: Paint()..shader = linearGradient,
+               ),
           prefixIcon: wantPrefixIcon
               ? prefixIcon ??
                   const Icon(
@@ -280,6 +286,8 @@ class CommonWidget {
 
           fillColor: fillColor ?? ApkColors.backgroundColor,
           filled: filled ?? true,
+          isDense: true,
+          counterText: ' ',
           //constraints:  BoxConstraints(maxHeight: 64.px, minHeight: 64.px),
 
 

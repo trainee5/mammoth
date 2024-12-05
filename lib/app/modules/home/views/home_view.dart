@@ -234,7 +234,7 @@ class HomeView extends GetView<HomeController> {
                             width:  32.px,
                         ),
                         onPressed: () {
-                            //controller.openDrawer();
+                          Get.toNamed(Routes.APPLICATION_STATUS_SCREEN);
                           },
                       ),
                     ],

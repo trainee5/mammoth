@@ -7,6 +7,8 @@ class FaqScreenController extends GetxController {
 
   bool onClick = false;
 
+  List<bool> clickOnItems = List.filled(6,false);
+
 
   @override
   void onInit() {

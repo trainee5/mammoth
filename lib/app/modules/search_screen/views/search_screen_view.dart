@@ -113,10 +113,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                            // Update the state of the app
-                            // ...
-                            // Then close the drawer
-                            Navigator.pop(context);
+                            Get.toNamed(Routes.PRIVACY_POLICY_SCREEN);
                           },
                         ),
                         ListTile(
@@ -129,10 +126,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                            // Update the state of the app
-                            // ...
-                            // Then close the drawer
-                            Navigator.pop(context);
+                            Get.toNamed(Routes.TERM_CONDITION_SCREEN);
                           },
                         ),
                         ListTile(
@@ -145,10 +139,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                            // Update the state of the app
-                            // ...
-                            // Then close the drawer
-                            Navigator.pop(context);
+                            Get.toNamed(Routes.FAQ_SCREEN);
                           },
                         ),
                         ListTile(
@@ -161,10 +152,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                 fontSize: 22.px),
                           ),
                           onTap: () {
-                            // Update the state of the app
-                            // ...
-                            // Then close the drawer
-                            Navigator.pop(context);
+                            Get.toNamed(Routes.NEWSLATTER_SCREEN);
                           },
                         ),
                         ListTile(
@@ -176,9 +164,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                 color: ApkColors.backgroundColor,
                                 fontSize: 22.px),
                           ),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
+                          onTap: () => Navigator.pop(context),
                         ),
                       ],
                     ),
@@ -209,7 +195,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                             width: 32.px,
                           ),
                           onPressed: () {
-                            // controller.openDrawer();
+                            controller.openDrawer();
                           },
                         ),
                         Text(
@@ -228,7 +214,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                             width:  32.px,
                           ),
                           onPressed: () {
-                            // controller.openDrawer();
+                            Get.toNamed(Routes.NOTIFICATION_SCREEN);
                           },
                         ),
                         IconButton(
@@ -238,7 +224,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                             width:  32.px,
                           ),
                           onPressed: () {
-                            Get.toNamed(Routes.JOB_TAB_SCREEN);
+                            Get.toNamed(Routes.APPLICATION_STATUS_SCREEN);
                           },
                         ),
                       ],

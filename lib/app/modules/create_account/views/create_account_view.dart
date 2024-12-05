@@ -28,7 +28,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                 children: [
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 24.px),
-                    height: 230.px,
+                    height: 225.px,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: ApkColors.primaryColor,
@@ -37,7 +37,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 90.px,
+                          height: 85.px,
                         ),
                         Row(
                           children: [
@@ -95,6 +95,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                     controller.count.value;
                     return Container(
                       margin: EdgeInsets.symmetric(horizontal: 24.px),
+                      height: 88.px,
                       child: CommonWidget.commonTextField(
                           validator: controller.emailValidator,
                           // labelText: StringConstants.enterHint,
@@ -113,7 +114,6 @@ class CreateAccountView extends GetView<CreateAccountController> {
                           controller: controller.emailAddressController),
                     );
                   }),
-                  SizedBox(height:24.px,),
                   Row(
                     children: [
                       Container(
@@ -137,6 +137,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                     controller.count.value;
                     return Container(
                       margin: EdgeInsets.symmetric(horizontal: 24.px),
+                      height: 88.px,
                       child: CommonWidget.commonTextField(
                           validator: controller.passwordValidator,
                           // labelText: StringConstants.enterEmail,
@@ -185,9 +186,6 @@ class CreateAccountView extends GetView<CreateAccountController> {
                       ),
                     );
                   }),
-                  SizedBox(
-                    height: 8.px,
-                  ),
                   Obx(() {
                     controller.count.value;
                     return Row(
@@ -238,7 +236,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                     );
                   }),
                   SizedBox(
-                    height: 40.px,
+                    height: 30.px,
                   ),
                   Obx(() {
                     controller.count.value;

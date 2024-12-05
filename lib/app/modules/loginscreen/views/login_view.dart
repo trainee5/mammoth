@@ -94,6 +94,8 @@ class LoginView extends GetView<LoginController> {
                   Obx(() {
                     controller.count.value;
                     return Container(
+                      height: 88.px,
+                     // color: Colors.deepPurple,
                       margin: EdgeInsets.symmetric(horizontal:24.px),
                       child: CommonWidget.commonTextField(
                           validator: controller.emailValidator,
@@ -115,7 +117,6 @@ class LoginView extends GetView<LoginController> {
                           controller: controller.emailAddressController),
                     );
                   }),
-                  SizedBox(height:24.px,),
                   Row(
                     children: [
                       Container(
@@ -153,6 +154,7 @@ class LoginView extends GetView<LoginController> {
                   Obx(() {
                     controller.count.value;
                     return Container(
+                      height: 88.px,
                       margin: EdgeInsets.symmetric(horizontal:24.px),
                       child: CommonWidget.commonTextField(
                           validator: controller.passwordValidator,
@@ -203,9 +205,6 @@ class LoginView extends GetView<LoginController> {
                       ),
                     );
                   }),
-                  SizedBox(
-                    height: 8.px,
-                  ),
                   Obx(() {
                     controller.count.value;
                     return Row(

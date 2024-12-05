@@ -94,6 +94,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               controller.count.value;
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
+                height: 88.px,
                 child: CommonWidget.commonTextField(
                     validator: controller.firstNameValidator,
                     hintText: StringConstants.firstNameHint,
@@ -118,7 +119,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               );
             }),
             SizedBox(
-              height: 32.px,
+              height: 8.px,
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 24.px),
@@ -138,6 +139,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               controller.count.value;
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
+                height: 88.px,
                 child: CommonWidget.commonTextField(
                   validator: controller.emailValidator,
                   // labelText: StringConstants.enterHint,
@@ -163,7 +165,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               );
             }),
             SizedBox(
-              height: 32.px,
+              height: 8.px,
             ),
             Container(
               //color: ApkColors.primaryColor,
@@ -184,6 +186,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               controller.count.value;
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
+                height: 88.px,
                 child: CommonWidget.commonTextField(
                   validator: controller.mobilValidator,
                   hintText: StringConstants.enterHint,
@@ -208,7 +211,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               );
             }),
             SizedBox(
-              height: 32.px,
+              height: 8.px,
             ),
             Container(
               //color: ApkColors.primaryColor,
@@ -229,6 +232,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               controller.count.value;
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 24.px),
+                height: 88.px,
                 child: CommonWidget.commonTextField(
                   hintText: StringConstants.uploadHere,
                   autofocus: false,
@@ -252,7 +256,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
               );
             }),
             SizedBox(
-              height: 64.px,
+              height: 40.px,
             ),
             GestureDetector(
               onTap: () {

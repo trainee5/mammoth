@@ -7,6 +7,8 @@ class StringConstants {
   static const String loginToContinue = 'Log in to continue your journey and explore new career possibilities!';
   static const String enterEmail = 'Enter Email';
   static const String enterHint = 'Ex : john@gmail.com';
+  static const String numHint = '9874561230';
+  static const String postHint = 'graphic designer';
   static const String enterPassword = 'Enter Password';
   static const String createPassword = 'Create Password';
   static const String passwordHint = 'Enter Password';
@@ -51,6 +53,9 @@ class StringConstants {
   static const String userName = 'user_name';
   static const String firstName = 'first_name';
   static const String fullName = 'Full name';
+  static const String post = 'Post';
+  static const String eMail = 'E-mail';
+  static const String number = 'Number';
   static const String phoneNumber = 'Phone Number';
   static const String email = 'last_name';
   static const String password = 'last_name';

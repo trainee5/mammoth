@@ -7,6 +7,8 @@ class ApkColors{
   static const Color backgroundColor = Color(0xFFFFFFFF);
   static const Color orangeColor = Color(0xFFff4000);
 
+  static const Color textErrorColor = Color(0xFFF44D91);
+
   static const Color primaryColor70p = Color(0x701A1A1A);
   static const Color primaryColor80p = Color(0x801A1A1A);
   static const Color primaryColor60p = Color(0x601A1A1A);

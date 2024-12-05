@@ -10,8 +10,7 @@ import 'package:mammoth/app/modules/appliction_form_screen/bindings/appliction_f
 import 'package:mammoth/app/modules/appliction_form_screen/views/appliction_form_screen_view.dart';
 import 'package:mammoth/app/modules/create_account/bindings/create_account_binding.dart';
 import 'package:mammoth/app/modules/create_account/views/create_account_view.dart';
-import 'package:mammoth/app/modules/dashboard_web_screen/bindings/dashboard_web_screen_binding.dart';
-import 'package:mammoth/app/modules/dashboard_web_screen/views/dashboard_web_screen_view.dart';
+import 'package:mammoth/app/web_page/dashboard_web_screen/views/dashboard_web_screen_view.dart';
 import 'package:mammoth/app/modules/details_screen/bindings/details_screen_binding.dart';
 import 'package:mammoth/app/modules/details_screen/views/details_screen_view.dart';
 import 'package:mammoth/app/modules/faq_screen/bindings/faq_screen_binding.dart';
@@ -41,6 +40,7 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/splashscreen/bindings/splash_binding.dart';
 import '../modules/splashscreen/views/splash_view.dart';
+import '../web_page/dashboard_web_screen/bindings/dashboard_web_screen_binding.dart';
 
 part 'app_routes.dart';
 

@@ -87,6 +87,7 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                 controller.count.value;
                 return Container(
                   margin: EdgeInsets.symmetric(horizontal: 24.px),
+                  height: 88.px,
                   child: CommonWidget.commonTextField(
                       validator: controller.passwordValidator,
                       // labelText: StringConstants.enterEmail,
@@ -131,11 +132,9 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                   ),
                 );
               }),
-              SizedBox(
-                height: 24.px,
-              ),
               Container(
                 //color: ApkColors.primaryColor,
+
                 margin: EdgeInsets.symmetric(horizontal: 24.px),
                 padding: EdgeInsets.only(bottom: 8.px),
                 width: double.infinity,
@@ -153,6 +152,7 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                 controller.count.value;
                 return Container(
                   margin: EdgeInsets.symmetric(horizontal: 24.px),
+                  height: 88.px,
                   child: CommonWidget.commonTextField(
                       validator:  (String? value) {
                         var passNonNullValue = value ?? "";
