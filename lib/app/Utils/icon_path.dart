@@ -21,6 +21,7 @@ class IconPath {
 
   ///web material..........................................
   static const String mammothOneSt= "assets/images/mammoth_web_logo.png";
+  static const String success= "assets/images/success.png";
 
 
 

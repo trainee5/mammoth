@@ -10,7 +10,6 @@ import 'package:mammoth/app/modules/appliction_form_screen/bindings/appliction_f
 import 'package:mammoth/app/modules/appliction_form_screen/views/appliction_form_screen_view.dart';
 import 'package:mammoth/app/modules/create_account/bindings/create_account_binding.dart';
 import 'package:mammoth/app/modules/create_account/views/create_account_view.dart';
-import 'package:mammoth/app/web_page/dashboard_web_screen/views/dashboard_web_screen_view.dart';
 import 'package:mammoth/app/modules/details_screen/bindings/details_screen_binding.dart';
 import 'package:mammoth/app/modules/details_screen/views/details_screen_view.dart';
 import 'package:mammoth/app/modules/faq_screen/bindings/faq_screen_binding.dart';
@@ -19,6 +18,8 @@ import 'package:mammoth/app/modules/forgotpassword/bindings/forgotpassword_bindi
 import 'package:mammoth/app/modules/forgotpassword/views/forgotpassword_view.dart';
 import 'package:mammoth/app/modules/job_tab_screen/bindings/job_tab_screen_binding.dart';
 import 'package:mammoth/app/modules/job_tab_screen/views/job_tab_screen_view.dart';
+import 'package:mammoth/app/web_page/job_web_screen/bindings/job_web_screen_binding.dart';
+import 'package:mammoth/app/web_page/job_web_screen/views/job_web_screen_view.dart';
 import 'package:mammoth/app/modules/loginscreen/bindings/Login_binding.dart';
 import 'package:mammoth/app/modules/loginscreen/views/login_view.dart';
 import 'package:mammoth/app/modules/newslatter_screen/bindings/newslatter_screen_binding.dart';
@@ -35,6 +36,7 @@ import 'package:mammoth/app/modules/term_condition_screen/bindings/term_conditio
 import 'package:mammoth/app/modules/term_condition_screen/views/term_condition_screen_view.dart';
 import 'package:mammoth/app/modules/welcome/bindings/welcome_binding.dart';
 import 'package:mammoth/app/modules/welcome/views/welcome_view.dart';
+import 'package:mammoth/app/web_page/dashboard_web_screen/views/dashboard_web_screen_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -149,6 +151,11 @@ class AppPages {
       name: _Paths.DASHBOARD_WEB_SCREEN,
       page: () => DashboardWebScreenView(),
       binding: DashboardWebScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.JOB_WEB_SCREEN,
+      page: () => JobWebScreenView(),
+      binding: JobWebScreenBinding(),
     ),
   ];
 }

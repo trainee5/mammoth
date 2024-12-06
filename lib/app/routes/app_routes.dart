@@ -23,6 +23,7 @@ abstract class Routes {
   static const NOTIFICATION_SCREEN = _Paths.NOTIFICATION_SCREEN;
   static const NEWSLATTER_SCREEN = _Paths.NEWSLATTER_SCREEN;
   static const DASHBOARD_WEB_SCREEN = _Paths.DASHBOARD_WEB_SCREEN;
+  static const JOB_WEB_SCREEN = _Paths.JOB_WEB_SCREEN;
 }
 
 abstract class _Paths {
@@ -47,4 +48,5 @@ abstract class _Paths {
   static const NOTIFICATION_SCREEN = '/notification-screen';
   static const NEWSLATTER_SCREEN = '/newslatter-screen';
   static const DASHBOARD_WEB_SCREEN = '/dashboard-web-screen';
+  static const JOB_WEB_SCREEN = '/job-web-screen';
 }

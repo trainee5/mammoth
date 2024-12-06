@@ -248,11 +248,7 @@ class CommonWidget {
                    foreground: Paint()..shader = linearGradient,
                ),
           prefixIcon: wantPrefixIcon
-              ? prefixIcon ??
-                  const Icon(
-                    Icons.account_circle,
-                    color: ApkColors.orangeColor,
-                  )
+              ? SizedBox()
               : null,
           suffixIcon: wntsuffixIcon
               ? suffixIcon ??

@@ -15,6 +15,7 @@ class DashboardWebScreenController extends GetxController {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool onClickViewAll = true;
+  bool onClickJob = false;
 
   void openDrawer() {
     if (scaffoldKey.currentState != null) {
