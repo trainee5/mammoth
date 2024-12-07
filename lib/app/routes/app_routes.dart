@@ -24,6 +24,11 @@ abstract class Routes {
   static const NEWSLATTER_SCREEN = _Paths.NEWSLATTER_SCREEN;
   static const DASHBOARD_WEB_SCREEN = _Paths.DASHBOARD_WEB_SCREEN;
   static const JOB_WEB_SCREEN = _Paths.JOB_WEB_SCREEN;
+  static const MAIN_DASHBOARD_WEB_PAGE = _Paths.MAIN_DASHBOARD_WEB_PAGE;
+  static const POST_JOB_CATEGORY_PAGE = _Paths.POST_JOB_CATEGORY_PAGE;
+  static const POST_JOB_WEB_SCREN = _Paths.POST_JOB_WEB_SCREN;
+  static const BLOG_WEB_SCREEN = _Paths.BLOG_WEB_SCREEN;
+  static const SUBSCRIPTION_WEB_SCREEN = _Paths.SUBSCRIPTION_WEB_SCREEN;
 }
 
 abstract class _Paths {
@@ -49,4 +54,9 @@ abstract class _Paths {
   static const NEWSLATTER_SCREEN = '/newslatter-screen';
   static const DASHBOARD_WEB_SCREEN = '/dashboard-web-screen';
   static const JOB_WEB_SCREEN = '/job-web-screen';
+  static const MAIN_DASHBOARD_WEB_PAGE = '/main-dashboard-web-page';
+  static const POST_JOB_CATEGORY_PAGE = '/post-job-category-page';
+  static const POST_JOB_WEB_SCREN = '/post-job-web-scren';
+  static const BLOG_WEB_SCREEN = '/blog-web-screen';
+  static const SUBSCRIPTION_WEB_SCREEN = '/subscription-web-screen';
 }

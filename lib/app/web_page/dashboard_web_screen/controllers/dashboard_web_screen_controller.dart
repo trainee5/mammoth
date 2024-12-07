@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../models/profile.dart';
+import '../../../../models/recent_file.dart';
 
 class DashboardWebScreenController extends GetxController {
   //TODO: Implement DashboardWebScreenController
@@ -14,7 +15,11 @@ class DashboardWebScreenController extends GetxController {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  var intGlobal = 0;
+  RecentFile? recentFile;
+
   bool onClickViewAll = true;
+
   bool onClickJob = false;
 
   void openDrawer() {

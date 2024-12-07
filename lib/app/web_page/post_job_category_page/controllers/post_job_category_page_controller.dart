@@ -1,27 +1,20 @@
 import 'package:get/get.dart';
 
-import '../views/job_web_screen_view.dart';
-
-class JobWebScreenController extends GetxController {
-  //TODO: Implement JobWebScreenController
+class PostJobCategoryPageController extends GetxController {
+  //TODO: Implement PostJobCategoryPageController
 
   final count = 0.obs;
+
+
   bool onClickCategory = true;
 
 
-  bool onClickPostJob = false;
+  bool onClickPostJob = true;
   bool onClickNextStep1 = true;
   bool onClickNextStep2 = false;
   bool onClickNextStep3 = false;
-
-
-
-
-
-
   @override
   void onInit() {
-    clickOnItems[0] = true;
     super.onInit();
   }
 
@@ -34,6 +27,3 @@ class JobWebScreenController extends GetxController {
   void onClose() {}
   void increment() => count.value++;
 }
-
-
-

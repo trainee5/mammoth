@@ -18,8 +18,6 @@ import 'package:mammoth/app/modules/forgotpassword/bindings/forgotpassword_bindi
 import 'package:mammoth/app/modules/forgotpassword/views/forgotpassword_view.dart';
 import 'package:mammoth/app/modules/job_tab_screen/bindings/job_tab_screen_binding.dart';
 import 'package:mammoth/app/modules/job_tab_screen/views/job_tab_screen_view.dart';
-import 'package:mammoth/app/web_page/job_web_screen/bindings/job_web_screen_binding.dart';
-import 'package:mammoth/app/web_page/job_web_screen/views/job_web_screen_view.dart';
 import 'package:mammoth/app/modules/loginscreen/bindings/Login_binding.dart';
 import 'package:mammoth/app/modules/loginscreen/views/login_view.dart';
 import 'package:mammoth/app/modules/newslatter_screen/bindings/newslatter_screen_binding.dart';
@@ -32,17 +30,29 @@ import 'package:mammoth/app/modules/profile_screen/bindings/profile_screen_bindi
 import 'package:mammoth/app/modules/profile_screen/views/profile_screen_view.dart';
 import 'package:mammoth/app/modules/search_screen/bindings/search_screen_binding.dart';
 import 'package:mammoth/app/modules/search_screen/views/search_screen_view.dart';
+import 'package:mammoth/app/web_page/subscription_web_screen/bindings/subscription_web_screen_binding.dart';
+import 'package:mammoth/app/web_page/subscription_web_screen/views/subscription_web_screen_view.dart';
 import 'package:mammoth/app/modules/term_condition_screen/bindings/term_condition_screen_binding.dart';
 import 'package:mammoth/app/modules/term_condition_screen/views/term_condition_screen_view.dart';
 import 'package:mammoth/app/modules/welcome/bindings/welcome_binding.dart';
 import 'package:mammoth/app/modules/welcome/views/welcome_view.dart';
+import 'package:mammoth/app/web_page/blog_web_screen/bindings/blog_web_screen_binding.dart';
 import 'package:mammoth/app/web_page/dashboard_web_screen/views/dashboard_web_screen_view.dart';
+import 'package:mammoth/app/web_page/job_web_screen/bindings/job_web_screen_binding.dart';
+import 'package:mammoth/app/web_page/job_web_screen/views/job_web_screen_view.dart';
+import 'package:mammoth/app/web_page/main_dashboard_web_page/bindings/main_dashboard_web_page_binding.dart';
+import 'package:mammoth/app/web_page/main_dashboard_web_page/views/main_dashboard_web_page_view.dart';
+import 'package:mammoth/app/web_page/post_job_category_page/views/post_job_category_page_view.dart';
+import 'package:mammoth/app/web_page/post_job_web_scren/bindings/post_job_web_scren_binding.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/splashscreen/bindings/splash_binding.dart';
 import '../modules/splashscreen/views/splash_view.dart';
+import '../web_page/blog_web_screen/views/blog_web_screen_view.dart';
 import '../web_page/dashboard_web_screen/bindings/dashboard_web_screen_binding.dart';
+import '../web_page/post_job_category_page/bindings/post_job_category_page_binding.dart';
+import '../web_page/post_job_web_scren/views/post_job_web_scren_view.dart';
 
 part 'app_routes.dart';
 
@@ -156,6 +166,31 @@ class AppPages {
       name: _Paths.JOB_WEB_SCREEN,
       page: () => JobWebScreenView(),
       binding: JobWebScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAIN_DASHBOARD_WEB_PAGE,
+      page: () => MainDashboardWebPageView(),
+      binding: MainDashboardWebPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.POST_JOB_CATEGORY_PAGE,
+      page: () => PostJobCategoryPageView(),
+      binding: PostJobCategoryPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.POST_JOB_WEB_SCREN,
+      page: () => PostJobWebScreenView(),
+      binding: PostJobWebScrenBinding(),
+    ),
+    GetPage(
+      name: _Paths.BLOG_WEB_SCREEN,
+      page: () => BlogWebScreenView(),
+      binding: BlogWebScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUBSCRIPTION_WEB_SCREEN,
+      page: () => SubscriptionWebScreenView(),
+      binding: SubscriptionWebScreenBinding(),
     ),
   ];
 }

@@ -22,6 +22,8 @@ class IconPath {
   ///web material..........................................
   static const String mammothOneSt= "assets/images/mammoth_web_logo.png";
   static const String success= "assets/images/success.png";
+  static const String profileConstLogo= "assets/images/imageloga.png";
+  static const String rectangleImg= "assets/images/rectangleimg.png";
 
 
 
@@ -55,8 +57,11 @@ class IconPath {
   static const String mentoring = "assets/svgs/mentoring.svg";
 
 
-
+  ///web material..........................................
   static const String svgs1st = "assets/svgs/1st-mammoth.svg";
+  static const String notificationSvg = "assets/svgs/notification_svg.svg";
+  static const String addJObsSvg = "assets/svgs/add-jobs.svg";
+  static const String downloadSvg = "assets/svgs/download-02.svg";
 
 
 }

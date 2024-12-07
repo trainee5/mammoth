@@ -45,5 +45,7 @@ class ApkColors{
   static const Color orangeColor12p = Color(0x12ff4000);
 
   static const Color underReviewColor = Color(0xFFBECADF);
+  static const Color hiredColor = Color(0xFF009A21);
+  static const Color pendingColor = Color(0xFFFF9A34);
 
 }

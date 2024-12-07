@@ -33,7 +33,7 @@ class SplashController extends GetxController {
       if (isLogin) {
       Get.offNamed(Routes.HOME);
     } else {
-      Get.offNamed(Routes.DASHBOARD_WEB_SCREEN);
+      Get.offNamed(Routes.MAIN_DASHBOARD_WEB_PAGE);
     }
     });
   }
