@@ -66,6 +66,7 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center  ,
             children: [
 
 
@@ -76,105 +77,239 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
 
 
               Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+               mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SizedBox(width: screenWidth * 0.075),
-                  IconButton(
-                    icon: SvgPicture.asset(
-                      IconPath.arrowLeftIcon,
-                      height: screenWidth * 0.020,
-                      width: screenWidth * 0.020,
-                      color: ApkColors.primaryColor,
-                    ),
-                    onPressed: () {
-                      controller.increment();
-                      clickOnItems[1] = false;
-                      clickOnItems[2] = false;
-                      clickOnItems[0] = true;
-                    },
-                  ),
-                  Text(
-                    "Post Job",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      color: ApkColors.primaryColor,
-                      fontSize: screenWidth * 0.015,
-                    ),
-                  ),
-                  SizedBox(width: screenWidth * 0.130),
+
                   Row(
                     children: [
-                      Container(
-                        width: screenWidth * 0.400,
-                        //color: ApkColors.primaryColor60p,
-                        alignment: Alignment.center,
-                        height: screenWidth * 0.050,
-                        child: ListView.builder(
-                          itemCount: exercises.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return TimelineTile(
-                              axis: TimelineAxis.horizontal,
-                              isFirst:  index == 0,
-                              isLast: index == exercises.length - 1,
-                              startChild: Container(
-                                // color: Colors.green,
-                                constraints: const BoxConstraints(
-                                  minWidth: 250,
-                                ),
-                              ),
-                              endChild: Container(
-                                // color: ApkColors.orangeColor,
-                                constraints: const BoxConstraints(
-                                  minWidth: 250,
-                                ),
-                              ),
-                              alignment: TimelineAlign.center,
-                              indicatorStyle: IndicatorStyle(
-                                  width: 30,
-                                  height: 30,
-                                  color: clickOnItems[index]
-                                      ? ApkColors.orangeColor
-                                      : ApkColors.primaryColor,
-                                  indicator: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: clickOnItems[index]
-                                            ? ApkColors.orangeColor
-                                            : ApkColors.primaryColor,
-                                      ),
-                                      child: Center(
-                                          child: Text(
-                                            "${index + 1}",
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w500,
-                                                color: ApkColors.backgroundColor,
-                                                fontSize: 20),
-                                          )))),
-                              afterLineStyle: LineStyle(
-                                thickness: 1,
-                                color:  clickOnItems[index]
-                                    ? ApkColors.orangeColor
-                                    : ApkColors.primaryColor,
-                              ),
-                              beforeLineStyle: LineStyle(
-                                thickness: 1,
-                                color:  clickOnItems[index]
-                                    ? ApkColors.orangeColor
-                                    : ApkColors.primaryColor,
-                              ),
-                            );
-
-
-                          },
+                      IconButton(
+                        icon: SvgPicture.asset(
+                          IconPath.arrowLeftIcon,
+                          height: screenWidth * 0.028,
+                          width: screenWidth * 0.028,
+                          color: ApkColors.primaryColor,
                         ),
-                      )
+                        onPressed: () {
+                          controller.increment();
+                          clickOnItems[1] = false;
+                          clickOnItems[2] = false;
+                          clickOnItems[0] = true;
+                        },
+                      ),
+                      Text(
+                        "Post Job",
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          color: ApkColors.primaryColor,
+                          fontSize: screenWidth * 0.0167,
+                        ),
+                      ),
                     ],
                   ),
-                  SizedBox(width: screenWidth * 0.075),
+
+
+                  Container(
+                   // color: ApkColors.primaryColor60p,
+                    alignment: Alignment.centerRight,
+                    height: screenWidth * 0.050,
+                    child: Row(
+                      children: [
+                        TimelineTile(
+                          axis: TimelineAxis.horizontal,
+                          isFirst:  true,
+                          isLast: false,
+                          endChild: Container(
+                            width: screenWidth * 0.102,
+                            //color: ApkColors.orangeColor,
+                          ),
+                          alignment: TimelineAlign.center,
+                          indicatorStyle: IndicatorStyle(
+                              width: screenWidth * 0.028,
+                              height: screenWidth * 0.028,
+                              color: clickOnItems[0]
+                                  ? ApkColors.orangeColor
+                                  : ApkColors.orangeColor,
+                              indicator: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: clickOnItems[0]
+                                        ? ApkColors.orangeColor
+                                        : ApkColors.orangeColor,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                        "${0 + 1}",
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w500,
+                                            color: ApkColors.backgroundColor,
+                                            fontSize: screenWidth * 0.014),
+                                      )))),
+                          afterLineStyle: LineStyle(
+                            thickness: 1,
+                            color:  clickOnItems[0]
+                                ? ApkColors.orangeColor
+                                : ApkColors.primaryColor,
+                          ),
+                          beforeLineStyle: LineStyle(
+                            thickness: 1,
+                            color:  clickOnItems[0]
+                                ? ApkColors.orangeColor
+                                : ApkColors.primaryColor,
+                          ),
+                        ),
+
+                        TimelineTile(
+                          axis: TimelineAxis.horizontal,
+                          isFirst:  false,
+                          isLast: false,
+                          endChild: Container(
+                            width: screenWidth * 0.292,
+                           // color: ApkColors.primaryColor,
+                          ),
+                          alignment: TimelineAlign.center,
+                          indicatorStyle: IndicatorStyle(
+                              width: screenWidth * 0.028,
+                              height: screenWidth * 0.028,
+                              color: clickOnItems[0]
+                                  ? ApkColors.orangeColor
+                                  : ApkColors.primaryColor,
+                              indicator: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: clickOnItems[0]
+                                        ? ApkColors.orangeColor
+                                        : ApkColors.primaryColor,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                        "${0 + 2}",
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w500,
+                                            color: ApkColors.backgroundColor,
+                                            fontSize: screenWidth * 0.014),
+                                      )))),
+                          afterLineStyle: LineStyle(
+                            thickness: 1,
+                            color:  clickOnItems[0]
+                                ? ApkColors.orangeColor
+                                : ApkColors.primaryColor,
+                          ),
+                          beforeLineStyle: LineStyle(
+                            thickness: 1,
+                            color:  clickOnItems[0]
+                                ? ApkColors.orangeColor
+                                : ApkColors.primaryColor,
+                          ),
+                        ),
+                        TimelineTile(
+                          axis: TimelineAxis.horizontal,
+                          isFirst:  false,
+                          isLast: true,
+                          alignment: TimelineAlign.center,
+                          endChild: Container(
+                            width: screenWidth * 0.102,
+                           // color: ApkColors.orangeColor,
+                          ),
+
+                          indicatorStyle: IndicatorStyle(
+                              width: screenWidth * 0.028,
+                              height: screenWidth * 0.028,
+                              color: clickOnItems[0]
+                                  ? ApkColors.orangeColor
+                                  : ApkColors.primaryColor,
+                              indicator: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: clickOnItems[0]
+                                        ? ApkColors.orangeColor
+                                        : ApkColors.primaryColor,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                        "${0 + 3}",
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w500,
+                                            color: ApkColors.backgroundColor,
+                                            fontSize: screenWidth * 0.014),
+                                      )))),
+                          afterLineStyle: LineStyle(
+                            thickness: 1,
+                            color:  clickOnItems[0]
+                                ? ApkColors.orangeColor
+                                : ApkColors.primaryColor,
+                          ),
+                          beforeLineStyle: LineStyle(
+                            thickness: 1,
+                            color:  clickOnItems[0]
+                                ? ApkColors.orangeColor
+                                : ApkColors.primaryColor,
+                          ),
+                        ),
+
+                      ],
+                    )
+
+                    // ListView.builder(
+                    //   itemCount: exercises.length,
+                    //   scrollDirection: Axis.horizontal,
+                    //   physics: NeverScrollableScrollPhysics(),
+                    //   itemBuilder: (context, index) {
+                    //     return TimelineTile(
+                    //       axis: TimelineAxis.horizontal,
+                    //       isFirst:  index == 0,
+                    //       endChild: Container(
+                    //         width: screenWidth * 0.203,
+                    //       ),
+                    //       isLast: index == exercises.length - 1,
+                    //       alignment: TimelineAlign.start,
+                    //       indicatorStyle: IndicatorStyle(
+                    //           width: screenWidth * 0.028,
+                    //           height: screenWidth * 0.028,
+                    //           color: clickOnItems[index]
+                    //               ? ApkColors.orangeColor
+                    //               : ApkColors.primaryColor,
+                    //           indicator: Container(
+                    //               decoration: BoxDecoration(
+                    //                 shape: BoxShape.circle,
+                    //                 color: clickOnItems[index]
+                    //                     ? ApkColors.orangeColor
+                    //                     : ApkColors.primaryColor,
+                    //               ),
+                    //               child: Center(
+                    //                   child: Text(
+                    //                     "${index + 1}",
+                    //                     style: TextStyle(
+                    //                         fontFamily: 'Poppins',
+                    //                         fontWeight: FontWeight.w500,
+                    //                         color: ApkColors.backgroundColor,
+                    //                         fontSize: screenWidth * 0.014),
+                    //                   )))),
+                    //       afterLineStyle: LineStyle(
+                    //         thickness: 1,
+                    //         color:  clickOnItems[index]
+                    //             ? ApkColors.orangeColor
+                    //             : ApkColors.primaryColor,
+                    //       ),
+                    //       beforeLineStyle: LineStyle(
+                    //         thickness: 1,
+                    //         color:  clickOnItems[index]
+                    //             ? ApkColors.orangeColor
+                    //             : ApkColors.primaryColor,
+                    //       ),
+                    //     );
+                    //
+                    //
+                    //   },
+                    // ),
+                  ),
+                 SizedBox(
+                   width: screenWidth * 0.051,
+                 )
                 ],
               ),
               SizedBox(height: screenWidth * 0.030),
@@ -182,10 +317,15 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
 
 
 
+
+
               Container(
-                  width: screenWidth * 0.400,
+
                   padding: EdgeInsets.symmetric(
                       horizontal: screenWidth * 0.046),
+                  margin: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.2201),
+
                   decoration: BoxDecoration(
                     color: ApkColors.backgroundColor,
                     borderRadius:
@@ -200,13 +340,13 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                     children: [
 
                       SizedBox(
-                        height: 36.px,
+                        height: screenWidth * 0.036.px,
                       ),
                       Container(
                         //color: ApkColors.primaryColor,
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           "Your Contact Person",
@@ -215,39 +355,49 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height: screenWidth * 0.088.px,
                           child: CommonWidget.commonTextField(
                             // validator: controller.firstNameValidator,
                             hintText: "Name",
                             autofocus: false,
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             filled: true,
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.012.px))),
                             keyboardType: TextInputType.emailAddress,
                             //  controller: controller.firstNameController
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal:screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           'Mob. Number',
@@ -256,44 +406,54 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height: screenWidth * 0.088.px,
                           child: CommonWidget.commonTextField(
                             //validator: controller.emailValidator,
                             // labelText: StringConstants.enterHint,
                             hintText: "9874563210",
                             autofocus: false,
                             filled: true,
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
 
                             wntsuffixIcon: true,
-                            suffixIcon:  Padding(padding: EdgeInsets.all(10),
+                            suffixIcon:  Padding(padding: EdgeInsets.all(screenWidth * 0.010.px),
                               child: SvgPicture.asset(
                                 IconPath.arrowDown,
-                                height: 32.px,
-                                width: 32.px,
+                                height: screenWidth * 0.023.px,
+                                width: screenWidth * 0.023.px,
                               ),
                             ),
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.012.px))),
                             keyboardType: TextInputType.emailAddress,
                             // controller: controller.emailAddressController
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 300.px,
+                        height: screenWidth * 0.300.px,
                       ),
 
 
@@ -317,12 +477,12 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w600,
                                           color: ApkColors.primaryColor,
-                                          fontSize: 18.px),
+                                          fontSize: screenWidth * 0.014.px),
                                     ),
-                                    SizedBox(height: 50.px,),
-                                    Image.asset(IconPath.submitImg,
-                                      height: 150,
-                                      width: 150,
+                                    SizedBox(height:screenWidth * 0.050.px,),
+                                    Image.asset(IconPath.success,
+                                      height: screenWidth * 0.0791.px,
+                                      width:screenWidth * 0.0791.px,
                                       fit: BoxFit.fill,
                                     )
                                   ],
@@ -339,84 +499,94 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                           child: Container(
                             height: 64.px,
                             margin:
-                            EdgeInsets.symmetric(horizontal: 47.px),
+                            EdgeInsets.symmetric(horizontal: screenWidth * 0.047.px),
 
                             alignment: Alignment.center,
                             // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                             decoration: BoxDecoration(
                                 color: ApkColors.orangeColor,
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(32.px))),
+                                    Radius.circular(screenWidth * 0.0221.px))),
                             child: Text(
                               StringConstants.next,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                   color: ApkColors.backgroundColor,
-                                  fontSize: 18.px),
+                                  fontSize: screenWidth * 0.014.px),
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: 40.px,
+                        height: screenWidth * 0.021.px,
                       ),
                     ],
                   )
                       : Column(
                     children: [
 
-                      SizedBox(
-                        height: 36.px,
-                      ),
-                      Container(
+                        SizedBox(
+                        height: screenWidth * 0.036.px,
+                        ),
+                         Container(
                         //color: ApkColors.primaryColor,
 
-                        margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
-                        width: double.infinity,
-                        child: Text(
+                         margin:
+                         EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                         padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
+                         width: double.infinity,
+                         child: Text(
                           "About the Jobs",
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height:screenWidth * 0.100,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height:screenWidth * 0.100.px,
                           child: CommonWidget.commonTextField(
                             // validator: controller.firstNameValidator,
                             hintText: "Describe the role, responsibilities, etc",
                             autofocus: false,
                             filled: true,
                             maxLines: 20,
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.012.px))),
                             keyboardType: TextInputType.emailAddress,
                             //  controller: controller.firstNameController
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           'Your Task',
@@ -425,44 +595,54 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize:screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height:screenWidth * 0.100,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height:screenWidth * 0.100.px,
                           child: CommonWidget.commonTextField(
                             //validator: controller.emailValidator,
                             // labelText: StringConstants.enterHint,
                             hintText: "equest for tender documents"
                                 "Creating/entering/importing tender documents for tender processing",
                             maxLines: 20,
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             autofocus: false,
                             filled: true,
 
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.012.px))),
                             keyboardType: TextInputType.emailAddress,
                             // controller: controller.emailAddressController
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         //color: ApkColors.primaryColor,
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           "Requirements",
@@ -471,20 +651,30 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height:screenWidth * 0.100,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height:screenWidth * 0.100.px,
                           child: CommonWidget.commonTextField(
                             // validator: controller.mobilValidator,
                             hintText: "Completed commercial training e.g. as an industrial clerk (m/f/d) or comparable"
                                 "Confident use of MS Office",
                             autofocus: false,
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             maxLines: 20,
                             filled: true,
                             fillColor: ApkColors.textEditColor,
@@ -500,7 +690,7 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
 
 
@@ -520,43 +710,40 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                           child: Container(
                             height: 64.px,
                             margin:
-                            EdgeInsets.symmetric(horizontal: 47.px),
+                            EdgeInsets.symmetric(horizontal: screenWidth * 0.047.px),
 
                             alignment: Alignment.center,
                             // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                             decoration: BoxDecoration(
                                 color: ApkColors.orangeColor,
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(32.px))),
+                                    Radius.circular(screenWidth * 0.0221.px))),
                             child: Text(
                               StringConstants.next,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                   color: ApkColors.backgroundColor,
-                                  fontSize: 18.px),
+                                  fontSize: screenWidth * 0.014.px),
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: 40.px,
+                        height: screenWidth * 0.040.px,
                       ),
                     ],
                   )
-
-
-
                       : Column(
-                    children: [
+                                          children: [
                       SizedBox(
-                        height: 36.px,
+                        height: screenWidth * 0.036,
                       ),
                       Container(
                         //color: ApkColors.primaryColor,
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           "Company Link",
@@ -565,39 +752,49 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal:screenWidth * 0.024.px),
+                          height: screenWidth * 0.061.px,
                           child: CommonWidget.commonTextField(
                             // validator: controller.firstNameValidator,
                             hintText: "Ex. www.1stmammuth.com",
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             autofocus: false,
                             filled: true,
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.012.px))),
                             keyboardType: TextInputType.emailAddress,
                             //  controller: controller.firstNameController
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           'Category',
@@ -606,50 +803,60 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal:screenWidth * 0.024.px),
+                          height: screenWidth * 0.061.px,
                           child: CommonWidget.commonTextField(
                             //validator: controller.emailValidator,
                             // labelText: StringConstants.enterHint,
                             hintText: "Select Category",
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             autofocus: false,
                             filled: true,
-
+                      
                             wntsuffixIcon: true,
                             suffixIcon:  Padding(padding: EdgeInsets.all(10),
                               child: SvgPicture.asset(
                                 IconPath.arrowDown,
-                                height: 32.px,
-                                width: 32.px,
+                                height: screenWidth * 0.023.px,
+                                width: screenWidth * 0.023.px,
                               ),
                             ),
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.010.px))),
                             keyboardType: TextInputType.emailAddress,
                             // controller: controller.emailAddressController
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         //color: ApkColors.primaryColor,
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           "Title",
@@ -658,40 +865,50 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize:screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height:screenWidth * 0.061.px,
                           child: CommonWidget.commonTextField(
                             // validator: controller.mobilValidator,
                             hintText: "EX. Web Designer",
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             autofocus: false,
                             filled: true,
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.010.px))),
                             keyboardType: TextInputType.emailAddress,
                             // controller: controller.phoneNumberController
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         //color: ApkColors.primaryColor,
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           "Job Type",
@@ -700,47 +917,57 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize:screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal:screenWidth * 0.024.px),
+                          height: screenWidth * 0.061.px,
                           child: CommonWidget.commonTextField(
                             hintText: "Select type",
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             autofocus: false,
                             wntsuffixIcon: true,
                             suffixIcon:  Padding(padding: EdgeInsets.all(10),
                               child: SvgPicture.asset(
                                 IconPath.arrowDown,
-                                height: 32.px,
-                                width: 32.px,
+                                height: screenWidth * 0.023.px,
+                                width: screenWidth * 0.023.px,
                               ),
                             ),
                             filled: true,
                             readOnly: true,
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.010.px))),
                             keyboardType: TextInputType.emailAddress,
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         //color: ApkColors.primaryColor,
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom:screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           "Location",
@@ -749,47 +976,57 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height: screenWidth * 0.061,
                           child: CommonWidget.commonTextField(
                             hintText: "Select",
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             autofocus: false,
                             filled: true,
                             wntsuffixIcon: true,
                             suffixIcon:  Padding(padding: EdgeInsets.all(10),
                               child: SvgPicture.asset(
                                 IconPath.arrowDown,
-                                height: 32.px,
-                                width: 32.px,
+                                height: screenWidth * 0.023.px,
+                                width: screenWidth * 0.023.px,
                               ),
                             ),
                             readOnly: true,
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.010.px))),
                             keyboardType: TextInputType.emailAddress,
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 8.px,
+                        height: screenWidth * 0.008.px,
                       ),
                       Container(
                         //color: ApkColors.primaryColor,
                         margin:
-                        EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                        padding: EdgeInsets.only(bottom: screenWidth * 0.008.px),
                         width: double.infinity,
                         child: Text(
                           "Salary Range",
@@ -798,43 +1035,53 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenWidth * 0.014.px),
                         ),
                       ),
                       Obx(() {
                         controller.count.value;
                         return Container(
                           padding:
-                          EdgeInsets.symmetric(horizontal: 24.px),
-                          height: 88.px,
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.024.px),
+                          height:screenWidth * 0.061.px,
                           child: CommonWidget.commonTextField(
                             hintText: "Ex. \$25k-35k/months",
+                            hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.hintColor,
+                                fontSize: screenWidth * 0.011.px),
+                            style:TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: ApkColors.primaryColor,
+                                fontSize: screenWidth * 0.011.px),
                             autofocus: false,
                             filled: true,
-
+                      
                             readOnly: true,
                             fillColor: ApkColors.textEditColor,
-                            enableBorder: const OutlineInputBorder(
+                            enableBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color:
                                     ApkColors.primaryColorLite),
                                 borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                    Radius.circular(screenWidth * 0.010.px))),
                             keyboardType: TextInputType.emailAddress,
                           ),
                         );
                       }),
                       SizedBox(
-                        height: 40.px,
+                        height: screenWidth * 0.040.px,
                       ),
-
-
-
+                      
+                      
+                      
                       MouseRegion(
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: () {
-
+                      
                             controller.increment();
                             clickOnItems[0] =
                             true;
@@ -845,7 +1092,7 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                             height: 64.px,
                             margin:
                             EdgeInsets.symmetric(horizontal: 47.px),
-
+                      
                             alignment: Alignment.center,
                             // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                             decoration: BoxDecoration(
@@ -858,16 +1105,16 @@ class PostJobWebScreenView extends GetView<PostJobWebScrenController> {
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                   color: ApkColors.backgroundColor,
-                                  fontSize: 18.px),
+                                  fontSize: 14.px),
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: 40.px,
+                        height: screenWidth  * 0.021,
                       ),
-                    ],
-                  )
+                                          ],
+                                        )
               ),
               SizedBox(height: screenWidth * 0.030),
             ],

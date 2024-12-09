@@ -34,8 +34,9 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
               child:  controller.onClickCategory
 
                   ? Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: screenWidth * 0.030),
+                            SizedBox(height: screenWidth * 0.0416),
                             Container(
                               alignment: Alignment.center,
                               padding: EdgeInsets.symmetric(
@@ -47,14 +48,13 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                   color: ApkColors.primaryColor,
-                                  fontSize: screenWidth * 0.028,
+                                  fontSize: screenWidth * 0.0195,
                                 ),
                               ),
                             ),
-                            SizedBox(height: screenWidth * 0.030),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.075),
+                            SizedBox(height: screenWidth * 0.0208),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.052),
                               child: GridView.builder(
                                 scrollDirection: Axis.vertical,
                                 shrinkWrap: true,
@@ -67,7 +67,7 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                   crossAxisCount: 4,
                                   mainAxisSpacing: screenWidth * 0.030,
                                   crossAxisSpacing: screenWidth * 0.030,
-                                  mainAxisExtent: screenWidth * 0.144,
+                                  mainAxisExtent: screenWidth * 0.153,
                                 ),
                                 itemBuilder: (context, index) {
                                   //final item = SampleModel.cateItem[index];
@@ -85,8 +85,8 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                       child: Stack(
                                         children: [
                                           Container(
-                                            height: screenWidth * 0.144,
-                                            width: screenWidth * 0.185,
+                                            height: screenWidth * 0.153,
+                                            width: screenWidth * 0.208,
                                             alignment: Alignment.center,
                                             padding: EdgeInsets.symmetric(
                                                 horizontal:
@@ -100,7 +100,7 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                                   : ApkColors.textEditColor,
                                               borderRadius:
                                                   BorderRadius.circular(
-                                                      screenWidth * 0.012),
+                                                      screenWidth * 0.0084),
                                             ),
                                             child: Column(
                                               mainAxisAlignment:
@@ -110,15 +110,15 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                                   height: screenWidth * 0.018,
                                                 ),
                                                 SizedBox(
-                                                  height: screenWidth * 0.048,
-                                                  width: screenWidth * 0.048,
+                                                  height: screenWidth * 0.042,
+                                                  width: screenWidth * 0.042,
                                                   child: SvgPicture.asset(
                                                     (index == 0)
                                                         ? IconPath.doctorIcon
                                                         : IconPath
                                                             .assistantIcon,
-                                                    height: screenWidth * 0.32,
-                                                    width: screenWidth * 0.032,
+                                                    height: screenWidth * 0.23,
+                                                    width: screenWidth * 0.023,
                                                     //color: ApkColors.backgroundColor,
                                                   ),
                                                 ),
@@ -137,7 +137,7 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                                           : ApkColors
                                                               .primaryColor,
                                                       fontSize:
-                                                          screenWidth * 0.020),
+                                                          screenWidth * 0.014),
                                                 ),
                                                 SizedBox(
                                                   height: screenWidth * 0.005,
@@ -154,7 +154,7 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                                           : ApkColors
                                                               .primaryColor80p,
                                                       fontSize:
-                                                          screenWidth * 0.010),
+                                                          screenWidth * 0.011),
                                                 ),
                                                 SizedBox(
                                                   height: screenWidth * 0.015,
@@ -170,13 +170,10 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                               child: Card(
                                                 elevation: 10,
                                                 child: Container(
-                                                  height: screenWidth * 0.020,
-                                                  width: screenWidth * 0.020,
+                                                  height: screenWidth * 0.014,
+                                                  width: screenWidth * 0.014,
                                                   decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            screenWidth *
-                                                                0.010),
+                                                    shape: BoxShape.circle,
                                                     color: ApkColors
                                                         .backgroundColor,
                                                   ),
@@ -184,7 +181,7 @@ class JobWebScreenView extends GetView<JobWebScreenController> {
                                                     Icons.more_vert_sharp,
                                                     color:
                                                         ApkColors.primaryColor,
-                                                    size: screenWidth * 0.020,
+                                                    size: screenWidth * 0.014,
                                                   ),
                                                 ),
                                               ),

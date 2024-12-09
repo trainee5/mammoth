@@ -44,6 +44,9 @@ class SearchScreenView extends GetView<SearchScreenController> {
                             color: ApkColors.backgroundColor,
                           ),
                           child: GestureDetector(
+                            onTap: (){
+                              Get.toNamed(Routes.PROFILE_SCREEN);
+                            },
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(25),
                                 child: Image.asset(

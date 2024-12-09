@@ -9,7 +9,6 @@ import '../../../../models/recent_file.dart';
 import '../../../Utils/icon_path.dart';
 import '../../../color/ApkColors.dart';
 import '../controllers/dashboard_web_screen_controller.dart';
-
 class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
   const DashboardWebScreenView({super.key});
 
@@ -31,246 +30,137 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
       print("screenHeight : $screenHeight" );
       print("screenWidth : $screenWidth" );
       return Scaffold(
-        backgroundColor: ApkColors.backgroundColor,
+        backgroundColor: ApkColors.webBackgroundColor,
         body: SingleChildScrollView(
             child: controller.onClickViewAll
                 ? Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: screenHeight * 0.060),
+                      SizedBox(height: screenHeight * 0.0417),
 
                       //// jobs data...............................
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(width: screenHeight * 0.240),
-                    Flexible(
-                      child: Container(
-                        height: screenWidth * 0.070,
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.010),
-                              decoration: BoxDecoration(
-                                color: ApkColors.backgroundColor,
-                                borderRadius:
+                      SizedBox(
+                        height: screenWidth * 0.0486.px,
+                        child: GridView.builder(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: 3,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                          SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1,
+                            mainAxisSpacing: screenWidth * 0.021,
+                            mainAxisExtent: screenWidth *0.209.px,
+                          ),
+                          itemBuilder: (context, index) {
+                            //final item = SampleModel.cateItem[index];
+                            return MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: GestureDetector(
+                                onTap: () {
+                                  //
+                                  // controller.increment();
+                                  // controller.onClickCategory =
+                                  // !controller.onClickCategory;
+
+                                },
+                                child: Container(
+                                  height: screenWidth * 0.0486,
+                                  alignment: Alignment.centerLeft,
+                                 // margin: EdgeInsets.only(left: screenWidth * 0.030.px),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: screenWidth * 0.007),
+                                  decoration: BoxDecoration(
+                                    color: ApkColors.backgroundColor,
+                                    borderRadius:
                                     BorderRadius.circular(screenWidth * 0.012),
-                                border: Border.all(
-                                    width: 1.px, color: ApkColors.orangeColor),
-                              ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              height: screenWidth * 0.050,
-                              width: screenWidth * 0.050,
-                              child: SvgPicture.asset(
-                                IconPath.assistantIcon,
-                                height: screenWidth * 0.032,
-                                width: screenWidth * 0.032,
-                                //color: ApkColors.backgroundColor,
-                              ),
-                            ),
-                            SizedBox(
-                              width: screenWidth * 0.018,
-                            ),
-                            Flexible(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Flexible(
-                                    child: Text(
-                                      "Active Jobs",
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight:
-                                        FontWeight.w600,
-                                        color: ApkColors
-                                            .primaryColor,
-                                        fontSize: screenWidth * 0.020,),
-                                    ),
+                                    border: Border.all(
+                                        width: 1.px, color: ApkColors.orangeColor),
                                   ),
-                                  Flexible(
-                                    child: Text(
-                                      "Total 1200",
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight:
-                                        FontWeight.w600,
-                                        color: ApkColors
-                                            .primaryColor,
-                                        fontSize: screenWidth * 0.016,),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: screenHeight * 0.030),
-                          Flexible(
-                            child: Container(
-                              height: screenWidth * 0.070,
-                              alignment: Alignment.centerLeft,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.010),
-                              decoration: BoxDecoration(
-                          color: ApkColors.backgroundColor,
-                          borderRadius: BorderRadius.circular(
-                              screenWidth * 0.012),
-                          border: Border.all(
-                              width: 1.px,
-                              color: ApkColors.orangeColor
-                          ),
-                              ),
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    height: screenWidth * 0.050,
-                                    width: screenWidth * 0.050,
-                                    child: SvgPicture.asset(
-                                      IconPath.assistantIcon,
-                                      height: screenWidth * 0.032,
-                                      width: screenWidth * 0.032,
-                                      //color: ApkColors.backgroundColor,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: screenWidth * 0.018,
-                                  ),
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Flexible(
-                                          child: Text(
-                                            "Active Jobs",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600,
-                                              color: ApkColors.primaryColor,
-                                              fontSize: screenWidth * 0.020,
-                                            ),
-                                          ),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        height: screenWidth * 0.035,
+                                        width: screenWidth * 0.035,
+                                        child: SvgPicture.asset(
+                                          IconPath.assistantIcon,
+                                          height: screenWidth * 0.023,
+                                          width: screenWidth * 0.023,
+                                          //color: ApkColors.backgroundColor,
                                         ),
-                                        Flexible(
-                                          child: Text(
-                                            "Total 1200",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600,
-                                              color: ApkColors.primaryColor,
-                                              fontSize: screenWidth * 0.016,
+                                      ),
+                                      SizedBox(
+                                        width: screenWidth * 0.013,
+                                      ),
+                                      Flexible(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Flexible(
+                                              child: Text(
+                                                "Active Jobs",
+                                                textAlign: TextAlign.start,
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight:
+                                                  FontWeight.w600,
+                                                  color: ApkColors
+                                                      .primaryColor,
+                                                  fontSize: screenWidth * 0.014,),
+                                              ),
                                             ),
-                                          ),
+                                            Flexible(
+                                              child: Text(
+                                                "Total 1200",
+                                                textAlign: TextAlign.start,
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight:
+                                                  FontWeight.w600,
+                                                  color: ApkColors
+                                                      .primaryColor,
+                                                  fontSize: screenWidth * 0.011,),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ),
-                    ),
-                    SizedBox(width: screenHeight * 0.030),
-                    Flexible(
-                      child: Container(
-                        height: screenWidth * 0.070,
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.010),
-                              decoration: BoxDecoration(
-                                color: ApkColors.backgroundColor,
-                                borderRadius:
-                                    BorderRadius.circular(screenWidth * 0.012),
-                                border: Border.all(
-                                    width: 1.px, color: ApkColors.orangeColor),
-                              ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              height: screenWidth * 0.050,
-                              width: screenWidth * 0.050,
-                              child: SvgPicture.asset(
-                                IconPath.assistantIcon,
-                                height: screenWidth * 0.032,
-                                width: screenWidth * 0.032,
-                                //color: ApkColors.backgroundColor,
-                              ),
-                            ),
-                            SizedBox(
-                              width: screenWidth * 0.018,
-                            ),
-                            Flexible(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Flexible(
-                                    child: Text(
-                                      "Active Jobs",
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight:
-                                        FontWeight.w600,
-                                        color: ApkColors
-                                            .primaryColor,
-                                        fontSize: screenWidth * 0.020,),
-                                    ),
-                                  ),
-                                  Flexible(
-                                    child: Text(
-                                      "Total 1200",
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight:
-                                        FontWeight.w600,
-                                        color: ApkColors
-                                            .primaryColor,
-                                        fontSize: screenWidth * 0.016,),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: screenHeight * 0.240),
-                        ],
-                ),
-                SizedBox(height: screenHeight * 0.060),
+
+
+
+
+                      SizedBox(height: screenHeight * 0.042),
 
                       //// divider...............................
                       Container(
-                        width: screenWidth * 0.954,
                         height: screenWidth * 0.0005,
                         // color: ApkColors.primaryColor,
                         margin: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.120),
+                            horizontal: screenWidth * 0.200),
                         child: DottedLine(
                           dashLength: 10,
                           dashGapLength: 10,
                           lineThickness: 1,
                         ),
                       ),
+
+
                       SizedBox(height: screenHeight * 0.042),
 
                       //// category...............................
                 Container(
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.067),
+                  margin: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.057),
                   child: Text(
                     "Categories",
                     textAlign: TextAlign.start,
@@ -280,30 +170,32 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                       FontWeight.w600,
                       color: ApkColors
                           .primaryColor,
-                      fontSize: screenWidth * 0.024,),
+                      fontSize: screenWidth * 0.0167,),
                   ),
                 ),
+
+
                 SizedBox(height: screenHeight * 0.024),
 
                       //// category items...............................
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(width: screenWidth * 0.067),
+                          SizedBox(width: screenWidth * 0.057),
                           Flexible(
                             child: SizedBox(
-                              height: screenWidth * 0.144,
+                              height: screenWidth * 0.100,
                               child: GridView.builder(
                                 scrollDirection: Axis.horizontal,
                                 shrinkWrap: true,
-                                itemCount: 4,
+                                itemCount: 6,
                                 physics: NeverScrollableScrollPhysics(),
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 1,
                                   mainAxisSpacing: screenWidth * 0.030,
                                   crossAxisSpacing: screenWidth * 0.030,
-                                  mainAxisExtent: screenWidth * 0.144,
+                                  mainAxisExtent: screenWidth * 0.100,
                                 ),
                                 itemBuilder: (context, index) {
                                   //final item = SampleModel.cateItem[index];
@@ -319,12 +211,12 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                       child: Column(
                                         children: [
                                           Container(
-                                            height: screenWidth * 0.144,
-                                            width: screenWidth * 0.185,
+                                            height: screenWidth * 0.100,
+                                            width: screenWidth * 0.1285,
                                             alignment: Alignment.center,
                                             padding: EdgeInsets.symmetric(
                                                 horizontal:
-                                                    screenWidth * 0.020),
+                                                    screenWidth * 0.013),
 
                                             // padding: EdgeInsets.only(bottom: 18.px,left: 15.px,right: 15.px),
 
@@ -334,25 +226,25 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                                   : ApkColors.textEditColor,
                                               borderRadius:
                                                   BorderRadius.circular(
-                                                      screenWidth * 0.012),
+                                                      screenWidth * 0.007),
                                             ),
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  height: screenWidth * 0.018,
+                                                  height: screenWidth * 0.013,
                                                 ),
                                                 SizedBox(
-                                                  height: screenWidth * 0.048,
-                                                  width: screenWidth * 0.048,
+                                                  height: screenWidth * 0.033,
+                                                  width: screenWidth * 0.033,
                                                   child: SvgPicture.asset(
                                                     (index == 0)
                                                         ? IconPath.doctorIcon
                                                         : IconPath
                                                             .assistantIcon,
-                                                    height: screenWidth * 0.32,
-                                                    width: screenWidth * 0.032,
+                                                    height: screenWidth * 0.23,
+                                                    width: screenWidth * 0.023,
                                                     //color: ApkColors.backgroundColor,
                                                   ),
                                                 ),
@@ -371,7 +263,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                                           : ApkColors
                                                               .primaryColor,
                                                       fontSize:
-                                                          screenWidth * 0.020),
+                                                          screenWidth * 0.014),
                                                 ),
                                                 SizedBox(
                                                   height: screenWidth * 0.005,
@@ -388,10 +280,10 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                                           : ApkColors
                                                               .primaryColor80p,
                                                       fontSize:
-                                                          screenWidth * 0.010),
+                                                          screenWidth * 0.007),
                                                 ),
                                                 SizedBox(
-                                                  height: screenWidth * 0.015,
+                                                  height: screenWidth * 0.010,
                                                 ),
                                               ],
                                             ),
@@ -404,17 +296,18 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                               ),
                             ),
                           ),
-                          SizedBox(width: screenWidth * 0.055),
+                          SizedBox(width: screenWidth * 0.0382),
                           SizedBox(
                             height: screenWidth * 0.100,
-                            width: screenWidth * 0.083,
+                            width: screenWidth * 0.045,
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
                                   icon: SvgPicture.asset(
                                     IconPath.addJObsSvg,
-                                    height: screenWidth * 0.050,
-                                    width: screenWidth * 0.050,
+                                    height: screenWidth * 0.035,
+                                    width: screenWidth * 0.035,
                                   ),
                                   onPressed: () {
                                     // controller.increment();
@@ -423,7 +316,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                     // clickOnItems[0] = true;
                                   },
                                 ),
-                                SizedBox(height: screenWidth * 0.012),
+                                SizedBox(height: screenWidth * 0.007),
                                 Flexible(
                                   child: Text(
                                     "Add job",
@@ -432,25 +325,25 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       color: ApkColors.primaryColor,
-                                      fontSize: screenWidth * 0.016,
+                                      fontSize: screenWidth * 0.01116,
                                     ),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(width: screenWidth * 0.067),
+                          SizedBox(width: screenWidth * 0.0655),
                         ],
                       ),
 
-                      SizedBox(height: screenHeight * 0.060),
+                      SizedBox(height: screenHeight * 0.0417),
 
                       //// user...............................
 
                       Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.067),
+                            horizontal: screenWidth * 0.057),
                         child: Text(
                           "User Status",
                           textAlign: TextAlign.start,
@@ -458,7 +351,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             color: ApkColors.primaryColor,
-                            fontSize: screenWidth * 0.020,
+                            fontSize: screenWidth * 0.0167,
                           ),
                         ),
                       ),
@@ -473,15 +366,15 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                       SizedBox(
                         width: double.infinity,
                         child: DataTable(
-                          columnSpacing: screenWidth * 0.050,
-                          dataRowMaxHeight: screenWidth * 0.040,
+                         // columnSpacing: screenWidth * 0.050,
+                         // dataRowMaxHeight: screenWidth * 0.0278,
                           showBottomBorder: true,
                           dividerThickness: 1,
                           dataTextStyle: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             color: ApkColors.primaryColor,
-                            fontSize: screenWidth * 0.010,
+                            fontSize: screenWidth * 0.0139,
                           ),
                           decoration: BoxDecoration(
                             color: ApkColors.primaryColor,
@@ -498,13 +391,13 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                   DataColumn(
                                     label: Padding(
                                       padding: EdgeInsets.only(
-                                          left: screenWidth * 0.060),
+                                          left: screenWidth * 0.0417),
                                       child: Text("Name",
                                           style: TextStyle(
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w600,
                                             color: ApkColors.backgroundColor,
-                                            fontSize: screenWidth * 0.015,
+                                            fontSize: screenWidth * 0.0167,
                                           )),
                                     ),
                                   ),
@@ -514,7 +407,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w600,
                                           color: ApkColors.backgroundColor,
-                                          fontSize: screenWidth * 0.015,
+                                          fontSize: screenWidth * 0.0167,
                                         )),
                                   ),
                                   DataColumn(
@@ -523,7 +416,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w600,
                                           color: ApkColors.backgroundColor,
-                                          fontSize: screenWidth * 0.015,
+                                          fontSize: screenWidth * 0.0167,
                                         )),
                                   ),
                                   DataColumn(
@@ -532,13 +425,13 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w600,
                                           color: ApkColors.backgroundColor,
-                                          fontSize: screenWidth * 0.015,
+                                          fontSize: screenWidth * 0.0167,
                                         )),
                                   ),
                                 ],
                                 rows: List.generate(3, (index) {
                                   return recentFileDataRow(
-                                      demoRecentFiles[index], index);
+                                      demoRecentFiles[index], index, screenWidth);
                                 }),
                               ),
                             ),
@@ -546,7 +439,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                         ),
                       ),
 
-                      SizedBox(height: screenHeight * 0.060),
+                      SizedBox(height: screenHeight * 0.0417),
 
                       ////  View all button...............................
                 MouseRegion(
@@ -559,7 +452,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                           },
                     child: Container(
                       alignment: Alignment.center,
-                      width: screenWidth * 0.120,
+                      width: screenWidth * 0.132,
                       padding: EdgeInsets.symmetric(
                           vertical: screenWidth * 0.002),
                       decoration: BoxDecoration(
@@ -576,13 +469,13 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                           FontWeight.w600,
                           color: ApkColors
                               .backgroundColor,
-                          fontSize: screenWidth * 0.015,
+                          fontSize: screenWidth * 0.0167,
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.060),
+                SizedBox(height: screenHeight * 0.0417),
 
 
 
@@ -595,7 +488,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                 : Column(
                     children: [
                       SizedBox(
-                        height: screenWidth * 0.067,
+                        height: screenWidth * 0.0495,
                       ),
                       Row(
                         children: [
@@ -612,8 +505,8 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
 
                       },
                       child: SizedBox(
-                                height: screenWidth * 0.030,
-                                width: screenWidth * 0.030,
+                                height: screenWidth * 0.028,
+                                width: screenWidth * 0.028,
                                 child: SvgPicture.asset(
                                   IconPath.arrowLeftIcon,
                                   height: 25.px,
@@ -635,12 +528,12 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                       FontWeight.w600,
                       color: ApkColors
                           .primaryColor,
-                              fontSize: screenWidth * 0.020,
+                              fontSize: screenWidth * 0.0166,
                             ),
                           ),
                         ],
               ),
-                      SizedBox(height: screenHeight * 0.030),
+                      SizedBox(height: screenHeight * 0.021),
                       Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.symmetric(
@@ -652,29 +545,30 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             color: ApkColors.primaryColor,
-                            fontSize: screenWidth * 0.020,
+                            fontSize: screenWidth * 0.0195,
                           ),
                         ),
                       ),
-                      SizedBox(height: screenHeight * 0.030),
+                      SizedBox(height: screenHeight * 0.021),
                       Container(
+
                         margin: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.082),
+                            horizontal: screenWidth * 0.056),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
                               width: double.infinity,
                               child: DataTable(
-                                columnSpacing: screenWidth * 0.050,
-                                dataRowMaxHeight: screenWidth * 0.040,
+                                // columnSpacing: screenWidth * 0.050,
+                                // dataRowMaxHeight: screenWidth * 0.0278,
                                 showBottomBorder: true,
                                 dividerThickness: 1,
                                 dataTextStyle: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                   color: ApkColors.primaryColor,
-                                  fontSize: screenWidth * 0.010,
+                                  fontSize: screenWidth * 0.0139,
                                 ),
                                 decoration: BoxDecoration(
                                   color: ApkColors.primaryColor,
@@ -692,7 +586,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                               label: Padding(
 
                                 padding: EdgeInsets.only(
-                                    left: screenWidth * 0.060),
+                                    left: screenWidth * 0.0417),
 
                                 child: Text("Name",
                                     style: TextStyle(
@@ -701,7 +595,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                       FontWeight.w600,
                                       color: ApkColors
                                           .backgroundColor,
-                                      fontSize: screenWidth * 0.015,)
+                                      fontSize: screenWidth * 0.0167,)
                                 ),
                               ),
                             ),
@@ -713,7 +607,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                     FontWeight.w600,
                                     color: ApkColors
                                         .backgroundColor,
-                                    fontSize: screenWidth * 0.015,)),
+                                    fontSize: screenWidth * 0.0167,)),
                             ),
                             DataColumn(
                               label: Text("Status",
@@ -723,7 +617,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                     FontWeight.w600,
                                     color: ApkColors
                                         .backgroundColor,
-                                    fontSize: screenWidth * 0.015,)),
+                                    fontSize: screenWidth * 0.0167,)),
                             ),
                             DataColumn(
                               label: Text("Resume",
@@ -733,13 +627,13 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                     FontWeight.w600,
                                     color: ApkColors
                                         .backgroundColor,
-                                    fontSize: screenWidth * 0.015,)),
+                                    fontSize: screenWidth * 0.0167,)),
                           ),
                                 ],
                                 rows: List.generate(demoRecentFiles.length,
                                     (index) {
                                   return recentFileDataRow(
-                                      demoRecentFiles[index], index);
+                                      demoRecentFiles[index], index,screenWidth);
                                 }),
                               ),
                             ),
@@ -749,7 +643,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                       SizedBox(height: screenHeight * 0.030),
                       Container(
                           alignment: Alignment.center,
-                          width: screenWidth * 0.150,
+                          width: screenWidth * 0.221,
                           padding: EdgeInsets.symmetric(
                               vertical: screenWidth * 0.005),
                           decoration: BoxDecoration(
@@ -761,18 +655,18 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
 
-                    SizedBox(width:screenHeight * 0.010),
+                    SizedBox(width:screenHeight * 0.007),
 
                     Icon(CupertinoIcons.chevron_left,color: ApkColors.backgroundColor,
                                 size: screenWidth * 0.020,
                               ),
-                              SizedBox(width: screenHeight * 0.010),
+                              SizedBox(width: screenHeight * 0.007),
                               Container(
                     width: 2.px,
                       height: 30.px,
                       color: ApkColors.backgroundColor,
                     ),
-                    SizedBox(width:screenHeight * 0.010),
+                    SizedBox(width:screenHeight * 0.007),
                     Text(
                       "1",
                       textAlign: TextAlign.start,
@@ -782,10 +676,10 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                         FontWeight.w600,
                         color: ApkColors
                             .backgroundColor,
-                                  fontSize: screenWidth * 0.015,
+                                  fontSize: screenWidth * 0.0104,
                                 ),
                               ),
-                              SizedBox(width:screenHeight * 0.010),
+                              SizedBox(width:screenHeight * 0.007),
                     Text(
                       "of",
                       textAlign: TextAlign.start,
@@ -795,10 +689,10 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                         FontWeight.w600,
                         color: ApkColors
                             .backgroundColor,
-                                  fontSize: screenWidth * 0.015,
+                                  fontSize: screenWidth * 0.0104,
                                 ),
                               ),
-                              SizedBox(width:screenHeight * 0.010),
+                              SizedBox(width:screenHeight * 0.007),
                     Text(
                       "1",
                       textAlign: TextAlign.start,
@@ -808,10 +702,10 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                         FontWeight.w600,
                         color: ApkColors
                             .backgroundColor,
-                                  fontSize: screenWidth * 0.015,
+                                  fontSize: screenWidth * 0.0104,
                                 ),
                               ),
-                              SizedBox(width:screenHeight * 0.010),
+                              SizedBox(width:screenHeight * 0.007),
                     Container(
                       width: 2.px,
                       height: 30.px,
@@ -822,10 +716,10 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                     Icon(CupertinoIcons.chevron_forward,color: ApkColors.backgroundColor,
                                 size: screenWidth * 0.020,
                               ),
-                              SizedBox(width: screenHeight * 0.010),
+                              SizedBox(width: screenHeight * 0.007),
                             ],
                           )),
-                      SizedBox(height: screenHeight * 0.060),
+                      SizedBox(height: screenHeight * 0.0417),
                     ],
                   )
 
@@ -837,7 +731,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
 
   }
 
-  DataRow recentFileDataRow(RecentFile fileInfo, int index) {
+  DataRow recentFileDataRow(RecentFile fileInfo, int index, double screenWidth) {
     return DataRow(
       color: MaterialStateProperty.resolveWith<Color?>(
           (Set<MaterialState> states) {
@@ -846,20 +740,21 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
       cells: [
         DataCell(
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
-                width: 30.px,
-              ),
-              Image.asset(
-                fileInfo.icon!,
-                height: 30.px,
-                width: 30.px,
-              ),
-              SizedBox(
-                width: 40.px,
-              ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.px),
+                
+                padding: EdgeInsets.all(screenWidth * 0.005.px),
+
+                child: Image.asset(
+                  fileInfo.icon!,
+                  height: screenWidth * 0.030.px,
+                  width: screenWidth * 0.030.px,
+                ),
+              ),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.007.px),
                 child: Text(fileInfo.name!),
               ),
             ],
@@ -870,17 +765,14 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
           Row(
             children: [
               Icon(Icons.circle,
-                  size: 12.px,
+                  size: screenWidth * 0.012.px,
                   color: (fileInfo.status! == "Hired")
                       ? ApkColors.hiredColor
                       : (fileInfo.status! == "Pending")
                           ? ApkColors.pendingColor
                           : ApkColors.underReviewColor),
-              SizedBox(
-                width: 10.px,
-              ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.px),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.007.px),
                 child: Text(fileInfo.status!),
               ),
             ],
@@ -891,14 +783,14 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
             children: [
               SvgPicture.asset(
                 IconPath.downloadSvg,
-                height: 30.px,
-                width: 30.px,
+                height: screenWidth * 0.020.px,
+                width: screenWidth * 0.020.px,
               ),
               Spacer(),
               Icon(
                 Icons.more_vert_sharp,
                 color: ApkColors.primaryColor,
-                size: 30.px,
+                size: screenWidth * 0.020.px,
               )
             ],
           ),
