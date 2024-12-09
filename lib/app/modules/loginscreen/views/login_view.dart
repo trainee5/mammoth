@@ -161,8 +161,8 @@ class LoginView extends GetView<LoginController> {
                          // labelText: StringConstants.enterEmail,
                           hintText: StringConstants.enterPassword,
                           autofocus: false,
+                          maxLines:1,
                           obscureText: controller.passwordVisible,
-                          maxLine: 1,
                           wntsuffixIcon: true,
                           suffixIcon: GestureDetector(
                             onTap: () {

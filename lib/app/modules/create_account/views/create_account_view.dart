@@ -143,8 +143,9 @@ class CreateAccountView extends GetView<CreateAccountController> {
                           // labelText: StringConstants.enterEmail,
                           hintText: StringConstants.createPassword,
                           autofocus: false,
+                          minLine: 1,
+                          maxLines: 1,
                           obscureText: controller.passwordVisible,
-                          maxLine: 1,
                           wntsuffixIcon: true,
                           suffixIcon:  GestureDetector(
                             onTap: () {

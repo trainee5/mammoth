@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class ApkColors{
   static const Color primaryColor = Color(0xFF1A1A1A);
+  static const Color blueColor = Color(0xFF0051FF);
   static const Color backgroundColor = Color(0xFFFFFFFF);
+  static const Color webBackgroundColor = Color(0xFFFEFEFE);
   static const Color orangeColor = Color(0xFFff4000);
 
   static const Color textErrorColor = Color(0xFFF44D91);

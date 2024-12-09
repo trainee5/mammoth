@@ -7,6 +7,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../Utils/icon_path.dart';
 import '../../../color/ApkColors.dart';
+import '../../job_details_web_screen/views/job_details_web_screen_view.dart';
 import '../../post_job_web_scren/views/post_job_web_scren_view.dart';
 import '../controllers/post_job_category_page_controller.dart';
 
@@ -28,12 +29,20 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
       return Scaffold(
         body: SingleChildScrollView(
           child:controller.onClickPostJob
-              ? Column(
+              ? controller.onClickCategory
+              ? SizedBox(
+              height: screenHeight,
+              width:screenWidth,
+              child:  JobDetailsWebScreenView()// Your Widget
+          )
+              : Column(
             children: [
               SizedBox(height: screenWidth * 0.030),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(width: screenWidth * 0.106),
+                  // SizedBox(width: screenWidth * 0.070),
                   MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: GestureDetector(
@@ -44,21 +53,20 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                       },
                       child: Container(
                           alignment: Alignment.center,
-                          width: screenWidth * 0.190,
-                          height: screenWidth * 0.042,
+                          height: screenWidth * 0.0292,
                           decoration: BoxDecoration(
                             color: ApkColors.orangeColor,
                             borderRadius: BorderRadius.circular(
-                                screenWidth * 0.025),
+                                screenWidth * 0.020),
                           ),
                           child: Row(
                             mainAxisAlignment:
-                            MainAxisAlignment.spaceEvenly,
+                            MainAxisAlignment.center,
                             crossAxisAlignment:
                             CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                  width: screenHeight * 0.010),
+                                  width: screenHeight * 0.020),
                               Text(
                                 "Post Job",
                                 textAlign: TextAlign.start,
@@ -67,7 +75,7 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                   fontWeight: FontWeight.w600,
                                   color:
                                   ApkColors.backgroundColor,
-                                  fontSize: screenWidth * 0.024,
+                                  fontSize: screenWidth * 0.017,
                                 ),
                               ),
                               SizedBox(
@@ -75,18 +83,17 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                               Icon(
                                 CupertinoIcons.plus,
                                 color: ApkColors.backgroundColor,
-                                size: screenWidth * 0.018,
+                                size: screenWidth * 0.011,
                               ),
                               SizedBox(
-                                  width: screenHeight * 0.010),
+                                  width: screenHeight * 0.020),
                             ],
                           )),
                     ),
                   ),
+                  // SizedBox(width: screenWidth * 0.340),
                   Container(
                     alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: screenWidth * 0.067),
                     child: Text(
                       "Post Jobs for designers",
                       textAlign: TextAlign.start,
@@ -94,31 +101,30 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         color: ApkColors.primaryColor,
-                        fontSize: screenWidth * 0.024,
+                        fontSize: screenWidth * 0.017,
                       ),
                     ),
                   ),
-                  Spacer(),
-                  SizedBox(width: screenWidth * 0.106),
+                  SizedBox(width: screenWidth * 0.070),
                 ],
               ),
-              SizedBox(height: screenWidth * 0.048),
+              SizedBox(height: screenWidth * 0.034),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: screenWidth * 0.075),
+                    horizontal: screenWidth * 0.070),
                 child: GridView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   itemCount: 12,
                   physics: NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
-                      vertical: 24.px, horizontal: 24.px),
+                      vertical:  screenWidth * 0.017, horizontal:  screenWidth * 0.017),
                   gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: screenWidth * 0.030,
-                    crossAxisSpacing: screenWidth * 0.030,
-                    mainAxisExtent: screenWidth * 0.188,
+                    mainAxisSpacing: screenWidth * 0.021,
+                    crossAxisSpacing: screenWidth * 0.021,
+                    mainAxisExtent: screenWidth * 0.133,
                   ),
                   itemBuilder: (context, index) {
                     //final item = SampleModel.cateItem[index];
@@ -133,8 +139,8 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                         child: Stack(
                           children: [
                             Container(
-                              height: screenWidth * 0.188,
-                              width: screenWidth * 0.630,
+                              height: screenWidth * 0.133,
+                              width: screenWidth * 0.438,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                   color: (index == 0)
@@ -142,7 +148,7 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                       : ApkColors.backgroundColor,
                                   borderRadius:
                                   BorderRadius.circular(
-                                      screenWidth * 0.018),
+                                      screenWidth * 0.0083),
                                   border: Border.all(
                                       width: 1.px,
                                       color:
@@ -150,25 +156,25 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                               child: Column(
                                 children: [
                                   SizedBox(
-                                    height: screenWidth * 0.018,
+                                    height: screenWidth * 0.011,
                                   ),
                                   Row(
                                     children: [
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.024,
+                                        screenWidth * 0.011,
                                       ),
                                       Container(
                                         height:
-                                        screenWidth * 0.048,
+                                        screenWidth * 0.0333,
                                         width:
-                                        screenWidth * 0.048,
+                                        screenWidth * 0.0333,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                           BorderRadius
                                               .circular(
                                               screenWidth *
-                                                  0.010),
+                                                  0.007),
                                           color: (index == 0)
                                               ? Colors
                                               .deepPurpleAccent
@@ -180,21 +186,21 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                               borderRadius:
                                               BorderRadius.circular(
                                                   screenWidth *
-                                                      0.025),
+                                                      0.0175),
                                               child: Image.asset(
                                                 'assets/images/googlepng.png',
                                                 height:
                                                 screenWidth *
-                                                    0.022,
+                                                    0.0153,
                                                 width:
                                                 screenWidth *
-                                                    0.022,
+                                                    0.0153,
                                               )),
                                         ),
                                       ),
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.008,
+                                        screenWidth * 0.0125,
                                       ),
                                       Column(
                                         crossAxisAlignment:
@@ -217,7 +223,7 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                     .primaryColor,
                                                 fontSize:
                                                 screenWidth *
-                                                    0.020),
+                                                    0.014),
                                           ),
                                           Text(
                                             "Graphic Designer",
@@ -235,26 +241,26 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                     .primaryColor70p,
                                                 fontSize:
                                                 screenWidth *
-                                                    0.016),
+                                                    0.0111),
                                           )
                                         ],
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    height: screenWidth * 0.023,
+                                    height: screenWidth * 0.011,
                                   ),
                                   Row(
                                     children: [
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.027,
+                                        screenWidth * 0.0167,
                                       ),
                                       GestureDetector(
                                         onTap: () {},
                                         child: Container(
                                           height:
-                                          screenWidth * 0.028,
+                                          screenWidth * 0.0264,
                                           alignment:
                                           Alignment.center,
                                           // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
@@ -269,11 +275,12 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                       screenWidth *
                                                           0.006))),
                                           child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
                                             children: <Widget>[
                                               SizedBox(
                                                 width:
                                                 screenWidth *
-                                                    0.012,
+                                                    0.0084,
                                               ),
                                               SizedBox(
                                                 child: SvgPicture
@@ -282,16 +289,16 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                       .locationIcon,
                                                   height:
                                                   screenWidth *
-                                                      0.022,
+                                                      0.0153,
                                                   width:
                                                   screenWidth *
-                                                      0.022,
+                                                      0.0153,
                                                 ),
                                               ),
                                               SizedBox(
                                                 width:
                                                 screenWidth *
-                                                    0.008,
+                                                    0.0056,
                                               ),
                                               Text(
                                                 "Full-time",
@@ -309,12 +316,12 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                         .primaryColor80p,
                                                     fontSize:
                                                     screenWidth *
-                                                        0.010),
+                                                        0.0111),
                                               ),
                                               SizedBox(
                                                 width:
                                                 screenWidth *
-                                                    0.008,
+                                                    0.0084,
                                               ),
                                             ],
                                           ),
@@ -322,13 +329,13 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                       ),
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.008,
+                                        screenWidth * 0.0056,
                                       ),
                                       GestureDetector(
                                         onTap: () {},
                                         child: Container(
                                           height:
-                                          screenWidth * 0.028,
+                                          screenWidth * 0.0264,
                                           alignment:
                                           Alignment.center,
                                           // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
@@ -343,9 +350,12 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                       screenWidth *
                                                           0.006))),
                                           child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
                                             children: <Widget>[
                                               SizedBox(
-                                                width: 12.px,
+                                                width:
+                                                screenWidth *
+                                                    0.0084,
                                               ),
                                               SizedBox(
                                                 child: SvgPicture
@@ -354,90 +364,16 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                       .locationIcon,
                                                   height:
                                                   screenWidth *
-                                                      0.022,
+                                                      0.0153,
                                                   width:
                                                   screenWidth *
-                                                      0.022,
+                                                      0.0153,
                                                 ),
                                               ),
                                               SizedBox(
                                                 width:
                                                 screenWidth *
-                                                    0.008,
-                                              ),
-                                              Text(
-                                                "\$40.00 /month",
-                                                style: TextStyle(
-                                                    fontFamily:
-                                                    'Poppins',
-                                                    fontWeight:
-                                                    FontWeight
-                                                        .w500,
-                                                    color: (index ==
-                                                        0)
-                                                        ? ApkColors
-                                                        .primaryColor
-                                                        : ApkColors
-                                                        .primaryColor80p,
-                                                    fontSize:
-                                                    screenWidth *
-                                                        0.010),
-                                              ),
-                                              SizedBox(
-                                                width:
-                                                screenWidth *
-                                                    0.008,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width:
-                                        screenWidth * 0.008,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {},
-                                        child: Container(
-                                          height:
-                                          screenWidth * 0.028,
-                                          alignment:
-                                          Alignment.center,
-                                          // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
-                                          decoration: BoxDecoration(
-                                              color: (index == 0)
-                                                  ? ApkColors
-                                                  .backgroundColor
-                                                  : ApkColors
-                                                  .textEditColor,
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(
-                                                      screenWidth *
-                                                          0.006))),
-                                          child: Row(
-                                            children: <Widget>[
-                                              SizedBox(
-                                                width:
-                                                screenWidth *
-                                                    0.012,
-                                              ),
-                                              SizedBox(
-                                                child: SvgPicture
-                                                    .asset(
-                                                  IconPath
-                                                      .locationIcon,
-                                                  height:
-                                                  screenWidth *
-                                                      0.022,
-                                                  width:
-                                                  screenWidth *
-                                                      0.022,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width:
-                                                screenWidth *
-                                                    0.008,
+                                                    0.0056,
                                               ),
                                               Text(
                                                 "Full-time",
@@ -455,35 +391,111 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                         .primaryColor80p,
                                                     fontSize:
                                                     screenWidth *
-                                                        0.010),
+                                                        0.0111),
                                               ),
                                               SizedBox(
                                                 width:
                                                 screenWidth *
-                                                    0.008,
+                                                    0.0084,
                                               ),
                                             ],
                                           ),
                                         ),
                                       ),
+                                      SizedBox(
+                                        width:
+                                        screenWidth * 0.0056,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Container(
+                                          height:
+                                          screenWidth * 0.0264,
+                                          alignment:
+                                          Alignment.center,
+                                          // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
+                                          decoration: BoxDecoration(
+                                              color: (index == 0)
+                                                  ? ApkColors
+                                                  .backgroundColor
+                                                  : ApkColors
+                                                  .textEditColor,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(
+                                                      screenWidth *
+                                                          0.006))),
+                                          child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              SizedBox(
+                                                width:
+                                                screenWidth *
+                                                    0.0084,
+                                              ),
+                                              SizedBox(
+                                                child: SvgPicture
+                                                    .asset(
+                                                  IconPath
+                                                      .locationIcon,
+                                                  height:
+                                                  screenWidth *
+                                                      0.0153,
+                                                  width:
+                                                  screenWidth *
+                                                      0.0153,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width:
+                                                screenWidth *
+                                                    0.0056,
+                                              ),
+                                              Text(
+                                                "Full-time",
+                                                style: TextStyle(
+                                                    fontFamily:
+                                                    'Poppins',
+                                                    fontWeight:
+                                                    FontWeight
+                                                        .w500,
+                                                    color: (index ==
+                                                        0)
+                                                        ? ApkColors
+                                                        .primaryColor
+                                                        : ApkColors
+                                                        .primaryColor80p,
+                                                    fontSize:
+                                                    screenWidth *
+                                                        0.0111),
+                                              ),
+                                              SizedBox(
+                                                width:
+                                                screenWidth *
+                                                    0.0084,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+
                                     ],
                                   ),
                                   SizedBox(
-                                    height: screenWidth * 0.024,
+                                    height: screenWidth * 0.0167,
                                   ),
                                   Row(
                                     children: <Widget>[
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.024,
+                                        screenWidth * 0.011,
                                       ),
                                       SizedBox(
                                         child: SvgPicture.asset(
                                           IconPath.locationIcon,
                                           height:
-                                          screenWidth * 0.022,
+                                          screenWidth * 0.0153,
                                           width:
-                                          screenWidth * 0.022,
+                                          screenWidth * 0.0153,
                                           color: (index == 0)
                                               ? ApkColors
                                               .backgroundColor
@@ -493,7 +505,7 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                       ),
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.008,
+                                        screenWidth * 0.0055,
                                       ),
                                       Text(
                                         "Indore, India",
@@ -508,16 +520,16 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                 .primaryColor80p,
                                             fontSize:
                                             screenWidth *
-                                                0.016),
+                                                0.0111),
                                       ),
                                       Spacer(),
                                       SizedBox(
                                         child: SvgPicture.asset(
                                           IconPath.time,
                                           height:
-                                          screenWidth * 0.022,
+                                          screenWidth * 0.0153,
                                           width:
-                                          screenWidth * 0.022,
+                                          screenWidth * 0.0153,
                                           color: (index == 0)
                                               ? ApkColors
                                               .backgroundColor
@@ -527,7 +539,7 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                       ),
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.008,
+                                        screenWidth * 0.0056,
                                       ),
                                       Text(
                                         "3 days left",
@@ -542,16 +554,16 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                                 .primaryColor80p,
                                             fontSize:
                                             screenWidth *
-                                                0.016),
+                                                0.0111),
                                       ),
                                       SizedBox(
                                         width:
-                                        screenWidth * 0.024,
+                                        screenWidth * 0.011,
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    height: screenWidth * 0.016,
+                                    height: screenWidth * 0.010,
                                   ),
                                 ],
                               ),
@@ -560,17 +572,14 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                               alignment: Alignment.topRight,
                               child: Padding(
                                 padding: EdgeInsets.all(
-                                    screenWidth * 0.010),
+                                    screenWidth * 0.008),
                                 child: Card(
                                   elevation: 10,
                                   child: Container(
-                                    height: screenWidth * 0.020,
-                                    width: screenWidth * 0.020,
+                                    height: screenWidth * 0.014,
+                                    width: screenWidth * 0.014,
                                     decoration: BoxDecoration(
-                                      borderRadius:
-                                      BorderRadius.circular(
-                                          screenWidth *
-                                              0.010),
+                                      shape: BoxShape.circle,
                                       color: ApkColors
                                           .backgroundColor,
                                     ),
@@ -578,7 +587,7 @@ class PostJobCategoryPageView extends GetView<PostJobCategoryPageController> {
                                       Icons.more_vert_sharp,
                                       color:
                                       ApkColors.primaryColor,
-                                      size: screenWidth * 0.020,
+                                      size: screenWidth * 0.014,
                                     ),
                                   ),
                                 ),

@@ -6,7 +6,7 @@ class PostJobCategoryPageController extends GetxController {
   final count = 0.obs;
 
 
-  bool onClickCategory = true;
+  bool onClickCategory = false;
 
 
   bool onClickPostJob = true;

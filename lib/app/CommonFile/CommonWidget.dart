@@ -148,6 +148,7 @@ class CommonWidget {
       bool conFormPasswordVisible = false,
       bool passwordVisible = false,
       EdgeInsetsGeometry? margin,
+        bool? notWantPending,
       EdgeInsetsGeometry? contentPadding,
       double? containerHeight,
       TextEditingController? controller,
@@ -201,7 +202,7 @@ class CommonWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         maxLength: maxLength,
         maxLines: maxLines,
-        minLines: minLine,
+       minLines: minLine ?? 1,
 
         autofocus: autofocus,
         onTap: onTap ?? () {},
@@ -222,7 +223,7 @@ class CommonWidget {
           // labelText: labelText ?? 'Full Name',
 
           hintText: hintText ?? 'hint ',
-          hintStyle:  TextStyle(
+          hintStyle: hintStyle ?? TextStyle(
               fontSize: 16.px,
               fontFamily: 'Poppins',
               color: ApkColors.hintColor,

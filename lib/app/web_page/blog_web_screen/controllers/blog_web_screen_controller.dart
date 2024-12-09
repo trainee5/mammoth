@@ -4,6 +4,11 @@ class BlogWebScreenController extends GetxController {
   //TODO: Implement BlogWebScreenController
 
   final count = 0.obs;
+
+
+  bool onClickPost = true;
+
+
   @override
   void onInit() {
     super.onInit();

@@ -62,6 +62,14 @@ class IconPath {
   static const String notificationSvg = "assets/svgs/notification_svg.svg";
   static const String addJObsSvg = "assets/svgs/add-jobs.svg";
   static const String downloadSvg = "assets/svgs/download-02.svg";
+  static const String settingArrowLeft = "assets/svgs/arrow_for_setting.svg";
+  static const String faqSvg  = "assets/svgs/faqsvg.svg";
+  static const String lockSignSvg  = "assets/svgs/locksign.svg";
+  static const String postJobSvg  = "assets/svgs/postjobsvg.svg";
+  static const String termSvg  = "assets/svgs/termsvg.svg";
+  static const String editSvg  = "assets/svgs/editpencilsvg.svg";
+  static const String deleteSvg  = "assets/svgs/deletesvg.svg";
+  static const String addSvg  = "assets/svgs/addsvg.svg";
 
 
 }

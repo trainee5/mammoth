@@ -29,6 +29,13 @@ abstract class Routes {
   static const POST_JOB_WEB_SCREN = _Paths.POST_JOB_WEB_SCREN;
   static const BLOG_WEB_SCREEN = _Paths.BLOG_WEB_SCREEN;
   static const SUBSCRIPTION_WEB_SCREEN = _Paths.SUBSCRIPTION_WEB_SCREEN;
+  static const BLOG_VIEW_PAGE_WEB_SCREEN = _Paths.BLOG_VIEW_PAGE_WEB_SCREEN;
+  static const PROFILE_WEB_SCREEN = _Paths.PROFILE_WEB_SCREEN;
+  static const JOB_DETAILS_WEB_SCREEN = _Paths.JOB_DETAILS_WEB_SCREEN;
+  static const SETTING_WEB_SCREEN = _Paths.SETTING_WEB_SCREEN;
+  static const PRIVACY_POLLICY_WEB_SCREEN = _Paths.PRIVACY_POLLICY_WEB_SCREEN;
+  static const TERM_CONDITION_WEB_SCREEN = _Paths.TERM_CONDITION_WEB_SCREEN;
+  static const FAQ_WEB_SCREEN = _Paths.FAQ_WEB_SCREEN;
 }
 
 abstract class _Paths {
@@ -59,4 +66,11 @@ abstract class _Paths {
   static const POST_JOB_WEB_SCREN = '/post-job-web-scren';
   static const BLOG_WEB_SCREEN = '/blog-web-screen';
   static const SUBSCRIPTION_WEB_SCREEN = '/subscription-web-screen';
+  static const BLOG_VIEW_PAGE_WEB_SCREEN = '/blog-view-page-web-screen';
+  static const PROFILE_WEB_SCREEN = '/profile-web-screen';
+  static const JOB_DETAILS_WEB_SCREEN = '/job-details-web-screen';
+  static const SETTING_WEB_SCREEN = '/setting-web-screen';
+  static const PRIVACY_POLLICY_WEB_SCREEN = '/privacy-pollicy-web-screen';
+  static const TERM_CONDITION_WEB_SCREEN = '/term-condition-web-screen';
+  static const FAQ_WEB_SCREEN = '/faq-web-screen';
 }
