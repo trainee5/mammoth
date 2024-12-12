@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../../../Utils/StringConstants.dart';
 import '../../../Utils/icon_path.dart';
 import '../../../color/ApkColors.dart';
 import '../../../routes/app_pages.dart';
@@ -14,46 +15,48 @@ class ApplicationSentScreenView
 
   @override
   Widget build(BuildContext context) {
+
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
+
     return Scaffold(
       backgroundColor: ApkColors.backgroundColor,
       appBar:PreferredSize(
-        //preferredSize:  Size.fromHeight(80.0)
-        preferredSize:  Size.fromHeight(126.px),
+        preferredSize: Size.fromHeight(screenHeight * 0.146),
         child: Container(
-          decoration: BoxDecoration(
-              color: ApkColors.primaryColor
-          ),
+          decoration: BoxDecoration(color: ApkColors.primaryColor),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 60.px,
+                height: screenHeight * 0.0752,
               ),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 20.px),
+                padding:  EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                 child: Row(
                   children: <Widget>[
                     IconButton(
                       icon: SvgPicture.asset(
                         IconPath.arrowLeftIcon,
-                        height: 32.px,
-                        width: 32.px,
+                        height: screenHeight * 0.035,
+                        width: screenHeight * 0.035,
                       ),
                       onPressed: () {
-                       Get.back();
+                        Get.back();
                       },
                     ),
-
+                    SizedBox(
+                      width: screenHeight * 0.0129,
+                    ),
 
                   ],
                 ),
-
               ),
               SizedBox(
-                height: 30.px,
+                height: screenHeight * 0.0322,
               ),
-
-
             ],
           ),
         ),

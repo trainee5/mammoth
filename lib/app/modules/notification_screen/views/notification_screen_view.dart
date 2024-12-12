@@ -81,7 +81,7 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                       // Get.toNamed(Routes.);
                     },
                     child: Container(
-                      height: 120.px,
+                      height: 140.px,
                       alignment: Alignment.center,
 
                       decoration: BoxDecoration(
@@ -164,7 +164,7 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                                             FontWeight.w200,
                                             color: ApkColors
                                                 .primaryColor80p,
-                                            fontSize: 14.px),
+                                            fontSize: 12.px),
                                       ),
                                     )
                                   ],

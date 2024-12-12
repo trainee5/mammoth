@@ -14,8 +14,17 @@ class WelcomeView extends GetView<WelcomeController> {
   const WelcomeView({super.key});
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    print("screenHeight : $screenHeight" );
+    print("screenWidth : $screenWidth" );
+
+
     return Scaffold(
         backgroundColor: ApkColors.backgroundColor,
+
         body: Obx(() {
           controller.count.value;
           return Column(
@@ -24,19 +33,18 @@ class WelcomeView extends GetView<WelcomeController> {
             children: [
               Container(
                 padding: EdgeInsets.all(10),
-                height: 500.px,
+                height:screenHeight * 0.536,
                 //color: ApkColors.backgroundColor,
-                width: 500.px,
+                width:screenWidth * 1.16,
                 child: Image.asset(IconPath.welcomeGroupImg),
               ),
               Image.asset(IconPath.stripIcon),
               SizedBox(
-                height: 30.px,
+                height: screenHeight * 0.035,
               ),
-
               Image.asset(IconPath.textLogoIcon),
               SizedBox(
-                height: 60.px,
+                height: screenHeight * 0.064,
               ),
               Obx(() {
                 controller.animateCount.value;

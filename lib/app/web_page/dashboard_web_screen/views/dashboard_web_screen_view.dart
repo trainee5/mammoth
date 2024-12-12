@@ -138,14 +138,14 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
 
 
 
-                      SizedBox(height: screenHeight * 0.042),
+                      SizedBox(height: screenHeight * 0.0416),
 
                       //// divider...............................
                       Container(
                         height: screenWidth * 0.0005,
                         // color: ApkColors.primaryColor,
                         margin: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.200),
+                            horizontal: screenWidth * 0.160),
                         child: DottedLine(
                           dashLength: 10,
                           dashGapLength: 10,
@@ -154,7 +154,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                       ),
 
 
-                      SizedBox(height: screenHeight * 0.042),
+                      SizedBox(height: screenHeight * 0.0416),
 
                       //// category...............................
                 Container(
@@ -167,7 +167,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight:
-                      FontWeight.w600,
+                      FontWeight.w500,
                       color: ApkColors
                           .primaryColor,
                       fontSize: screenWidth * 0.0167,),
@@ -175,7 +175,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                 ),
 
 
-                SizedBox(height: screenHeight * 0.024),
+                SizedBox(height: screenHeight * 0.0167),
 
                       //// category items...............................
                       Row(
@@ -216,7 +216,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                             alignment: Alignment.center,
                                             padding: EdgeInsets.symmetric(
                                                 horizontal:
-                                                    screenWidth * 0.013),
+                                                    screenWidth * 0.010),
 
                                             // padding: EdgeInsets.only(bottom: 18.px,left: 15.px,right: 15.px),
 
@@ -233,7 +233,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  height: screenWidth * 0.013,
+                                                  height: screenWidth * 0.012,
                                                 ),
                                                 SizedBox(
                                                   height: screenWidth * 0.033,
@@ -263,7 +263,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                                           : ApkColors
                                                               .primaryColor,
                                                       fontSize:
-                                                          screenWidth * 0.014),
+                                                          screenWidth * 0.0139),
                                                 ),
                                                 SizedBox(
                                                   height: screenWidth * 0.005,
@@ -280,10 +280,10 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                                           : ApkColors
                                                               .primaryColor80p,
                                                       fontSize:
-                                                          screenWidth * 0.007),
+                                                          screenWidth * 0.008),
                                                 ),
                                                 SizedBox(
-                                                  height: screenWidth * 0.010,
+                                                  height: screenWidth * 0.008,
                                                 ),
                                               ],
                                             ),
@@ -349,13 +349,14 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                           textAlign: TextAlign.start,
                           style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w500,
                             color: ApkColors.primaryColor,
-                            fontSize: screenWidth * 0.0167,
+                            fontSize: screenWidth * 0.0195,
                           ),
                         ),
                       ),
-                      SizedBox(height: screenHeight * 0.030),
+
+                      SizedBox(height: screenHeight * 0.021),
 
                       Container(
                   margin: EdgeInsets.symmetric(
@@ -372,7 +373,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                           dividerThickness: 1,
                           dataTextStyle: TextStyle(
                             fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w500,
                             color: ApkColors.primaryColor,
                             fontSize: screenWidth * 0.0139,
                           ),
@@ -439,7 +440,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                         ),
                       ),
 
-                      SizedBox(height: screenHeight * 0.0417),
+                      SizedBox(height: screenHeight * 0.021),
 
                       ////  View all button...............................
                 MouseRegion(
@@ -566,7 +567,7 @@ class DashboardWebScreenView extends GetView<DashboardWebScreenController> {
                                 dividerThickness: 1,
                                 dataTextStyle: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w500,
                                   color: ApkColors.primaryColor,
                                   fontSize: screenWidth * 0.0139,
                                 ),

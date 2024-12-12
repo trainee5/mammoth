@@ -63,95 +63,97 @@ class NewslatterScreenView extends GetView<NewslatterScreenController> {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 64.px,
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Image.asset(IconPath.emailNewsLatter,
-            height: 220.px,
-            width: 291.px,
-            ),
-          ),
-          SizedBox(
-            height: 136.px,
-          ),
-          Container(
-            //color: ApkColors.primaryColor,
-            margin: EdgeInsets.symmetric(horizontal: 24.px),
-            padding: EdgeInsets.only(bottom: 8.px),
-            width: double.infinity,
-            child: Text(
-              StringConstants.enterEmail,
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w400,
-                  color: ApkColors.primaryColor,
-                  fontSize: 18.px),
-            ),
-          ),
-          Obx(() {
-            controller.count.value;
-            return Container(
-              padding: EdgeInsets.symmetric(horizontal: 24.px),
-              child: CommonWidget.commonTextField(
-                //validator: controller.Emailvalidator,
-                // labelText: StringConstants.enterHint,
-                hintText: StringConstants.enterHint,
-                autofocus: false,
-                filled: true,
-                fillColor: ApkColors.textEditColor,
-                prefixIcon: Image.asset(
-                  IconPath.mailIcon,
-                  height: 17.px,
-                  width: 20.px,),
-                enableBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                keyboardType: TextInputType.emailAddress,
-                //controller: controller.EmailAddressController
-              ),
-            );
-          }),
-          SizedBox(
-            height: 36.px,
-          ),
-          GestureDetector(
-            onTap: () {
-
-             // Get.toNamed(Routes.APPLICATION_SENT_SCREEN);
-            },
-            child: Container(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
               height: 64.px,
-              margin: EdgeInsets.symmetric(horizontal: 47.px),
-
+            ),
+            Align(
               alignment: Alignment.center,
-              // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
-              decoration: BoxDecoration(
-                  color:
-                  ApkColors.orangeColor,
-                  borderRadius:
-                  BorderRadius.all(
-                      Radius.circular(
-                          32.px))),
+              child: Image.asset(IconPath.emailNewsLatter,
+              height: 220.px,
+              width: 291.px,
+              ),
+            ),
+            SizedBox(
+              height: 100.px,
+            ),
+            Container(
+              //color: ApkColors.primaryColor,
+              margin: EdgeInsets.symmetric(horizontal: 24.px),
+              padding: EdgeInsets.only(bottom: 8.px),
+              width: double.infinity,
               child: Text(
-               StringConstants.submit,
+                StringConstants.enterEmail,
+                textAlign: TextAlign.start,
                 style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontWeight:
-                    FontWeight.w600,
-                    color: ApkColors
-                        .backgroundColor,
+                    fontWeight: FontWeight.w400,
+                    color: ApkColors.primaryColor,
                     fontSize: 18.px),
               ),
             ),
-          ),
-
-        ],
+            Obx(() {
+              controller.count.value;
+              return Container(
+                padding: EdgeInsets.symmetric(horizontal: 24.px),
+                child: CommonWidget.commonTextField(
+                  //validator: controller.Emailvalidator,
+                  // labelText: StringConstants.enterHint,
+                  hintText: StringConstants.enterHint,
+                  autofocus: false,
+                  filled: true,
+                  fillColor: ApkColors.textEditColor,
+                  prefixIcon: Image.asset(
+                    IconPath.mailIcon,
+                    height: 17.px,
+                    width: 20.px,),
+                  enableBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: ApkColors.primaryColorLite),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  keyboardType: TextInputType.emailAddress,
+                  //controller: controller.EmailAddressController
+                ),
+              );
+            }),
+            SizedBox(
+              height: 36.px,
+            ),
+            GestureDetector(
+              onTap: () {
+        
+               // Get.toNamed(Routes.APPLICATION_SENT_SCREEN);
+              },
+              child: Container(
+                height: 64.px,
+                margin: EdgeInsets.symmetric(horizontal: 47.px),
+        
+                alignment: Alignment.center,
+                // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
+                decoration: BoxDecoration(
+                    color:
+                    ApkColors.orangeColor,
+                    borderRadius:
+                    BorderRadius.all(
+                        Radius.circular(
+                            32.px))),
+                child: Text(
+                 StringConstants.submit,
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight:
+                      FontWeight.w600,
+                      color: ApkColors
+                          .backgroundColor,
+                      fontSize: 18.px),
+                ),
+              ),
+            ),
+        
+          ],
+        ),
       ),
     );
   }

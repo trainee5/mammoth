@@ -16,6 +16,7 @@ class IconPath {
   static const String welcomeGroupImg = "assets/images/wlcmgrupimg.png";
   static const String submitImg = "assets/images/Submitimg.png";
   static const String emailNewsLatter= "assets/images/email_news_latter.png";
+  static const String handDown= "assets/images/handdown.png";
 
 
 
@@ -55,6 +56,7 @@ class IconPath {
   static const String arrowUP = "assets/svgs/arrow-up.svg";
   static const String pdf = "assets/svgs/pdf-02.svg";
   static const String mentoring = "assets/svgs/mentoring.svg";
+  static const String cancelSvg = "assets/svgs/cancelsvg.svg";
 
 
   ///web material..........................................

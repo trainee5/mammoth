@@ -15,6 +15,7 @@ class StringConstants {
   static const String rememberMe = 'Remember me';
   static const String forgotPassword = 'Forgot password?';
   static const String signUp = 'Sign Up';
+  static const String signIn = 'Sign In';
   static const String logIn = 'Log In';
 
   static const String otpSendDigit = 'We’ve send you 4 digit code to your email.';

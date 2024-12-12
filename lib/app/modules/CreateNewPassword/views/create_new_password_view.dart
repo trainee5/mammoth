@@ -13,35 +13,41 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
   const CreateNewPasswordView({super.key});
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    print("screenHeight : $screenHeight" );
+    print("screenWidth : $screenWidth" );
+
     return Scaffold(
         backgroundColor: ApkColors.backgroundColor,
         appBar: PreferredSize(
-          //preferredSize:  Size.fromHeight(80.0)
-          preferredSize: Size.fromHeight(136.px),
+          preferredSize: Size.fromHeight(screenHeight * 0.146),
           child: Container(
             decoration: BoxDecoration(color: ApkColors.primaryColor),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: 70.px,
+                  height: screenHeight * 0.0752,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding:  EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                   child: Row(
                     children: <Widget>[
                       IconButton(
                         icon: SvgPicture.asset(
                           IconPath.arrowLeftIcon,
-                          height: 32.px,
-                          width: 32.px,
+                          height: screenHeight * 0.035,
+                          width: screenHeight * 0.035,
                         ),
                         onPressed: () {
                           Get.back();
                         },
                       ),
                       SizedBox(
-                        width: 12.px,
+                        width: screenHeight * 0.0129,
                       ),
                       Text(
                         StringConstants.createNewPassword,
@@ -49,13 +55,13 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
                             color: ApkColors.backgroundColor,
-                            fontSize: 26.px),
+                            fontSize: screenHeight * 0.028),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 30.px,
+                  height: screenHeight * 0.0322,
                 ),
               ],
             ),
@@ -63,176 +69,218 @@ class CreateNewPasswordView extends GetView<CreateNewPasswordController> {
         ),
         body: Form(
           key: controller.formKey,
-          child: Column(
-            children: [
-              SizedBox(
-                height: 40.px,
-              ),
-              Container(
-                //color: ApkColors.primaryColor,
-                margin: EdgeInsets.symmetric(horizontal: 24.px),
-                padding: EdgeInsets.only(bottom: 8.px),
-                width: double.infinity,
-                child: Text(
-                  StringConstants.newPassword,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                      color: ApkColors.primaryColor,
-                      fontSize: 18.px),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.043,
                 ),
-              ),
-              Obx(() {
-                controller.count.value;
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 24.px),
-                  height: 88.px,
-                  child: CommonWidget.commonTextField(
-                      validator: controller.passwordValidator,
-                      // labelText: StringConstants.enterEmail,
-                      hintText: StringConstants.createPassword,
-                      autofocus: false,
-                      minLine: 1,
-                      maxLines: 1,
-                      obscureText: controller.passwordVisible,
-                      wntsuffixIcon: true,
-                      suffixIcon: IconButton(
-                        icon:  controller.passwordVisible
-                            ? SvgPicture.asset(
-                          IconPath.eyeIcon,
-                          height:  24.px,
-                          width:  24.px,
-                        )
-                        : SvgPicture.asset(
-                          IconPath.viewOffIcon,
-                          height:  24.px,
-                          width:  24.px,
-                        ),
-
-
-                        onPressed: () {
-                          controller.increment();
-                          controller.passwordVisible =
-                          !controller.passwordVisible;
-                        },
-                      ),
-                      filled: true,
-                      fillColor:controller.passwordTextValueCheck
-                          ? ApkColors.backgroundColor
-                          : ApkColors.textEditColor,
-                      prefixIcon: Image.asset(
-                        IconPath.passLockIcon,
-                        height: 17.px,
-                        width: 20.px,),
-                      enableBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      keyboardType: TextInputType.visiblePassword,
-                      controller: controller.passwordController
+                Container(
+                  //color: ApkColors.primaryColor,
+                  margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                  padding: EdgeInsets.only(bottom:screenHeight * 0.0086),
+                  width: double.infinity,
+                  child: Text(
+                    StringConstants.newPassword,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                        color: ApkColors.primaryColor,
+                        fontSize: screenHeight * 0.020),
                   ),
-                );
-              }),
-              Container(
-                //color: ApkColors.primaryColor,
-
-                margin: EdgeInsets.symmetric(horizontal: 24.px),
-                padding: EdgeInsets.only(bottom: 8.px),
-                width: double.infinity,
-                child: Text(
-                  StringConstants.confirmNewPassword,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                      color: ApkColors.primaryColor,
-                      fontSize: 18.px),
                 ),
-              ),
-              Obx(() {
-                controller.count.value;
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 24.px),
-                  height: 88.px,
-                  child: CommonWidget.commonTextField(
-                      validator:  (String? value) {
-                        var passNonNullValue = value ?? "";
-                        if (passNonNullValue.isEmpty) {
-                          return ("Conform Password is required");
-                        }
-                        if (controller.confirmPasswordController.text != value) {
-                          return "Enter Right Conform Password";
-                        } else {
-                          return null;
-                        }
-                      },
-                      // labelText: StringConstants.enterEmail,
-                      hintText: StringConstants.createPassword,
-                      autofocus: false,
-                      obscureText: controller.conformPasswordVisible,
-                      minLine: 1,
-                      maxLines: 1,
-                      wntsuffixIcon: true,
-                      suffixIcon:  IconButton(
-                        icon:  controller.conformPasswordVisible
-                            ? SvgPicture.asset(
-                          IconPath.eyeIcon,
-                          height:  24.px,
-                          width:  24.px,
-                        )
-                            : SvgPicture.asset(
-                          IconPath.viewOffIcon,
-                          height:  24.px,
-                          width:  24.px,
+                Obx(() {
+                  controller.count.value;
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                    height: screenHeight * 0.095,
+                    child: CommonWidget.commonTextField(
+                        validator: controller.passwordValidator,
+                        // labelText: StringConstants.enterEmail,
+                        hintText: StringConstants.createPassword,
+                        autofocus: false,
+                        minLine: 1,
+                        maxLines: 1,
+                        style: TextStyle(
+                          fontSize: screenHeight * 0.0172,
+                          fontFamily: 'Poppins',
+                          color: ApkColors.primaryColor,
+                          fontWeight: FontWeight.w500,
                         ),
+                        hintStyle: TextStyle(
+                          fontSize: screenHeight * 0.0172,
+                          fontFamily: 'Poppins',
+                          color: ApkColors.hintColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        errorStyle: TextStyle(
+                          fontSize: screenHeight * 0.014,
+                          fontFamily: 'Poppins',
+                          color: ApkColors.textErrorColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
+                        obscureText: controller.passwordVisible,
+                        wntsuffixIcon: true,
+                        suffixIcon: IconButton(
+                          icon:  controller.passwordVisible
+                              ? SvgPicture.asset(
+                            IconPath.eyeIcon,
+                            height:  screenHeight * 0.0258,
+                            width:  screenHeight * 0.0258,
+                          )
+                          : SvgPicture.asset(
+                            IconPath.viewOffIcon,
+                            height: screenHeight * 0.0258,
+                            width:  screenHeight * 0.0258,
+                          ),
+            
+            
+                          onPressed: () {
+                            controller.increment();
+                            controller.passwordVisible =
+                            !controller.passwordVisible;
+                          },
+                        ),
+                        filled: true,
+                        fillColor:controller.passwordTextValueCheck
+                            ? ApkColors.backgroundColor
+                            : ApkColors.textEditColor,
+                        prefixIcon: Image.asset(
+                          IconPath.passLockIcon,
+                          height: screenHeight * 0.0258,
+                          width: screenHeight * 0.0258,),
+                        enableBorder:  OutlineInputBorder(
+                            borderSide: BorderSide(color: ApkColors.primaryColorLite),
+                            borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
+                        keyboardType: TextInputType.visiblePassword,
+                        controller: controller.passwordController
+                    ),
+                  );
+                }),
+                Container(
+                  //color: ApkColors.primaryColor,
+            
+                  margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                  padding: EdgeInsets.only(bottom: screenHeight * 0.0086),
+                  width: double.infinity,
+                  child: Text(
+                    StringConstants.confirmNewPassword,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                        color: ApkColors.primaryColor,
+                        fontSize: screenHeight * 0.020),
+                  ),
+                ),
 
-                        onPressed: () {
-                          controller.increment();
-                          controller.conformPasswordVisible =
-                          !controller.conformPasswordVisible;
+                Obx(() {
+                  controller.count.value;
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                    height: screenHeight * 0.095,
+                    child: CommonWidget.commonTextField(
+                        validator:  (String? value) {
+                          var passNonNullValue = value ?? "";
+                          if (passNonNullValue.isEmpty) {
+                            return ("Conform Password is required");
+                          }
+                          if (controller.confirmPasswordController.text != value) {
+                            return "Enter Right Conform Password";
+                          } else {
+                            return null;
+                          }
                         },
-                      ),
-                      filled: true,
-                      fillColor:controller.passwordTextValueCheck
-                          ? ApkColors.backgroundColor
-                          : ApkColors.textEditColor,
-                      prefixIcon: Image.asset(
-                        IconPath.passLockIcon,
-                        height: 17.px,
-                        width: 20.px,),
-                      enableBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      keyboardType: TextInputType.visiblePassword,
-                      controller: controller.confirmPasswordController
-                  ),
-                );
-              }),
-              Spacer(),
-              Obx(() {
-                controller.count.value;
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 24.px),
-                  child: CommonWidget.commonButton(
-                    height: 64.px,
-                      text: StringConstants.changePassword,
+                        // labelText: StringConstants.enterEmail,
+                        hintText: StringConstants.createPassword,
+                        autofocus: false,
+                        obscureText: controller.conformPasswordVisible,
+                        minLine: 1,
+                        maxLines: 1,
+                        wntsuffixIcon: true,
+                        style: TextStyle(
+                          fontSize: screenHeight * 0.0172,
+                          fontFamily: 'Poppins',
+                          color: ApkColors.primaryColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        hintStyle: TextStyle(
+                          fontSize: screenHeight * 0.0172,
+                          fontFamily: 'Poppins',
+                          color: ApkColors.hintColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        errorStyle: TextStyle(
+                          fontSize: screenHeight * 0.014,
+                          fontFamily: 'Poppins',
+                          color: ApkColors.textErrorColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
+                        suffixIcon:  IconButton(
+                          icon:  controller.conformPasswordVisible
+                              ? SvgPicture.asset(
+                            IconPath.eyeIcon,
+                            height:  screenHeight * 0.0258,
+                            width:  screenHeight * 0.0258,
+                          )
+                              : SvgPicture.asset(
+                            IconPath.viewOffIcon,
+                            height:  screenHeight * 0.0258,
+                            width:  screenHeight * 0.0258,
+                          ),
+            
+                          onPressed: () {
+                            controller.increment();
+                            controller.conformPasswordVisible =
+                            !controller.conformPasswordVisible;
+                          },
+                        ),
+                        filled: true,
+                        fillColor:controller.passwordTextValueCheck
+                            ? ApkColors.backgroundColor
+                            : ApkColors.textEditColor,
+                        prefixIcon: Image.asset(
+                          IconPath.passLockIcon,
+                          height: screenHeight * 0.0258,
+                          width: screenHeight * 0.0258,),
+                        enableBorder:  OutlineInputBorder(
+                            borderSide: BorderSide(color: ApkColors.primaryColorLite),
+                            borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
+                        keyboardType: TextInputType.visiblePassword,
+                        controller: controller.confirmPasswordController
+                    ),
+                  );
+                }),
+                SizedBox(
+                  height: screenHeight * 0.3536,
+                ),
 
-                      onPressed: () {
-                        controller.createNewPassword();
+                Obx(() {
+                  controller.count.value;
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                    child: CommonWidget.commonButton(
+                      height: screenHeight * 0.069,
+                        text: StringConstants.changePassword,
+            
+                        onPressed: () {
+                          controller.createNewPassword();
+            
+                          controller.formKey.currentState!.validate();
+            
+                          //  controller.formKey.currentState!.validate();
+                          //  controller.animatedBtnLoad();
+                        }
+                    ),
+                  );
+                }
+                ),
 
-                        controller.formKey.currentState!.validate();
-
-                        //  controller.formKey.currentState!.validate();
-                        //  controller.animatedBtnLoad();
-                      }
-                  ),
-                );
-              }),
-
-              SizedBox(
-                height: 28.px,
-              )
-            ],
+              ],
+            ),
           ),
         ));
   }

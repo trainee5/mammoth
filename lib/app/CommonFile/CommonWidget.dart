@@ -174,6 +174,7 @@ class CommonWidget {
       bool hintTextColor = false,
       Widget? suffixIcon,
       Widget? prefixIcon,
+      String? prefixIconPath,
       AutovalidateMode? autoValidateMode,
       int? maxLength,
       int? maxLine,
@@ -188,9 +189,11 @@ class CommonWidget {
       TextInputAction? textInputAction,
       bool wntsuffixIcon = false,
       bool wantPrefixIcon = true,
-      InputBorder? enableBorder}) {
+      InputBorder? enableBorder,
+      InputBorder? errorBorder
+      }) {
     return SizedBox(
-      height: 64.px,
+      //height: 100.px,
       child: TextFormField(
         controller: controller,
         onTapOutside: (event) {
@@ -249,8 +252,8 @@ class CommonWidget {
                    foreground: Paint()..shader = linearGradient,
                ),
           prefixIcon: wantPrefixIcon
-              ? SizedBox()
-              : null,
+              ? prefixIcon
+              : SizedBox(),
           suffixIcon: wntsuffixIcon
               ? suffixIcon ??
                   IconButton(
@@ -299,7 +302,7 @@ class CommonWidget {
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: ApkColors.orangeColor),
               borderRadius: BorderRadius.all(Radius.circular(10))),
-          errorBorder: OutlineInputBorder(
+          errorBorder: errorBorder ?? OutlineInputBorder(
               borderSide: BorderSide(color: Colors.red),
               borderRadius: BorderRadius.all(Radius.circular(10))),
           focusedErrorBorder: OutlineInputBorder(

@@ -15,64 +15,53 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: ApkColors.backgroundColor,
       appBar: PreferredSize(
-        //preferredSize:  Size.fromHeight(80.0)
-        preferredSize:  Size.fromHeight(136.px),
+        preferredSize: Size.fromHeight(screenHeight * 0.146),
         child: Container(
-          decoration: BoxDecoration(
-              color: ApkColors.primaryColor
-          ),
+          decoration: BoxDecoration(color: ApkColors.primaryColor),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 70.px,
+                height: screenHeight * 0.0752,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:  EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                 child: Row(
                   children: <Widget>[
                     IconButton(
                       icon: SvgPicture.asset(
                         IconPath.arrowLeftIcon,
-                        height: 32.px,
-                        width: 32.px,
+                        height: screenHeight * 0.035,
+                        width: screenHeight * 0.035,
                       ),
                       onPressed: () {
-                          Get.back();
-                        },
+                        Get.back();
+                      },
                     ),
-                    SizedBox(width: 12.px,),
+                    SizedBox(
+                      width: screenHeight * 0.0129,
+                    ),
                     Text(
                       StringConstants.design,
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: ApkColors.backgroundColor,
-                          fontSize: 26.px),
-                    ),
-                    const Spacer(),
-                    IconButton(
-                      icon: SvgPicture.asset(
-                        IconPath.preferenceIcon,
-                        height:  32.px,
-                        width:  32.px,
-                      ),
-                      onPressed: () {
-                        //controller.openDrawer();
-                      },
+                          fontSize: screenHeight * 0.028),
                     ),
                   ],
                 ),
-
               ),
               SizedBox(
-                height: 30.px,
+                height: screenHeight * 0.0322,
               ),
-
-
             ],
           ),
         ),
@@ -85,7 +74,7 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 24.px,
+                  height: screenHeight * 0.0258,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -95,11 +84,11 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
                         color: ApkColors.primaryColor,
-                        fontSize: 24.px),
+                        fontSize: screenHeight * 0.0258),
                   ),
                 ),
                 SizedBox(
-                  height: 34.px,
+                  height: screenHeight * 0.0365,
                 ),
                 ListView.builder(
                   scrollDirection: Axis.vertical,
@@ -108,56 +97,57 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                   itemCount: SampleModel.cateItem.length,
                   //padding: EdgeInsets.symmetric(vertical: 34.px),
                   itemBuilder: (context, index) {
+                    // final item = SampleModel.cateItem[index];
                     return Padding(
-                      padding: EdgeInsets.only(bottom: 18.px),
+                      padding: EdgeInsets.only(bottom: screenHeight * 0.0194),
                       child: GestureDetector(
                         onTap: (){
-                          Get.toNamed(Routes.APPLICTION_FORM_SCREEN);
+                          Get.toNamed(Routes.DETAILS_SCREEN);
                         },
                         child: Container(
-                          height: 250.px,
+                          height: screenHeight * 0.2737,
                           alignment: Alignment.center,
 
                           decoration: BoxDecoration(
                               color: (index == 0) ? ApkColors.orangeColor :  ApkColors.backgroundColor,
                               borderRadius:
-                              BorderRadius.circular(18.px),
+                              BorderRadius.circular(screenHeight * 0.0194),
                               border: Border.all(
                                   width: 1.px,
                                   color: ApkColors.orangeColor)),
                           child: Column(
                             children: [
                               SizedBox(
-                                height: 18.px,
+                                height: screenHeight * 0.0194,
                               ),
                               Row(
                                 children: [
                                   SizedBox(
-                                    width: 24.px,
+                                    width: screenHeight * 0.0258,
                                   ),
                                   Container(
-                                    height: 48.px,
-                                    width: 48.px,
+                                    height: screenHeight * 0.0516,
+                                    width: screenHeight * 0.0516,
                                     decoration: BoxDecoration(
                                       borderRadius:
                                       BorderRadius.circular(
-                                          10.px),
+                                          screenHeight * 0.0108),
                                       color: (index == 0) ? Colors.deepPurpleAccent :  ApkColors.orangeColor,
                                     ),
                                     child: GestureDetector(
                                       child: ClipRRect(
                                           borderRadius:
                                           BorderRadius.circular(
-                                              25),
+                                              screenHeight * 0.0258),
                                           child: Image.asset(
                                             'assets/images/googlepng.png',
-                                            height: 22.px,
-                                            width: 22.px,
+                                            height: screenHeight * 0.0237,
+                                            width: screenHeight * 0.0237,
                                           )),
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
                                   ),
                                   Column(
                                     crossAxisAlignment:
@@ -170,7 +160,7 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                             fontWeight:
                                             FontWeight.w500,
                                             color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor,
-                                            fontSize: 20.px),
+                                            fontSize: screenHeight * 0.0215),
                                       ),
                                       Text(
                                         "Graphic Designer",
@@ -179,25 +169,25 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                             fontWeight:
                                             FontWeight.w500,
                                             color: (index == 0) ? ApkColors.backgroundColor90p :  ApkColors.primaryColor70p,
-                                            fontSize: 16.px),
+                                            fontSize: screenHeight * 0.0172),
                                       )
                                     ],
                                   ),
                                 ],
                               ),
                               SizedBox(
-                                height: 23.px,
+                                height: screenHeight * 0.025,
                               ),
                               Row(
 
                                 children: [
                                   SizedBox(
-                                    width: 27.px,
+                                    width: screenHeight * 0.0258,
                                   ),
                                   GestureDetector(
                                     onTap: () {},
                                     child: Container(
-                                      height: 38.px,
+                                      height: screenHeight * 0.041,
                                       alignment: Alignment.center,
                                       // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                       decoration: BoxDecoration(
@@ -210,17 +200,17 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                       child: Row(
                                         children: <Widget>[
                                           SizedBox(
-                                            width: 12.px,
+                                            width: screenHeight * 0.0129,
                                           ),
                                           SizedBox(
                                             child: SvgPicture.asset(
                                               IconPath.locationIcon,
-                                              height: 22.px,
-                                              width: 22.px,
+                                              height: screenHeight * 0.024,
+                                              width: screenHeight * 0.02,
                                             ),
                                           ),
                                           SizedBox(
-                                            width: 8.px,
+                                            width: screenHeight * 0.0086,
                                           ),
                                           Text(
                                             "Full-time",
@@ -228,10 +218,10 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500,
                                                 color: (index == 0) ? ApkColors.primaryColor :  ApkColors.primaryColor80p,
-                                                fontSize: 15.px),
+                                                fontSize: screenHeight * 0.0172),
                                           ),
                                           SizedBox(
-                                            width: 12.px,
+                                            width: screenHeight * 0.0129,
                                           ),
 
                                         ],
@@ -239,12 +229,12 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
                                   ),
                                   GestureDetector(
                                     onTap: () {},
                                     child: Container(
-                                      height: 38.px,
+                                      height: screenHeight * 0.041,
                                       alignment: Alignment.center,
                                       // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                       decoration: BoxDecoration(
@@ -257,75 +247,17 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                       child: Row(
                                         children: <Widget>[
                                           SizedBox(
-                                            width: 12.px,
+                                            width: screenHeight * 0.0129,
                                           ),
                                           SizedBox(
                                             child: SvgPicture.asset(
                                               IconPath.locationIcon,
-                                              height: 22.px,
-                                              width: 22.px,
+                                              height: screenHeight * 0.024,
+                                              width: screenHeight * 0.02,
                                             ),
                                           ),
                                           SizedBox(
-                                            width: 8.px,
-                                          ),
-                                          Text(
-                                            "\$40.00 /month",
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w500,
-                                                color: (index == 0) ? ApkColors.primaryColor :  ApkColors.primaryColor80p,
-                                                fontSize: 15.px),
-                                          ),
-                                          SizedBox(
-                                            width: 8.px,
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 8.px,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 8.px,
-                              ),
-                              Row(
-
-                                children: [
-                                  SizedBox(
-                                    width: 27.px,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Container(
-                                      height: 38.px,
-                                      alignment: Alignment.center,
-                                      // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
-                                      decoration: BoxDecoration(
-                                          color:
-                                          (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
-                                          borderRadius:
-                                          BorderRadius.all(
-                                              Radius.circular(
-                                                  6.px))),
-                                      child: Row(
-                                        children: <Widget>[
-                                          SizedBox(
-                                            width: 12.px,
-                                          ),
-                                          SizedBox(
-                                            child: SvgPicture.asset(
-                                              IconPath.locationIcon,
-                                              height: 22.px,
-                                              width: 22.px,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 8.px,
+                                            width: screenHeight * 0.0086,
                                           ),
                                           Text(
                                             "Full-time",
@@ -333,10 +265,10 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500,
                                                 color: (index == 0) ? ApkColors.primaryColor :  ApkColors.primaryColor80p,
-                                                fontSize: 15.px),
+                                                fontSize: screenHeight * 0.0172),
                                           ),
                                           SizedBox(
-                                            width: 12.px,
+                                            width: screenHeight * 0.0129,
                                           ),
 
                                         ],
@@ -344,29 +276,87 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: screenHeight * 0.0086,
+                              ),
+                              Row(
+
+                                children: [
+                                  SizedBox(
+                                    width: screenHeight * 0.0258,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      height: screenHeight * 0.041,
+                                      alignment: Alignment.center,
+                                      // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
+                                      decoration: BoxDecoration(
+                                          color:
+                                          (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
+                                          borderRadius:
+                                          BorderRadius.all(
+                                              Radius.circular(
+                                                  6.px))),
+                                      child: Row(
+                                        children: <Widget>[
+                                          SizedBox(
+                                            width: screenHeight * 0.0129,
+                                          ),
+                                          SizedBox(
+                                            child: SvgPicture.asset(
+                                              IconPath.locationIcon,
+                                              height: screenHeight * 0.024,
+                                              width: screenHeight * 0.02,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: screenHeight * 0.0086,
+                                          ),
+                                          Text(
+                                            "Full-time",
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500,
+                                                color: (index == 0) ? ApkColors.primaryColor :  ApkColors.primaryColor80p,
+                                                fontSize: screenHeight * 0.0172),
+                                          ),
+                                          SizedBox(
+                                            width: screenHeight * 0.0129,
+                                          ),
+
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: screenHeight * 0.0086,
                                   ),
 
                                 ],
                               ),
                               SizedBox(
-                                height: 24.px,
+                                height: screenHeight * 0.0258,
                               ),
                               Row(
                                 children: <Widget>[
                                   SizedBox(
-                                    width: 24.px,
+                                    width: screenHeight * 0.0258,
                                   ),
                                   SizedBox(
                                     child: SvgPicture.asset(
                                       IconPath.locationIcon,
-                                      height: 22.px,
-                                      width: 22.px,
+                                      height: screenHeight * 0.0237,
+                                      width: screenHeight * 0.0237,
                                       color:  (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
                                   ),
                                   Text(
                                     "Indore, India",
@@ -374,19 +364,19 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                         color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
-                                        fontSize: 16.px),
+                                        fontSize: screenHeight * 0.0172),
                                   ),
                                   Spacer(),
                                   SizedBox(
                                     child: SvgPicture.asset(
                                       IconPath.time,
-                                      height: 22.px,
-                                      width: 22.px,
+                                      height: screenHeight * 0.0237,
+                                      width: screenHeight * 0.0237,
                                       color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
                                   ),
                                   Text(
                                     "3 days left",
@@ -394,16 +384,16 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                         color: (index == 0) ? ApkColors.backgroundColor :  ApkColors.primaryColor80p,
-                                        fontSize: 16.px),
+                                        fontSize: screenHeight * 0.0172),
                                   ),
                                   SizedBox(
-                                    width: 24.px,
+                                    width: screenHeight * 0.0258,
                                   ),
 
                                 ],
                               ),
                               SizedBox(
-                                height: 16.px,
+                                height: screenHeight * 0.0172,
                               ),
                             ],
                           ),
@@ -413,7 +403,7 @@ class JobTabScreenView extends GetView<JobTabScreenController> {
                   },
                 ),
                 SizedBox(
-                  height: 50.px,
+                  height: screenHeight * 0.0537,
                 )
 
               ],

@@ -118,7 +118,7 @@ class FaqScreenView extends GetView<FaqScreenController> {
                                     FontWeight.w500,
                                     color: ApkColors
                                         .primaryColor,
-                                    fontSize: 16.px),
+                                    fontSize: 12.px),
                               ),
                               Spacer(),
                               controller.clickOnItems[index]
@@ -157,7 +157,7 @@ class FaqScreenView extends GetView<FaqScreenController> {
                                   FontWeight.w500,
                                   color: ApkColors
                                       .primaryColor,
-                                  fontSize: 16.px),
+                                  fontSize: 14.px),
                             ),
                           ),)
                             : SizedBox()

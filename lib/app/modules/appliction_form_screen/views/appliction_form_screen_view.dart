@@ -16,55 +16,53 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
 
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: ApkColors.backgroundColor,
-      appBar:PreferredSize(
-        //preferredSize:  Size.fromHeight(80.0)
-        preferredSize:  Size.fromHeight(136.px),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(screenHeight * 0.146),
         child: Container(
-          decoration: BoxDecoration(
-              color: ApkColors.primaryColor
-          ),
+          decoration: BoxDecoration(color: ApkColors.primaryColor),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 70.px,
+                height: screenHeight * 0.0752,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:  EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                 child: Row(
                   children: <Widget>[
                     IconButton(
                       icon: SvgPicture.asset(
                         IconPath.arrowLeftIcon,
-                        height: 32.px,
-                        width: 32.px,
+                        height: screenHeight * 0.035,
+                        width: screenHeight * 0.035,
                       ),
                       onPressed: () {
                         Get.back();
                       },
                     ),
-                    SizedBox(width: 12.px,),
+                    SizedBox(
+                      width: screenHeight * 0.0129,
+                    ),
                     Text(
                       StringConstants.applicationForm,
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: ApkColors.backgroundColor,
-                          fontSize: 26.px),
+                          fontSize: screenHeight * 0.028),
                     ),
-
-
                   ],
                 ),
-
               ),
               SizedBox(
-                height: 30.px,
+                height: screenHeight * 0.0322,
               ),
-
-
             ],
           ),
         ),
@@ -73,12 +71,12 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
         child: Column(
           children: [
             SizedBox(
-              height: 36.px,
+              height: screenHeight * 0.0387,
             ),
             Container(
               //color: ApkColors.primaryColor,
-              margin: EdgeInsets.symmetric(horizontal: 24.px),
-              padding: EdgeInsets.only(bottom: 8.px),
+              margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+              padding: EdgeInsets.only(bottom: screenHeight * 0.0086),
               width: double.infinity,
               child: Text(
                 StringConstants.fullName,
@@ -87,43 +85,62 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     color: ApkColors.primaryColor,
-                    fontSize: 18.px),
+                    fontSize: screenHeight * 0.0194),
               ),
             ),
             Obx(() {
               controller.count.value;
               return Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.px),
-                height: 88.px,
+                padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                //height: 88.px,
                 child: CommonWidget.commonTextField(
                     validator: controller.firstNameValidator,
                     hintText: StringConstants.firstNameHint,
                     autofocus: false,
                     filled: true,
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.0172,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.primaryColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    hintStyle: TextStyle(
+                      fontSize: screenHeight * 0.0172,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.hintColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    errorStyle: TextStyle(
+                      fontSize: screenHeight * 0.014,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.textErrorColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
                     fillColor: ApkColors.textEditColor,
                     prefixIcon: Padding(
-                      padding: EdgeInsets.all(12.px),
+                      padding: EdgeInsets.all(screenHeight * 0.0129),
                       child: SvgPicture.asset(
                         IconPath.usersSvg,
-                        height: 24.px,
-                        width: 24.px,
+                        height: screenHeight * 0.0258,
+                        width: screenHeight * 0.0258,
 
                       ),
                     ),
-                    enableBorder: const OutlineInputBorder(
+                    enableBorder:  OutlineInputBorder(
                         borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                        borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
                     keyboardType: TextInputType.emailAddress,
                     controller: controller.firstNameController
                 ),
               );
             }),
             SizedBox(
-              height: 8.px,
+              height: screenHeight * 0.0086,
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 24.px),
-              padding: EdgeInsets.only(bottom: 8.px),
+              margin: EdgeInsets.symmetric(horizontal:screenHeight * 0.0258),
+              padding: EdgeInsets.only(bottom: screenHeight * 0.0086),
               width: double.infinity,
               child: Text(
                 StringConstants.enterEmail,
@@ -132,45 +149,65 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     color: ApkColors.primaryColor,
-                    fontSize: 18.px),
+                    fontSize: screenHeight * 0.0194),
               ),
             ),
             Obx(() {
               controller.count.value;
               return Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.px),
-                height: 88.px,
+                padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                //height: 88.px,
                 child: CommonWidget.commonTextField(
                   validator: controller.emailValidator,
                   // labelText: StringConstants.enterHint,
                   hintText: StringConstants.enterHint,
                   autofocus: false,
                   filled: true,
-                  fillColor: ApkColors.textEditColor,
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.0172,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.primaryColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    hintStyle: TextStyle(
+                      fontSize: screenHeight * 0.0172,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.hintColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    errorStyle: TextStyle(
+                      fontSize: screenHeight * 0.014,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.textErrorColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
+
+                    fillColor: ApkColors.textEditColor,
                   prefixIcon:  Padding(
-                    padding: EdgeInsets.all(12.px),
+                    padding: EdgeInsets.all( screenHeight * 0.0129),
                     child: SvgPicture.asset(
                       IconPath.mailSvg,
-                      height: 24.px,
-                      width: 24.px,
+                      height:  screenHeight * 0.0258,
+                      width:  screenHeight * 0.0258,
 
                     ),
                   ),
-                  enableBorder: const OutlineInputBorder(
+                  enableBorder:  OutlineInputBorder(
                       borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                      borderRadius: BorderRadius.all(Radius.circular( screenHeight * 0.0129))),
                   keyboardType: TextInputType.emailAddress,
                   controller: controller.emailAddressController
                 ),
               );
             }),
             SizedBox(
-              height: 8.px,
+              height:  screenHeight * 0.0086,
             ),
             Container(
               //color: ApkColors.primaryColor,
-              margin: EdgeInsets.symmetric(horizontal: 24.px),
-              padding: EdgeInsets.only(bottom: 8.px),
+              margin: EdgeInsets.symmetric(horizontal:  screenHeight * 0.0258),
+              padding: EdgeInsets.only(bottom:  screenHeight * 0.0086),
               width: double.infinity,
               child: Text(
               StringConstants.phoneNumber,
@@ -179,44 +216,63 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     color: ApkColors.primaryColor,
-                    fontSize: 18.px),
+                    fontSize:  screenHeight * 0.0194),
               ),
             ),
             Obx(() {
               controller.count.value;
               return Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.px),
-                height: 88.px,
+                padding: EdgeInsets.symmetric(horizontal:  screenHeight * 0.0258),
+              //  height: 88.px,
                 child: CommonWidget.commonTextField(
                   validator: controller.mobilValidator,
                   hintText: StringConstants.enterHint,
                   autofocus: false,
                   filled: true,
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.0172,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.primaryColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    hintStyle: TextStyle(
+                      fontSize: screenHeight * 0.0172,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.hintColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    errorStyle: TextStyle(
+                      fontSize: screenHeight * 0.014,
+                      fontFamily: 'Poppins',
+                      color: ApkColors.textErrorColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
                   fillColor: ApkColors.textEditColor,
                   prefixIcon:  Padding(
-                    padding: EdgeInsets.all(12.px),
+                    padding: EdgeInsets.all( screenHeight * 0.0129),
                     child: SvgPicture.asset(
                       IconPath.smartPhone,
-                      height: 24.px,
-                      width: 24.px,
+                      height:  screenHeight * 0.0258,
+                      width:  screenHeight * 0.0258,
 
                     ),
                   ),
-                  enableBorder: const OutlineInputBorder(
+                  enableBorder:  OutlineInputBorder(
                       borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                      borderRadius: BorderRadius.all(Radius.circular( screenHeight * 0.0129))),
                   keyboardType: TextInputType.emailAddress,
                   controller: controller.phoneNumberController
                 ),
               );
             }),
             SizedBox(
-              height: 8.px,
+              height: screenHeight * 0.0086,
             ),
             Container(
               //color: ApkColors.primaryColor,
-              margin: EdgeInsets.symmetric(horizontal: 24.px),
-              padding: EdgeInsets.only(bottom: 8.px),
+              margin: EdgeInsets.symmetric(horizontal:screenHeight * 0.0258),
+              padding: EdgeInsets.only(bottom: screenHeight * 0.0086),
               width: double.infinity,
               child: Text(
                 StringConstants.resume,
@@ -225,38 +281,57 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     color: ApkColors.primaryColor,
-                    fontSize: 18.px),
+                    fontSize: screenHeight * 0.0194),
               ),
             ),
             Obx(() {
               controller.count.value;
               return Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.px),
-                height: 88.px,
+                padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+               // height: 88.px,
                 child: CommonWidget.commonTextField(
                   hintText: StringConstants.uploadHere,
                   autofocus: false,
                   filled: true,
                   readOnly: true,
+                  style: TextStyle(
+                    fontSize: screenHeight * 0.0172,
+                    fontFamily: 'Poppins',
+                    color: ApkColors.primaryColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  hintStyle: TextStyle(
+                    fontSize: screenHeight * 0.0172,
+                    fontFamily: 'Poppins',
+                    color: ApkColors.hintColor,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  errorStyle: TextStyle(
+                    fontSize: screenHeight * 0.014,
+                    fontFamily: 'Poppins',
+                    color: ApkColors.textErrorColor,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
                   fillColor: ApkColors.textEditColor,
                   prefixIcon: Padding(
-                    padding: EdgeInsets.all(12.px),
+                    padding: EdgeInsets.all(screenHeight * 0.0129),
                     child: SvgPicture.asset(
                       IconPath.pdf,
-                      height: 24.px,
-                      width: 24.px,
+                      height: screenHeight * 0.0258,
+                      width: screenHeight * 0.0258,
                     
                     ),
                   ),
-                  enableBorder: const OutlineInputBorder(
+                  enableBorder:  OutlineInputBorder(
                       borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                      borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
                   keyboardType: TextInputType.emailAddress,
                 ),
               );
             }),
             SizedBox(
-              height: 40.px,
+              height: screenHeight * 0.0687,
             ),
             GestureDetector(
               onTap: () {
@@ -264,8 +339,8 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                 Get.toNamed(Routes.APPLICATION_SENT_SCREEN);
               },
               child: Container(
-                height: 64.px,
-                margin: EdgeInsets.symmetric(horizontal: 47.px),
+                height: screenHeight * 0.0687,
+                margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0507),
 
                 alignment: Alignment.center,
                 // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
@@ -275,7 +350,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                     borderRadius:
                     BorderRadius.all(
                         Radius.circular(
-                            32.px))),
+                            screenHeight * 0.0344))),
                 child: Text(
                   StringConstants.submit,
                   style: TextStyle(
@@ -284,9 +359,12 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                       FontWeight.w600,
                       color: ApkColors
                           .backgroundColor,
-                      fontSize: 18.px),
+                      fontSize: screenHeight * 0.0194),
                 ),
               ),
+            ),
+            SizedBox(
+              height: screenHeight * 0.100,
             ),
           ],
         ),

@@ -1,3 +1,4 @@
+import 'package:carded/carded.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -16,6 +17,9 @@ class CreateAccountView extends GetView<CreateAccountController> {
   const CreateAccountView({super.key});
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ApkColors.backgroundColor,
       body: SingleChildScrollView(
@@ -27,8 +31,8 @@ class CreateAccountView extends GetView<CreateAccountController> {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24.px),
-                    height: 225.px,
+                    padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.026),
+                    height: screenHeight * 0.245,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: ApkColors.primaryColor,
@@ -37,7 +41,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 85.px,
+                          height: screenHeight * 0.065,
                         ),
                         Row(
                           children: [
@@ -47,20 +51,18 @@ class CreateAccountView extends GetView<CreateAccountController> {
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                   color: ApkColors.backgroundColor,
-                                  fontSize: 28.px),
+                                  fontSize: screenHeight * 0.030),
                             ),
-                            SizedBox(
-                              width: 10.px,
-                            ),
+
                             Image.asset(
-                              IconPath.emojiDown,
-                              height: 38.px,
-                              width: 38.px,
+                              IconPath.handDown,
+                              height:  screenHeight * 0.0408,
+                              width: screenWidth * 0.0886,
                             ),
                           ],
                         ),
                         SizedBox(
-                          height: 17.px,
+                          height: screenHeight * 0.0183,
                         ),
                         Text(
                           StringConstants.createAccountUnlock,
@@ -68,18 +70,18 @@ class CreateAccountView extends GetView<CreateAccountController> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
                               color: ApkColors.backgroundColor,
-                              fontSize: 18.px),
+                              fontSize: screenHeight * 0.020),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: 40.px,
+                    height: screenHeight * 0.042,
                   ),
                   Container(
                     //color: ApkColors.primaryColor,
-                    margin: EdgeInsets.symmetric(horizontal: 24.px),
-                    padding: EdgeInsets.only(bottom: 8.px),
+                    margin: EdgeInsets.symmetric(horizontal:screenHeight * 0.026),
+                    padding: EdgeInsets.only(bottom: screenHeight * 0.0086),
                     width: double.infinity,
                     child: Text(
                       StringConstants.enterEmail,
@@ -88,114 +90,180 @@ class CreateAccountView extends GetView<CreateAccountController> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color: ApkColors.primaryColor,
-                          fontSize: 18.px),
+                          fontSize: screenHeight * 0.020),
                     ),
                   ),
                   Obx(() {
                     controller.count.value;
                     return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 24.px),
-                      height: 88.px,
+                      // color: Colors.deepPurple,
+                      margin: EdgeInsets.symmetric(horizontal:screenHeight * 0.026),
                       child: CommonWidget.commonTextField(
-                          validator: controller.emailValidator,
-                          // labelText: StringConstants.enterHint,
+                        //  validator: controller.emailValidator,
+                        // labelText: StringConstants.enterHint,
                           hintText: StringConstants.enterHint,
                           autofocus: false,
                           filled: true,
+                          style: TextStyle(
+                            fontSize: screenHeight * 0.0172,
+                            fontFamily: 'Poppins',
+                            color: ApkColors.primaryColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          hintStyle: TextStyle(
+                            fontSize: screenHeight * 0.0172,
+                            fontFamily: 'Poppins',
+                            color: ApkColors.hintColor,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          errorStyle: TextStyle(
+                            fontSize: screenHeight * 0.014,
+                            fontFamily: 'Poppins',
+                            color: ApkColors.textErrorColor,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
+                          wantPrefixIcon: true,
                           fillColor: ApkColors.textEditColor,
-                          prefixIcon: Image.asset(
-                            IconPath.mailIcon,
-                            height: 17.px,
-                            width: 20.px,),
-                          enableBorder: const OutlineInputBorder(
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.all(screenHeight * 0.0129),
+                            child: Image.asset(
+                              IconPath.mailIcon,
+                              height: screenHeight * 0.026,
+                              width: screenHeight * 0.026,),
+                          ),
+                          enableBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                              borderRadius: BorderRadius.all(Radius.circular(10))),
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: ApkColors.orangeColor),
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
+
+
                           keyboardType: TextInputType.emailAddress,
+
                           controller: controller.emailAddressController),
                     );
                   }),
-                  Row(
-                    children: [
-                      Container(
-                        //color: ApkColors.primaryColor,
-                        margin: EdgeInsets.symmetric(horizontal: 24.px),
-                        padding: EdgeInsets.only(bottom: 8.px),
-                        // width: double.infinity,
-                        child: Text(
-                          StringConstants.createStrongPassword,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                              color: ApkColors.primaryColor,
-                              fontSize: 18.px),
-                        ),
-                      ),
-                    ],
+                  Container(
+                    //color: ApkColors.primaryColor,
+                    margin: EdgeInsets.symmetric(horizontal:screenHeight * 0.026),
+                    padding: EdgeInsets.only(bottom: screenHeight * 0.0086),
+                    width: double.infinity,
+                    child: Text(
+                      StringConstants.createStrongPassword,
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: ApkColors.primaryColor,
+                          fontSize: screenHeight * 0.020),
+                    ),
                   ),
                   Obx(() {
                     controller.count.value;
-                    return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 24.px),
-                      height: 88.px,
-                      child: CommonWidget.commonTextField(
-                          validator: controller.passwordValidator,
+                    return  Padding(
+                      padding: EdgeInsets.symmetric(horizontal:screenHeight * 0.026),
+                      child: SizedBox(
+                        // height: screenHeight * 0.110,
+                        // color: Colors.amber,
+                        //margin: EdgeInsets.symmetric(horizontal:screenHeight * 0.026),
+                        // padding: EdgeInsets.only(top: screenHeight * 0.0086),
+                        child: CommonWidget.commonTextField(
+                          // validator: controller.passwordValidator,
                           // labelText: StringConstants.enterEmail,
-                          hintText: StringConstants.createPassword,
-                          autofocus: false,
-                          minLine: 1,
-                          maxLines: 1,
-                          obscureText: controller.passwordVisible,
-                          wntsuffixIcon: true,
-                          suffixIcon:  GestureDetector(
-                            onTap: () {
-                              controller.increment();
-                              controller.passwordVisible =
-                              !controller.passwordVisible;
-                            },
-                            child: controller.passwordVisible
-                                ? Padding(
-                              padding: EdgeInsets.all(12.px),
-                              child: SvgPicture.asset(
-                                IconPath.eyeIcon,
-                                height: 24.px,
-                                width: 24.px,
-                              ),
-                            )
-                                : Padding(
-                              padding: EdgeInsets.all(12.px),
-                              child: SvgPicture.asset(
-                                IconPath.viewOffIcon,
-                                height: 24.px,
-                                width: 24.px,
+                            hintText: StringConstants.enterPassword,
+                            autofocus: false,
+                            maxLines: 1,
+
+                            //contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.020),
+
+                            obscureText: controller.passwordVisible,
+                            style: TextStyle(
+                              fontSize: screenHeight * 0.0172,
+                              fontFamily: 'Poppins',
+                              color: ApkColors.primaryColor,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            hintStyle: TextStyle(
+                              fontSize: screenHeight * 0.0172,
+                              fontFamily: 'Poppins',
+                              color: ApkColors.hintColor,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            errorStyle: TextStyle(
+                              fontSize: screenHeight * 0.014,
+                              fontFamily: 'Poppins',
+                              color: ApkColors.textErrorColor,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            contentPadding: EdgeInsets.symmetric(vertical: screenHeight * 0.0215),
+
+                            wntsuffixIcon: true,
+                            wantPrefixIcon: true,
+                            prefixIcon: Padding(
+                              padding: EdgeInsets.all(screenHeight * 0.0129),
+                              child: Image.asset(
+                                IconPath.passLockIcon,
+                                height: screenHeight * 0.026,
+                                width: screenHeight * 0.026,),
+                            ),
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                controller.increment();
+                                controller.passwordVisible =
+                                !controller.passwordVisible;
+                              },
+                              child: controller.passwordVisible
+                                  ? Padding(
+                                padding: EdgeInsets.all(screenHeight * 0.0129),
+                                child: SvgPicture.asset(
+                                  IconPath.eyeIcon,
+                                  height: screenHeight * 0.026,
+                                  width: screenHeight * 0.026,
+                                ),
+                              )
+                                  : Padding(
+                                padding: EdgeInsets.all(screenHeight * 0.0129),
+                                child: SvgPicture.asset(
+                                  IconPath.viewOffIcon,
+                                  height: screenHeight * 0.026,
+                                  width: screenHeight * 0.026,
+                                ),
                               ),
                             ),
-                          ),
-                          filled: true,
-                          fillColor:controller.passwordTextValueCheck
-                              ? ApkColors.backgroundColor
-                              : ApkColors.textEditColor,
-                          prefixIcon: Image.asset(
-                            IconPath.passLockIcon,
-                            height: 17.px,
-                            width: 20.px,),
-                          enableBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                              borderRadius: BorderRadius.all(Radius.circular(10))),
-                          keyboardType: TextInputType.visiblePassword,
-                          controller: controller.passwordController
+
+                            filled: true,
+                            fillColor:controller.passwordTextValueCheck
+                                ? ApkColors.backgroundColor
+                                : ApkColors.textEditColor,
+                            enableBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: ApkColors.primaryColorLite),
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
+                            errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: ApkColors.orangeColor),
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
+                            keyboardType: TextInputType.visiblePassword,
+                            controller: controller.passwordController
+                        ),
                       ),
                     );
+
                   }),
+
                   Obx(() {
                     controller.count.value;
                     return Row(
 
                       children: [
                         Container(
-                          width: 24.px,
-                          height: 24.px,
-                          margin: EdgeInsets.only(left: 24.px),
+                          width: screenHeight * 0.026,
+                          height: screenHeight * 0.026,
+                          margin: EdgeInsets.only(left:screenHeight * 0.026),
                           //color: Colors.black,
                           child: Checkbox(
                             side: const BorderSide(
@@ -203,7 +271,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                               style: BorderStyle.solid,
                             ),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.px),
+                              borderRadius: BorderRadius.circular(screenHeight * 0.0054),
                             ),
 
                             value: controller.checkBoxValue,
@@ -215,9 +283,9 @@ class CreateAccountView extends GetView<CreateAccountController> {
                             },
                           ),
                         ),
-                        SizedBox(width: 8.px),
+                        SizedBox(width: screenHeight * 0.0086),
                         SizedBox(
-                            height: 30,
+                            height:  screenHeight * 0.0322,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -227,47 +295,52 @@ class CreateAccountView extends GetView<CreateAccountController> {
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400,
                                       color: ApkColors.primaryColor,
-                                      fontSize: 15.px),
+                                      fontSize:  screenHeight * 0.0172),
                                 ),
-                                SizedBox(width: 30.px,),
-
+                                SizedBox(width:  screenHeight * 0.065,),
                               ],
                             )),
+                        SizedBox(width: screenHeight * 0.026,)
                       ],
                     );
                   }),
+
                   SizedBox(
-                    height: 30.px,
+                    height: screenHeight * 0.043,
                   ),
                   Obx(() {
                     controller.count.value;
                     return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 24.px),
+                      margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                       child: CommonWidget.commonButton(
+                          height: screenHeight * 0.069,
                           text: StringConstants.signUp,
 
                           onPressed: () {
                             controller.createNewAccount();
+
                             controller.formKey.currentState!.validate();
-                            //  controller.animatedBtnLoad();
                           }
                       ),
                     );
-                  }),
+                  }
+                  ),
                   SizedBox(
-                    height: 24.px,
+                    height: screenHeight * 0.026,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
-                          height: 2.px,
-                          width: 126.px,
+                      Flexible(
+                        child: Container(
+                            height: 2.px,
+                            width: screenHeight * 0.1417,
 
-                          color: ApkColors.hintColor
+                            color: ApkColors.hintColor
+                        ),
                       ),
                       SizedBox(
-                        width: 10.px,
+                        width: screenHeight * 0.0172,
                       ),
                       Text(
                         StringConstants.orContinueWith,
@@ -276,64 +349,89 @@ class CreateAccountView extends GetView<CreateAccountController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
                             color: ApkColors.hintColor,
-                            fontSize: 16.px),
+                            fontSize: screenHeight * 0.0172),
                       ),
                       SizedBox(
-                        width: 10.px,
+                        width: screenHeight * 0.0172,
                       ),
-                      Container(
-                          height: 2.px,
-                          width: 126.px,
-                          color: ApkColors.hintColor
+                      Flexible(
+                        child: Container(
+                            height: 2.px,
+                            width: screenHeight * 0.1417,
+                            color: ApkColors.hintColor
+                        ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 40.px,
+                    height: screenHeight * 0.043,
                   ),
                   Row(
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 72.px,
-                        width: 72.px,
-                        decoration: BoxDecoration(
+                      CardyContainer(
+                        blurRadius: 0.px,
+                        height: screenHeight * 0.0773,
+                        width: screenHeight * 0.0773,
+                        borderRadius: BorderRadius.all(Radius.circular(12.px)),
+                        blurStyle: BlurStyle.normal,
+                        shadowColor: ApkColors.blackShadow,
+                        shadowOffset: Offset(
+                            0.px,4.px
+                        ),
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
                             color: ApkColors.primaryLite8p,
-                            borderRadius:
-                            BorderRadius.all(Radius.circular( 12.px))),
-                        child: Image.asset(IconPath.googleImg,
-                          height: 40.px,
-                          width: 40.px,
+                            borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129)),
+                          ),
+                          child: Image.asset(IconPath.googleImg,
+                            height: screenHeight * 0.043,
+                            width: screenHeight * 0.043,
+                          ),
                         ),
 
 
                       ),
                       SizedBox(
-                        width: 16.px,
+                        width: screenHeight * 0.0172,
                       ),
-                      Container(
-                        height: 72.px,
-                        width: 72.px,
-                        decoration: BoxDecoration(
-                            color: ApkColors.primaryLite8p,
-                            //color: ApkColors.primaryColor
-                            borderRadius:
-                            BorderRadius.all(Radius.circular( 12.px))),
-                        child: Image.asset(IconPath.appleImg,
-                          height: 40.px,
-                          width: 40.px,
+                      CardyContainer(
+                        blurRadius: 0.px,
+                        height: screenHeight * 0.0773,
+                        width: screenHeight * 0.0773,
+                        borderRadius: BorderRadius.all(Radius.circular(12.px)),
+                        blurStyle: BlurStyle.normal,
+                        shadowColor: ApkColors.blackShadow,
+                        shadowOffset: Offset(
+                            0.px,4.px
                         ),
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: ApkColors.primaryLite8p,
+                            borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129)),
+                          ),
+                          child: Image.asset(IconPath.appleImg,
+                            height: screenHeight * 0.043,
+                            width: screenHeight * 0.043,
+                          ),
+                        ),
+
+
                       ),
                     ],
                   ),
-                  SizedBox(height:60.px,),
                 ],
               ),
             ),
-
+            SizedBox(
+              height: screenHeight * 0.050,
+            ),
             Container(
-              padding: EdgeInsets.only(bottom: 30.px),
+              padding: EdgeInsets.only(bottom: screenHeight * 0.032),
+              // color: ApkColors.orangeColor,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -343,22 +441,22 @@ class CreateAccountView extends GetView<CreateAccountController> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         color: ApkColors.primaryLite80p,
-                        fontSize: 18.px),
+                        fontSize: screenHeight * 0.020),
                   ),
                   SizedBox(
-                    width: 5.px,
+                    width: screenHeight * 0.0054,
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(Routes.LOGIN);
+                      Get.toNamed(Routes.HOME);
                     },
                     child:  Text(
-                      StringConstants.logIn,
+                      StringConstants.signIn,
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           color: ApkColors.orangeColor,
-                          fontSize: 18.px),
+                          fontSize: screenHeight * 0.020),
                     ),
                   ),
                 ],

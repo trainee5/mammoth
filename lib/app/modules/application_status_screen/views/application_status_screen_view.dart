@@ -51,7 +51,7 @@ class ApplicationStatusScreenView
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                               color: ApkColors.backgroundColor,
-                              fontSize: 26.px),
+                              fontSize: 20.px),
                         ),
                         Spacer(),
                         SvgPicture.asset(
@@ -221,7 +221,7 @@ class ApplicationStatusScreenView
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 16.px,
+                                    height: 12.px,
                                   ),
                                 ],
                               ),

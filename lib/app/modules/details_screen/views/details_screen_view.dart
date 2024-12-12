@@ -15,6 +15,10 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
         backgroundColor: ApkColors.backgroundColor,
         appBar: PreferredSize(
@@ -87,31 +91,31 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                       Row(
                         children: [
                           SizedBox(
-                            width: 24.px,
+                            width: screenHeight * 0.0258,
                           ),
                           Container(
-                            height: 48.px,
-                            width: 48.px,
+                            height: screenHeight * 0.0516,
+                            width: screenHeight * 0.0516,
                             decoration: BoxDecoration(
                               borderRadius:
                               BorderRadius.circular(
-                                  10.px),
+                                  screenHeight * 0.0108),
                               color: ApkColors.orangeColor,
                             ),
                             child: GestureDetector(
                               child: ClipRRect(
                                   borderRadius:
                                   BorderRadius.circular(
-                                      25),
+                                      screenHeight * 0.0258),
                                   child: Image.asset(
                                     'assets/images/googlepng.png',
-                                    height: 22.px,
-                                    width: 22.px,
+                                    height: screenHeight * 0.0237,
+                                    width: screenHeight * 0.0237,
                                   )),
                             ),
                           ),
                           SizedBox(
-                            width: 8.px,
+                            width: screenHeight * 0.0086,
                           ),
                           Column(
                             crossAxisAlignment:
@@ -123,9 +127,8 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                     fontFamily: 'Poppins',
                                     fontWeight:
                                     FontWeight.w500,
-                                    color: ApkColors
-                                        .primaryColor,
-                                    fontSize: 20.px),
+                                    color:  ApkColors.primaryColor ,
+                                    fontSize: screenHeight * 0.0215),
                               ),
                               Text(
                                 "Graphic Designer",
@@ -133,9 +136,8 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                     fontFamily: 'Poppins',
                                     fontWeight:
                                     FontWeight.w500,
-                                    color: ApkColors
-                                        .primaryColor80p,
-                                    fontSize: 16.px),
+                                    color: ApkColors.primaryColor ,
+                                    fontSize: screenHeight * 0.0172),
                               )
                             ],
                           ),
