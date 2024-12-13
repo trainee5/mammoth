@@ -15,35 +15,37 @@ class NewslatterScreenView extends GetView<NewslatterScreenController> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ApkColors.backgroundColor,
       appBar: PreferredSize(
-        //preferredSize:  Size.fromHeight(80.0)
-        preferredSize: Size.fromHeight(136.px),
+        preferredSize: Size.fromHeight(screenHeight * 0.146),
         child: Container(
           decoration: BoxDecoration(color: ApkColors.primaryColor),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 70.px,
+                height: screenHeight * 0.0752,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:
+                EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                 child: Row(
                   children: <Widget>[
                     IconButton(
                       icon: SvgPicture.asset(
                         IconPath.arrowLeftIcon,
-                        height: 32.px,
-                        width: 32.px,
+                        height: screenHeight * 0.035,
+                        width: screenHeight * 0.035,
                       ),
                       onPressed: () {
                         Get.back();
                       },
                     ),
                     SizedBox(
-                      width: 12.px,
+                      width: screenHeight * 0.0129,
                     ),
                     Text(
                       StringConstants.newsletter,
@@ -51,13 +53,13 @@ class NewslatterScreenView extends GetView<NewslatterScreenController> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: ApkColors.backgroundColor,
-                          fontSize: 26.px),
+                          fontSize: screenHeight * 0.028),
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 30.px,
+                height: screenHeight * 0.0322,
               ),
             ],
           ),
@@ -68,37 +70,37 @@ class NewslatterScreenView extends GetView<NewslatterScreenController> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 64.px,
+              height: screenHeight * 0.0687,
             ),
             Align(
               alignment: Alignment.center,
               child: Image.asset(IconPath.emailNewsLatter,
-              height: 220.px,
-              width: 291.px,
+              height: screenHeight * 0.2362,
+              width: screenHeight * 0.3123,
               ),
             ),
             SizedBox(
-              height: 100.px,
+              height: screenHeight * 0.146,
             ),
             Container(
               //color: ApkColors.primaryColor,
-              margin: EdgeInsets.symmetric(horizontal: 24.px),
-              padding: EdgeInsets.only(bottom: 8.px),
+              margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+              padding: EdgeInsets.only(bottom: screenHeight * 0.0086),
               width: double.infinity,
               child: Text(
-                StringConstants.enterEmail,
+                StringConstants.enterYourEmail,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     color: ApkColors.primaryColor,
-                    fontSize: 18.px),
+                    fontSize: screenHeight * 0.0194),
               ),
             ),
             Obx(() {
               controller.count.value;
               return Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.px),
+                padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                 child: CommonWidget.commonTextField(
                   //validator: controller.Emailvalidator,
                   // labelText: StringConstants.enterHint,
@@ -108,18 +110,18 @@ class NewslatterScreenView extends GetView<NewslatterScreenController> {
                   fillColor: ApkColors.textEditColor,
                   prefixIcon: Image.asset(
                     IconPath.mailIcon,
-                    height: 17.px,
-                    width: 20.px,),
-                  enableBorder: const OutlineInputBorder(
+                    height: screenHeight * 0.0215,
+                    width: screenHeight * 0.0215,),
+                  enableBorder:  OutlineInputBorder(
                       borderSide: BorderSide(color: ApkColors.primaryColorLite),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                      borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129))),
                   keyboardType: TextInputType.emailAddress,
                   //controller: controller.EmailAddressController
                 ),
               );
             }),
             SizedBox(
-              height: 36.px,
+              height: screenHeight * 0.0494,
             ),
             GestureDetector(
               onTap: () {
@@ -127,18 +129,17 @@ class NewslatterScreenView extends GetView<NewslatterScreenController> {
                // Get.toNamed(Routes.APPLICATION_SENT_SCREEN);
               },
               child: Container(
-                height: 64.px,
-                margin: EdgeInsets.symmetric(horizontal: 47.px),
+                height: screenHeight * 0.0687,
+                margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0494),
         
                 alignment: Alignment.center,
-                // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                 decoration: BoxDecoration(
                     color:
                     ApkColors.orangeColor,
                     borderRadius:
                     BorderRadius.all(
                         Radius.circular(
-                            32.px))),
+                            screenHeight * 0.0344))),
                 child: Text(
                  StringConstants.submit,
                   style: TextStyle(
@@ -147,7 +148,7 @@ class NewslatterScreenView extends GetView<NewslatterScreenController> {
                       FontWeight.w600,
                       color: ApkColors
                           .backgroundColor,
-                      fontSize: 18.px),
+                      fontSize: screenHeight * 0.0194),
                 ),
               ),
             ),

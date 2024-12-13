@@ -36,6 +36,9 @@ abstract class Routes {
   static const PRIVACY_POLLICY_WEB_SCREEN = _Paths.PRIVACY_POLLICY_WEB_SCREEN;
   static const TERM_CONDITION_WEB_SCREEN = _Paths.TERM_CONDITION_WEB_SCREEN;
   static const FAQ_WEB_SCREEN = _Paths.FAQ_WEB_SCREEN;
+  static const ALL_JOB_PREFERENCE = _Paths.ALL_JOB_PREFERENCE;
+  static const ALL_JOB_CATEGORY = _Paths.ALL_JOB_CATEGORY;
+  static const BLOG_READING_SCREEN = _Paths.BLOG_READING_SCREEN;
 }
 
 abstract class _Paths {
@@ -73,4 +76,7 @@ abstract class _Paths {
   static const PRIVACY_POLLICY_WEB_SCREEN = '/privacy-pollicy-web-screen';
   static const TERM_CONDITION_WEB_SCREEN = '/term-condition-web-screen';
   static const FAQ_WEB_SCREEN = '/faq-web-screen';
+  static const ALL_JOB_PREFERENCE = '/all-job-preference';
+  static const ALL_JOB_CATEGORY = '/all-job-category';
+  static const BLOG_READING_SCREEN = '/blog-reading-screen';
 }

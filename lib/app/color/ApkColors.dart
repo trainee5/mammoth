@@ -14,6 +14,7 @@ class ApkColors{
   static const Color primaryColor70p = Color(0x701A1A1A);
   static const Color primaryColor80p = Color(0x801A1A1A);
   static const Color primaryColor60p = Color(0x601A1A1A);
+  static const Color dividerHome = Color(0x4028293F);
   static const Color primaryColorLite = Color(0x121A1A1A);
 
   static const Color hintColor = Color(0x801A1A1A);

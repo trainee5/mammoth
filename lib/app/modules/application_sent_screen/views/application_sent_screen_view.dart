@@ -63,17 +63,15 @@ class ApplicationSentScreenView
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 64.px,
-          ),
+          SizedBox(height: screenHeight * 0.0687,),
           CardyContainer(
             blurRadius: 20.px,
-            height: 414.px,
+            height: screenHeight * 0.4444,
             width: double.infinity,
             color: ApkColors.backgroundColor,
-            padding: EdgeInsets.all(24.px),
-            margin: EdgeInsets.symmetric(horizontal: 32.px),
-            borderRadius: BorderRadius.circular(32.px),
+            padding: EdgeInsets.all(screenHeight * 0.0258),
+            margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0344),
+            borderRadius: BorderRadius.circular(screenHeight * 0.0344),
             blurStyle: BlurStyle.outer,
             shadowColor: ApkColors.blackShadow,
             shadowOffset: Offset(
@@ -87,9 +85,9 @@ class ApplicationSentScreenView
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                       color: ApkColors.primaryColor,
-                      fontSize: 26.px),
+                      fontSize: screenHeight * 0.0279),
                 ),
-                SizedBox(height: 24.px,),
+                SizedBox(height: screenHeight * 0.0258,),
                 Text(
                   "Thank you for applying. We’re rooting for your success!",
                   textAlign: TextAlign.center,
@@ -98,27 +96,27 @@ class ApplicationSentScreenView
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
                       color: ApkColors.primaryColor,
-                      fontSize: 20.px),
+                      fontSize: screenHeight * 0.0215),
                 ),
-                SizedBox(height: 69.px,),
+                SizedBox(height:screenHeight * 0.0741,),
                 Image.asset(IconPath.submitImg,
-                  height: 163.px,
-                  width: 163.px,
+                  height: screenHeight * 0.175,
+                  width: screenHeight * 0.175,
                 )
               ],
 
             ),
           ),
           SizedBox(
-            height: 64.px,
+            height:screenHeight * 0.0687,
           ),
           GestureDetector(
             onTap: () {
               Get.toNamed(Routes.APPLICATION_STATUS_SCREEN);
             },
             child: Container(
-              height: 64.px,
-              margin: EdgeInsets.symmetric(horizontal: 47.px),
+              height: screenHeight * 0.0687,
+              margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0511),
 
               alignment: Alignment.center,
               // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
@@ -128,7 +126,7 @@ class ApplicationSentScreenView
                   borderRadius:
                   BorderRadius.all(
                       Radius.circular(
-                          32.px))),
+                          screenHeight * 0.0344))),
               child: Text(
                 "Submit",
                 style: TextStyle(
@@ -137,7 +135,7 @@ class ApplicationSentScreenView
                     FontWeight.w600,
                     color: ApkColors
                         .backgroundColor,
-                    fontSize: 18.px),
+                    fontSize: screenHeight * 0.0194),
               ),
             ),
           ),

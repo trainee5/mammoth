@@ -17,6 +17,7 @@ class IconPath {
   static const String submitImg = "assets/images/Submitimg.png";
   static const String emailNewsLatter= "assets/images/email_news_latter.png";
   static const String handDown= "assets/images/handdown.png";
+  static const String blackBox= "assets/images/blackbox.png";
 
 
 
@@ -50,6 +51,8 @@ class IconPath {
   static const String calendarIcon = "assets/svgs/calendarsvg.svg";
   static const String cameraAdd = "assets/svgs/camera-add.svg";
   static const String usersSvg = "assets/svgs/user.svg";
+  static const String userWhite = "assets/svgs/userwhite.svg";
+  static const String callSvg = "assets/svgs/call.svg";
   static const String smartPhone = "assets/svgs/smart-phone.svg";
   static const String mailSvg = "assets/svgs/mail-svg.svg";
   static const String arrowDown = "assets/svgs/arrow-down-01.svg";

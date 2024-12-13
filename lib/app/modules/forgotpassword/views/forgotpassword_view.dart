@@ -30,7 +30,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.px),
+                padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                 height: screenHeight * 0.245,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -119,7 +119,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                     textStyle: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
-                      fontSize: 32.px,
+                      fontSize: screenHeight * 0.0322,
                       color: ApkColors.primaryColor,
                     ),
                     decoration: BoxDecoration(
@@ -138,7 +138,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                 controller.count.value;
                 return Container(
                   alignment: Alignment.centerRight,
-                  margin: EdgeInsets.symmetric(horizontal: 24.px),
+                  margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                   width: double.infinity,
                   //color: Colors.black,
                   child: Text(

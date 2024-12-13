@@ -129,77 +129,75 @@ class SearchScreenView extends GetView<SearchScreenController> {
                 SizedBox(
                   height: screenHeight * 0.043,
                 ),
-                SizedBox(
-                  height:  screenHeight * 0.290,
-                  child: ListView(
-                    // Important: Remove any padding from the ListView.
-                    padding: EdgeInsets.zero,
-                    children: <Widget>[
-                      ListTile(
-                        title: Text(
-                          StringConstants.privacyPolicy,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.PRIVACY_POLICY_SCREEN);
-                        },
+                ListView(
+                  shrinkWrap: true,
+                  // Important: Remove any padding from the ListView.
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(
+                        StringConstants.privacyPolicy,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.termConditions,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.TERM_CONDITION_SCREEN);
-                        },
+                      onTap: () {
+                        Get.toNamed(Routes.PRIVACY_POLICY_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.termConditions,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.fAQ,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.FAQ_SCREEN);
-                        },
+                      onTap: () {
+                        Get.toNamed(Routes.TERM_CONDITION_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.fAQ,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.newsletter,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.NEWSLATTER_SCREEN);
-                        },
+                      onTap: () {
+                        Get.toNamed(Routes.FAQ_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.newsletter,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.logOut,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () => Navigator.pop(context),
+                      onTap: () {
+                        Get.toNamed(Routes.NEWSLATTER_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.logOut,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                    ],
-                  ),
+                      onTap: () => Navigator.pop(context),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -329,13 +327,12 @@ class SearchScreenView extends GetView<SearchScreenController> {
                         height: screenHeight * 0.0344,
                       ),
                       ListView.builder(
-                         scrollDirection: Axis.vertical,
+                        scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         physics: ClampingScrollPhysics(),
                         itemCount: SampleModel.cateItem.length,
-                        //padding: EdgeInsets.symmetric(vertical: 34.px),
                         itemBuilder: (context, index) {
-                         // final item = SampleModel.cateItem[index];
+                          // final item = SampleModel.cateItem[index];
                           return Padding(
                             padding: EdgeInsets.only(bottom: screenHeight * 0.0194),
                             child: GestureDetector(
@@ -366,11 +363,10 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                         Container(
                                           height: screenHeight * 0.0516,
                                           width: screenHeight * 0.0516,
+                                          padding: EdgeInsets.all(screenHeight * 0.005),
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                screenHeight * 0.0108),
-                                            color: (index == 0) ? Colors.deepPurpleAccent :  ApkColors.orangeColor,
+                                            borderRadius: BorderRadius.circular(screenHeight * 0.007),
+                                            color:(index == 0) ? ApkColors.backgroundColor :  ApkColors.orangeColor,
                                           ),
                                           child: GestureDetector(
                                             child: ClipRRect(
@@ -378,7 +374,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                 BorderRadius.circular(
                                                     screenHeight * 0.0258),
                                                 child: Image.asset(
-                                                  'assets/images/googlepng.png',
+                                                  IconPath.blackBox,
                                                   height: screenHeight * 0.0237,
                                                   width: screenHeight * 0.0237,
                                                 )),
@@ -392,7 +388,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                           CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "Emma Phillips",
+                                              index == 0 ? "UI/UX Designer" : "Graphic Designer",
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontWeight:
@@ -401,7 +397,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   fontSize: screenHeight * 0.0215),
                                             ),
                                             Text(
-                                              "Graphic Designer",
+                                              "1st mammuth",
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontWeight:
@@ -427,14 +423,13 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                           child: Container(
                                             height: screenHeight * 0.041,
                                             alignment: Alignment.center,
-                                            // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                             decoration: BoxDecoration(
                                                 color:
                                                 (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
                                                 borderRadius:
                                                 BorderRadius.all(
                                                     Radius.circular(
-                                                        6.px))),
+                                                        screenHeight * 0.0066))),
                                             child: Row(
                                               children: <Widget>[
                                                 SizedBox(
@@ -474,14 +469,13 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                           child: Container(
                                             height: screenHeight * 0.041,
                                             alignment: Alignment.center,
-                                            // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                             decoration: BoxDecoration(
                                                 color:
                                                 (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
                                                 borderRadius:
                                                 BorderRadius.all(
                                                     Radius.circular(
-                                                        6.px))),
+                                                        screenHeight * 0.0066))),
                                             child: Row(
                                               children: <Widget>[
                                                 SizedBox(
@@ -489,7 +483,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                 ),
                                                 SizedBox(
                                                   child: SvgPicture.asset(
-                                                    IconPath.locationIcon,
+                                                    IconPath.walletIcon,
                                                     height: screenHeight * 0.024,
                                                     width: screenHeight * 0.02,
                                                   ),
@@ -498,7 +492,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   width: screenHeight * 0.0086,
                                                 ),
                                                 Text(
-                                                  "Full-time",
+                                                  "\$40.00 /month",
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,
@@ -532,14 +526,13 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                           child: Container(
                                             height: screenHeight * 0.041,
                                             alignment: Alignment.center,
-                                            // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                                             decoration: BoxDecoration(
                                                 color:
                                                 (index == 0) ? ApkColors.backgroundColor :  ApkColors.textEditColor,
                                                 borderRadius:
                                                 BorderRadius.all(
                                                     Radius.circular(
-                                                        6.px))),
+                                                        screenHeight * 0.0066))),
                                             child: Row(
                                               children: <Widget>[
                                                 SizedBox(
@@ -547,7 +540,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                 ),
                                                 SizedBox(
                                                   child: SvgPicture.asset(
-                                                    IconPath.locationIcon,
+                                                    IconPath.briefcaseIcon,
                                                     height: screenHeight * 0.024,
                                                     width: screenHeight * 0.02,
                                                   ),
@@ -556,7 +549,7 @@ class SearchScreenView extends GetView<SearchScreenController> {
                                                   width: screenHeight * 0.0086,
                                                 ),
                                                 Text(
-                                                  "Full-time",
+                                                  "Work from home",
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
                                                       fontWeight: FontWeight.w500,

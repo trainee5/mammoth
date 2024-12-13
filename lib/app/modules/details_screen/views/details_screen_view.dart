@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:mammoth/app/routes/app_pages.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../../CommonFile/CommonWidget.dart';
 import '../../../Utils/StringConstants.dart';
 import '../../../Utils/icon_path.dart';
 import '../../../color/ApkColors.dart';
@@ -22,51 +23,46 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
     return Scaffold(
         backgroundColor: ApkColors.backgroundColor,
         appBar: PreferredSize(
-          //preferredSize:  Size.fromHeight(80.0)
-          preferredSize:  Size.fromHeight(136.px),
+          preferredSize: Size.fromHeight(screenHeight * 0.146),
           child: Container(
-            decoration: BoxDecoration(
-                color: ApkColors.primaryColor
-            ),
+            decoration: BoxDecoration(color: ApkColors.primaryColor),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: 70.px,
+                  height: screenHeight * 0.0752,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding:  EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                   child: Row(
                     children: <Widget>[
                       IconButton(
                         icon: SvgPicture.asset(
                           IconPath.arrowLeftIcon,
-                          height: 32.px,
-                          width: 32.px,
+                          height: screenHeight * 0.035,
+                          width: screenHeight * 0.035,
                         ),
                         onPressed: () {
                           Get.back();
                         },
                       ),
-                      SizedBox(width: 12.px,),
+                      SizedBox(
+                        width: screenHeight * 0.0129,
+                      ),
                       Text(
                         StringConstants.details,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
                             color: ApkColors.backgroundColor,
-                            fontSize: 26.px),
+                            fontSize: screenHeight * 0.028),
                       ),
-
                     ],
                   ),
-
                 ),
                 SizedBox(
-                  height: 30.px,
+                  height: screenHeight * 0.0322,
                 ),
-
-
               ],
             ),
           ),
@@ -77,7 +73,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
             child: Column(
               children: [
                 Container(
-                  height: 233.px,
+                  height: screenHeight * 0.258,
                   alignment: Alignment.center,
 
                   decoration: BoxDecoration(
@@ -86,7 +82,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 18.px,
+                        height: screenHeight * 0.0194,
                       ),
                       Row(
                         children: [
@@ -96,10 +92,9 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                           Container(
                             height: screenHeight * 0.0516,
                             width: screenHeight * 0.0516,
+                            padding: EdgeInsets.all(screenHeight * 0.005),
                             decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.circular(
-                                  screenHeight * 0.0108),
+                             borderRadius: BorderRadius.circular(screenHeight * 0.007),
                               color: ApkColors.orangeColor,
                             ),
                             child: GestureDetector(
@@ -108,7 +103,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                   BorderRadius.circular(
                                       screenHeight * 0.0258),
                                   child: Image.asset(
-                                    'assets/images/googlepng.png',
+                                    IconPath.blackBox,
                                     height: screenHeight * 0.0237,
                                     width: screenHeight * 0.0237,
                                   )),
@@ -122,7 +117,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Emma Phillips",
+                                "Graphic Designer",
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontWeight:
@@ -131,7 +126,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                                     fontSize: screenHeight * 0.0215),
                               ),
                               Text(
-                                "Graphic Designer",
+                                "1st mammuth",
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontWeight:
@@ -144,53 +139,52 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                         ],
                       ),
                       SizedBox(
-                        height: 23.px,
+                        height: screenHeight * 0.0247,
                       ),
                       Row(
 
                         children: [
                           SizedBox(
-                            width: 27.px,
+                            width:screenHeight * 0.0290,
                           ),
                           GestureDetector(
                             onTap: () {},
                             child: Container(
-                              height: 38.px,
+                              height: screenHeight * 0.041,
                               alignment: Alignment.center,
                               // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                               decoration: BoxDecoration(
                                   color:
-                                  ApkColors.textEditColor,
+                                   ApkColors.textEditColor ,
                                   borderRadius:
                                   BorderRadius.all(
                                       Radius.circular(
-                                          6.px))),
+                                          screenHeight * 0.0066))),
                               child: Row(
                                 children: <Widget>[
                                   SizedBox(
-                                    width: 12.px,
+                                    width: screenHeight * 0.0129,
                                   ),
                                   SizedBox(
                                     child: SvgPicture.asset(
                                       IconPath.locationIcon,
-                                      height: 22.px,
-                                      width: 22.px,
+                                      height: screenHeight * 0.024,
+                                      width: screenHeight * 0.02,
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
                                   ),
                                   Text(
                                     "Full-time",
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
-                                        color: ApkColors
-                                            .primaryColor80p,
-                                        fontSize: 15.px),
+                                        color:   ApkColors.primaryColor,
+                                        fontSize: screenHeight * 0.0172),
                                   ),
                                   SizedBox(
-                                    width: 12.px,
+                                    width: screenHeight * 0.0129,
                                   ),
 
                                 ],
@@ -198,47 +192,46 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             ),
                           ),
                           SizedBox(
-                            width: 8.px,
+                            width: screenHeight * 0.0086,
                           ),
                           GestureDetector(
                             onTap: () {},
                             child: Container(
-                              height: 38.px,
+                              height: screenHeight * 0.041,
                               alignment: Alignment.center,
                               // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                               decoration: BoxDecoration(
                                   color:
-                                  ApkColors.textEditColor,
+                                  ApkColors.textEditColor ,
                                   borderRadius:
                                   BorderRadius.all(
                                       Radius.circular(
-                                          6.px))),
+                                          screenHeight * 0.0066))),
                               child: Row(
                                 children: <Widget>[
                                   SizedBox(
-                                    width: 12.px,
+                                    width: screenHeight * 0.0129,
                                   ),
                                   SizedBox(
                                     child: SvgPicture.asset(
                                       IconPath.walletIcon,
-                                      height: 22.px,
-                                      width: 22.px,
+                                      height: screenHeight * 0.024,
+                                      width: screenHeight * 0.02,
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
                                   ),
                                   Text(
                                     "\$40.00 /month",
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
-                                        color: ApkColors
-                                            .primaryColor80p,
-                                        fontSize: 15.px),
+                                        color:   ApkColors.primaryColor,
+                                        fontSize: screenHeight * 0.0172),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0129,
                                   ),
 
                                 ],
@@ -246,58 +239,57 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             ),
                           ),
                           SizedBox(
-                            width: 8.px,
+                            width: screenHeight * 0.0086,
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 8.px,
+                        height: screenHeight * 0.0086,
                       ),
                       Row(
 
                         children: [
                           SizedBox(
-                            width: 27.px,
+                            width: screenHeight * 0.029,
                           ),
                           GestureDetector(
                             onTap: () {},
                             child: Container(
-                              height: 38.px,
+                              height: screenHeight * 0.041,
                               alignment: Alignment.center,
                               // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
                               decoration: BoxDecoration(
                                   color:
-                                  ApkColors.textEditColor,
+                                  ApkColors.textEditColor ,
                                   borderRadius:
                                   BorderRadius.all(
                                       Radius.circular(
-                                          6.px))),
+                                          screenHeight * 0.0066))),
                               child: Row(
                                 children: <Widget>[
                                   SizedBox(
-                                    width: 12.px,
+                                    width: screenHeight * 0.0129,
                                   ),
                                   SizedBox(
                                     child: SvgPicture.asset(
                                       IconPath.briefcaseIcon,
-                                      height: 22.px,
-                                      width: 22.px,
+                                      height: screenHeight * 0.024,
+                                      width: screenHeight * 0.02,
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 8.px,
+                                    width: screenHeight * 0.0086,
                                   ),
                                   Text(
-                                    "Work from home",
+                                    "Work From Home",
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
-                                        color: ApkColors
-                                            .primaryColor80p,
-                                        fontSize: 15.px),
+                                        color:   ApkColors.primaryColor,
+                                        fontSize: screenHeight * 0.0172),
                                   ),
                                   SizedBox(
-                                    width: 12.px,
+                                    width: screenHeight * 0.0129,
                                   ),
 
                                 ],
@@ -305,60 +297,60 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             ),
                           ),
                           SizedBox(
-                            width: 8.px,
+                            width: screenHeight * 0.0086,
                           ),
 
                         ],
                       ),
                       SizedBox(
-                        height: 24.px,
+                        height: screenHeight * 0.0258,
                       ),
                       Row(
                         children: <Widget>[
                           SizedBox(
-                            width: 24.px,
+                            width: screenHeight * 0.0258,
                           ),
                           SizedBox(
                             child: SvgPicture.asset(
                               IconPath.locationIcon,
-                              height: 22.px,
-                              width: 22.px,
+                              height: screenHeight * 0.0237,
+                              width: screenHeight * 0.0237,
+                              color:  ApkColors.primaryColor,
                             ),
                           ),
                           SizedBox(
-                            width: 8.px,
+                            width: screenHeight * 0.0086,
                           ),
                           Text(
                             "Indore, India",
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                color: ApkColors
-                                    .primaryColor,
-                                fontSize: 16.px),
+                                color:  ApkColors.primaryColor,
+                                fontSize: screenHeight * 0.0172),
                           ),
                           Spacer(),
                           SizedBox(
                             child: SvgPicture.asset(
                               IconPath.time,
-                              height: 22.px,
-                              width: 22.px,
+                              height: screenHeight * 0.0237,
+                              width: screenHeight * 0.0237,
+                              color: ApkColors.backgroundColor ,
                             ),
                           ),
                           SizedBox(
-                            width: 8.px,
+                            width: screenHeight * 0.0086,
                           ),
                           Text(
                             "3 days left",
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                color: ApkColors
-                                    .primaryColor,
-                                fontSize: 16.px),
+                                color: ApkColors.primaryColor,
+                                fontSize: screenHeight * 0.0172),
                           ),
                           SizedBox(
-                            width: 24.px,
+                            width: screenHeight * 0.0258,
                           ),
 
                         ],
@@ -367,7 +359,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                   ),
                 ),
                 SizedBox(
-                  height: 24.px,
+                  height: screenHeight * 0.0258,
                 ),
 
                 Divider(
@@ -377,14 +369,14 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                 ),
 
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 24.px),
+                  padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                   alignment: Alignment.topLeft,
 
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 34.px,
+                        height: screenHeight * 0.0365,
                       ),
                       Text(
                         StringConstants.aboutTheJob,
@@ -392,10 +384,10 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
                             color: ApkColors.primaryColor,
-                            fontSize: 24.px),
+                            fontSize: screenHeight * 0.0258),
                       ),
                       SizedBox(
-                        height: 8.px,
+                        height: screenHeight * 0.0086,
                       ),
                       Text(
                         "We are looking for a Junior Graphic Designer  to support  our creative team.",
@@ -403,10 +395,10 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
                             color: ApkColors.primaryColor,
-                            fontSize: 16.px),
+                            fontSize: screenHeight * 0.0172),
                       ),
                       SizedBox(
-                        height: 32.px,
+                        height: screenHeight * 0.0344,
                       ),
                       Text(
                         StringConstants.yourTasks,
@@ -414,98 +406,108 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
                             color: ApkColors.primaryColor,
-                            fontSize: 24.px),
+                            fontSize: screenHeight * 0.0258),
                       ),
                       SizedBox(
-                        height: 8.px,
+                        height: screenHeight * 0.0086,
+                      ),
+
+                      ListView(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+
+                        children: [
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Design logos, color schemes,typography, and brand guidelines.",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+
+                            title: Text(
+                              "Create visuals to aid storytelling and navigation.",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size:  screenHeight * 0.0108,),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Create visuals to aid storytelling and navigation.",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Support visually appealing, user-friendly interfaces.",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Create mockups for client/stakeholder presentations.",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                        ],
                       ),
 
                       SizedBox(
-                        height: 250.px,
-                        child: ListView(
-                          physics: NeverScrollableScrollPhysics(),
-                          children: [
-                            ListTile(
-
-                              title: Text(
-                                "Design logos, color schemes,typography, and brand guidelines.",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "Create visuals to aid storytelling and navigation.",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "Create visuals to aid storytelling and navigation.",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "Support visually appealing, user-friendly interfaces.",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "Create mockups for client/stakeholder presentations.",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: 30.px,
+                        height: screenHeight * 0.0322,
                       ),
                       Text(
                         StringConstants.requirements,
@@ -513,99 +515,107 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
                             color: ApkColors.primaryColor,
-                            fontSize: 24.px),
+                            fontSize: screenHeight * 0.0258),
                       ),
                       SizedBox(
-                        height: 8.px,
+                        height: screenHeight * 0.0086,
+                      ),
+
+                      ListView(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        children: [
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Studies or training in the field of interface design, information design, communication design, communication sciences or similar.",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "First practical experience in the design and conception of user interfaces"
+                                  "Basic knowledge of design thinking methods and UX methods",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Enjoy working in a team and have a good sense of design and interest in current UX trends",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Very good knowledge of German and good knowledge of English.",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                          ListTile(
+                            minVerticalPadding: screenHeight * 0.0010,
+                            horizontalTitleGap:screenHeight * 0.0010 ,
+                            titleAlignment: ListTileTitleAlignment.titleHeight,
+
+                            title: Text(
+                              "Basic knowledge of design thinking methods and UX methods",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: ApkColors.primaryColor,
+                                  fontSize: screenHeight * 0.0172),
+                            ),
+                            leading: Icon(Icons.circle,
+                              color: ApkColors.primaryColor,
+                              size: screenHeight * 0.0108,),
+                          ),
+                        ],
                       ),
 
                       SizedBox(
-                        height: 250.px,
-                        child: ListView(
-                          physics: NeverScrollableScrollPhysics(),
-                          children: [
-                            ListTile(
-
-                              title: Text(
-                                "Studies or training in the field of interface design, information design, communication design, communication sciences or similar.",
-                                maxLines: 3,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "First practical experience in the design and conception of user interfaces"
-                                    "Basic knowledge of design thinking methods and UX methods",
-                                maxLines: 3,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "Enjoy working in a team and have a good sense of design and interest in current UX trends",
-                                maxLines: 3,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "Very good knowledge of German and good knowledge of English.",
-                                maxLines: 3,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                            ListTile(
-
-                              title: Text(
-                                "Basic knowledge of design thinking methods and UX methods",
-                                maxLines: 3,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: ApkColors.primaryColor,
-                                    fontSize: 16.px),
-                              ),
-                              leading: Icon(Icons.circle,
-                                color: ApkColors.primaryColor,
-                                size: 10,),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: 32.px,
+                        height: screenHeight * 0.0322,
                       ),
                       Text(
                         StringConstants.yourContactPerson,
@@ -613,107 +623,99 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
                             color: ApkColors.primaryColor,
-                            fontSize: 24.px),
+                            fontSize: screenHeight * 0.0258),
                       ),
                       SizedBox(
-                        height: 16.px,
+                        height: screenHeight * 0.0172,
                       ),
                       Row(children: [
                          Container(
-                           height: 32.px,
-                           width: 32.px,
-                           padding: EdgeInsets.all(7.px),
+                           height: screenHeight * 0.0322,
+                           width: screenHeight * 0.0322,
+                           padding: EdgeInsets.all(screenHeight * 0.0076),
 
                            decoration: BoxDecoration(
                              color: ApkColors.orangeColor,
-                             borderRadius: BorderRadius.circular(16.px)
+                             borderRadius: BorderRadius.circular(screenHeight * 0.0172)
                            ),
 
                            child: SvgPicture.asset(
-                             IconPath.walletIcon,
-                             height: 22.px,
-                             width: 22.px,
+                             IconPath.userWhite,
+                             height: screenHeight * 0.0237,
+                             width:screenHeight * 0.0237,
                              color: ApkColors.backgroundColor,
 
                            ),
                          ),
-                        SizedBox(width: 8.px,),
+                        SizedBox(width: screenHeight * 0.0086,),
                         Text(
                           "Mr. Guido Latz",
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
                               color: ApkColors.primaryColor,
-                              fontSize: 20.px),
+                              fontSize: screenHeight * 0.0215),
                         ),
 
                       ],),
                       SizedBox(
-                        height: 12.px,
+                        height: screenHeight * 0.0131,
                       ),
                       Row(children: [
                          Container(
-                           height: 32.px,
-                           width: 32.px,
-                           padding: EdgeInsets.all(7.px),
+                           height: screenHeight * 0.0322,
+                           width: screenHeight * 0.0322,
+                           padding: EdgeInsets.all(screenHeight * 0.0076),
 
                            decoration: BoxDecoration(
                              color: ApkColors.orangeColor,
-                             borderRadius: BorderRadius.circular(16.px)
+                             borderRadius: BorderRadius.circular(screenHeight * 0.0172)
                            ),
 
                            child: SvgPicture.asset(
-                             IconPath.locationIcon,
-                             height: 22.px,
-                             width: 22.px,
+                             IconPath.callSvg,
+                             height: screenHeight * 0.0237,
+                             width: screenHeight * 0.0237,
                              color: ApkColors.backgroundColor,
                            ),
                          ),
-                        SizedBox(width: 8.px,),
+                        SizedBox(width: screenHeight * 0.0086,),
                         Text(
                           "+34 971 771 783",
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
                               color: ApkColors.primaryColor,
-                              fontSize: 20.px),
+                              fontSize: screenHeight * 0.0215),
                         ),
 
 
                       ],),
-                      SizedBox(height: 64.px,),
+                      SizedBox(height: screenHeight * 0.0687,),
 
-                      GestureDetector(
-                        onTap: () {
+                      Obx(() {
+                        controller.count.value;
+                        return Container(
+                          margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
+                          child: CommonWidget.commonButton(
+                              height: screenHeight * 0.069,
+                              text: StringConstants.applyNow,
 
-                          Get.toNamed(Routes.APPLICTION_FORM_SCREEN);
-                        },
-                        child: Container(
-                          height: 64.px,
+                              onPressed: () {
 
-                          alignment: Alignment.center,
-                          // margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 24.px),
-                          decoration: BoxDecoration(
-                              color:
-                              ApkColors.orangeColor,
-                              borderRadius:
-                              BorderRadius.all(
-                                  Radius.circular(
-                                      32.px))),
-                          child: Text(
-                            StringConstants.applyNow,
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight:
-                                FontWeight.w600,
-                                color: ApkColors
-                                    .backgroundColor,
-                                fontSize: 18.px),
+                                Get.toNamed(Routes.APPLICTION_FORM_SCREEN);
+                                // controller.createNewPassword();
+                                //
+                                // controller.formKey.currentState!.validate();
+
+                                //  controller.formKey.currentState!.validate();
+                                //  controller.animatedBtnLoad();
+                              }
                           ),
-                        ),
-                      ),
+                        );
+                      }),
 
-                      SizedBox(height: 46.px,),
+                      SizedBox(height: screenHeight * 0.0494,),
 
                     ],
 
@@ -721,7 +723,7 @@ class DetailsScreenView extends GetView<DetailsScreenController> {
                 ),
 
                 SizedBox(
-                  height: 50.px,
+                  height: screenHeight * 0.0494,
                 )
 
               ],

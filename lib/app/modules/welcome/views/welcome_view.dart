@@ -53,15 +53,15 @@ class WelcomeView extends GetView<WelcomeController> {
                    Get.offNamed(Routes.LOGIN);
                   },
                   child: Container(
-                    height: 64.px,
+                    height: screenHeight * 0.0687,
                     padding: EdgeInsets.all(2.px),
                     width: double.infinity,
                     alignment: Alignment.center,
-                     margin: EdgeInsets.symmetric(horizontal: 20.px),
+                     margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                     decoration: BoxDecoration(
                         color: ApkColors.primaryColor,
                         borderRadius:
-                        BorderRadius.all(Radius.circular(30.px))),
+                        BorderRadius.all(Radius.circular(screenHeight * 0.0322))),
                     child: Stack(
 
                       children: [
@@ -74,20 +74,20 @@ class WelcomeView extends GetView<WelcomeController> {
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w600,
                                 color: ApkColors.backgroundColor,
-                                fontSize: 18.px)
+                                fontSize: screenHeight * 0.0194)
                           ),
                         ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
-                              height:  60.px,
+                              height:  screenHeight * 0.0644,
                               width: controller.loginButtonSizeAnimation.value,
-                              padding: EdgeInsets.all(15.px),
+                              padding: EdgeInsets.all(screenHeight * 0.0161),
                               alignment: Alignment.centerRight,
                               decoration: BoxDecoration(
                                   color:  ApkColors.orangeColor,
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular( 30.px))),
+                                  BorderRadius.all(Radius.circular( screenHeight * 0.0322))),
                               child: Icon(CupertinoIcons.forward,color: ApkColors.backgroundColor
                               )),
                         )

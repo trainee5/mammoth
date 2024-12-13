@@ -14,36 +14,38 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ApkColors.backgroundColor,
-      appBar: PreferredSize(
-        //preferredSize:  Size.fromHeight(80.0)
-        preferredSize: Size.fromHeight(136.px),
+      appBar:PreferredSize(
+        preferredSize: Size.fromHeight(screenHeight * 0.146),
         child: Container(
           decoration: BoxDecoration(color: ApkColors.primaryColor),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 70.px,
+                height: screenHeight * 0.0752,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:
+                EdgeInsets.symmetric(horizontal: screenHeight * 0.0215),
                 child: Row(
                   children: <Widget>[
                     IconButton(
                       icon: SvgPicture.asset(
                         IconPath.arrowLeftIcon,
-                        height: 32.px,
-                        width: 32.px,
-
+                        height: screenHeight * 0.035,
+                        width: screenHeight * 0.035,
                       ),
                       onPressed: () {
                         Get.back();
                       },
                     ),
                     SizedBox(
-                      width: 12.px,
+                      width: screenHeight * 0.0129,
                     ),
                     Text(
                       StringConstants.notification,
@@ -51,13 +53,13 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: ApkColors.backgroundColor,
-                          fontSize: 26.px),
+                          fontSize: screenHeight * 0.028),
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 30.px,
+                height: screenHeight * 0.0322,
               ),
             ],
           ),
@@ -73,7 +75,6 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                 shrinkWrap: true,
                 physics: ClampingScrollPhysics(),
                 itemCount: 10,
-                //padding: EdgeInsets.symmetric(vertical: 34.px),
                 itemBuilder: (context, index) {
                   //final item = SampleModel.cateItem[index];
                   return GestureDetector(
@@ -81,7 +82,7 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                       // Get.toNamed(Routes.);
                     },
                     child: Container(
-                      height: 140.px,
+                      height: screenHeight * 0.135,
                       alignment: Alignment.center,
 
                       decoration: BoxDecoration(
@@ -92,31 +93,31 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
 
 
                           SizedBox(
-                            height: 20.px,
+                            height:  screenHeight * 0.02467,
                           ),
 
                           Row(
                             children: [
                               SizedBox(
-                                width: 24.px,
+                                width:  screenHeight * 0.0258,
                               ),
                               Container(
-                                height: 60.px,
-                                width: 60.px,
+                                height: screenHeight * 0.0644,
+                                width: screenHeight * 0.0644,
                                 decoration: BoxDecoration(
                                   borderRadius:
                                   BorderRadius.circular(
-                                      30.px),
+                                    screenHeight * 0.0322),
                                   color: ApkColors.textEditColor,
                                 ),
                                 child: Image.asset(
                                   'assets/images/googlepng.png',
-                                  height: 22.px,
-                                  width: 22.px,
+                                  height: screenHeight * 0.0237,
+                                  width: screenHeight * 0.0237,
                                 ),
                               ),
                               SizedBox(
-                                width: 12.px,
+                                width:  screenHeight * 0.0129,
                               ),
                               Expanded(
                                 child: Column(
@@ -135,7 +136,7 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                                               FontWeight.w500,
                                               color: ApkColors
                                                   .primaryColor,
-                                              fontSize: 20.px),
+                                              fontSize:  screenHeight * 0.0215),
                                         ),
                                       ),
                                       Spacer(),
@@ -144,10 +145,10 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
                                             fontWeight:
-                                            FontWeight.w500,
+                                            FontWeight.w400,
                                             color: ApkColors
                                                 .primaryColor,
-                                            fontSize: 10.px),
+                                            fontSize: screenHeight * 0.0111),
                                       ),
 
                                     ],
@@ -164,21 +165,21 @@ class NotificationScreenView extends GetView<NotificationScreenController> {
                                             FontWeight.w200,
                                             color: ApkColors
                                                 .primaryColor80p,
-                                            fontSize: 12.px),
+                                            fontSize: screenHeight * 0.0135),
                                       ),
                                     )
                                   ],
                                 ),
                               ),
                               SizedBox(
-                                width: 20.px,
+                                width:  screenHeight * 0.0258,
                               ),
 
 
                             ],
                           ),
                           SizedBox(
-                            height: 24.px,
+                            height:  screenHeight * 0.0258,
                           ),
                           Divider(
                             color: ApkColors.primaryColor,

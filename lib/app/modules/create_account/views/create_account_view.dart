@@ -374,7 +374,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                         blurRadius: 0.px,
                         height: screenHeight * 0.0773,
                         width: screenHeight * 0.0773,
-                        borderRadius: BorderRadius.all(Radius.circular(12.px)),
+                        borderRadius: BorderRadius.all(Radius.circular(screenHeight * 0.0129)),
                         blurStyle: BlurStyle.normal,
                         shadowColor: ApkColors.blackShadow,
                         shadowOffset: Offset(

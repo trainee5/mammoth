@@ -124,6 +124,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                         IconPath.usersSvg,
                         height: screenHeight * 0.0258,
                         width: screenHeight * 0.0258,
+                        color: ApkColors.primaryColor,
 
                       ),
                     ),
@@ -190,6 +191,7 @@ class ApplicationFormScreenView extends GetView<ApplicationFormScreenController>
                       IconPath.mailSvg,
                       height:  screenHeight * 0.0258,
                       width:  screenHeight * 0.0258,
+                      color: ApkColors.primaryColor,
 
                     ),
                   ),

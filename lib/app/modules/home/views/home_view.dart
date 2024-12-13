@@ -126,77 +126,75 @@ class HomeView extends GetView<HomeController> {
                 SizedBox(
                   height: screenHeight * 0.043,
                 ),
-                SizedBox(
-                  height:  screenHeight * 0.290,
-                  child: ListView(
-                    // Important: Remove any padding from the ListView.
-                    padding: EdgeInsets.zero,
-                    children: <Widget>[
-                      ListTile(
-                        title: Text(
-                          StringConstants.privacyPolicy,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.PRIVACY_POLICY_SCREEN);
-                        },
+                ListView(
+                  shrinkWrap: true,
+                  // Important: Remove any padding from the ListView.
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(
+                        StringConstants.privacyPolicy,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.termConditions,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.TERM_CONDITION_SCREEN);
-                        },
+                      onTap: () {
+                        Get.toNamed(Routes.PRIVACY_POLICY_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.termConditions,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.fAQ,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.FAQ_SCREEN);
-                        },
+                      onTap: () {
+                        Get.toNamed(Routes.TERM_CONDITION_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.fAQ,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.newsletter,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () {
-                          Get.toNamed(Routes.NEWSLATTER_SCREEN);
-                        },
+                      onTap: () {
+                        Get.toNamed(Routes.FAQ_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.newsletter,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                      ListTile(
-                        title: Text(
-                          StringConstants.logOut,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              color: ApkColors.backgroundColor,
-                              fontSize: screenHeight * 0.0258),
-                        ),
-                        onTap: () => Navigator.pop(context),
+                      onTap: () {
+                        Get.toNamed(Routes.NEWSLATTER_SCREEN);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        StringConstants.logOut,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            color: ApkColors.backgroundColor,
+                            fontSize: screenHeight * 0.0258),
                       ),
-                    ],
-                  ),
+                      onTap: () => Navigator.pop(context),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -301,7 +299,7 @@ class HomeView extends GetView<HomeController> {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 24.px),
+                    margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                     child: Column(
                       children: [
                         SizedBox(
@@ -335,6 +333,9 @@ class HomeView extends GetView<HomeController> {
                           itemBuilder: (context, index) {
                                   final item = SampleModel.cateItem[index];
                                   return GestureDetector(
+                                    onTap: (){
+                                      Get.toNamed(Routes.ALL_JOB_CATEGORY);
+                                    },
                                     child: Container(
                                       height: screenHeight * 0.1825,
                                       alignment: Alignment.center,
@@ -432,7 +433,7 @@ class HomeView extends GetView<HomeController> {
                     height: screenHeight * 0.4220,
                     width: double.infinity,
                     color: ApkColors.orangeColor12p,
-                     padding: EdgeInsets.symmetric( horizontal: screenHeight * 0.0258),
+
 
                     child: Column(
                       children: [
@@ -444,6 +445,7 @@ class HomeView extends GetView<HomeController> {
                           child: GridView.builder(
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,
+                            padding: EdgeInsets.symmetric( horizontal: screenHeight * 0.0258),
                             itemCount: SampleModel.cateItem.length,
                             // padding: EdgeInsets.symmetric(
                             //     vertical: screenHeight * 0.0258, horizontal: screenHeight * 0.0258),
@@ -456,6 +458,9 @@ class HomeView extends GetView<HomeController> {
                             itemBuilder: (context, index) {
                               //final item = SampleModel.cateItem[index];
                               return GestureDetector(
+                                onTap: (){
+                                  Get.toNamed(Routes.ALL_JOB_PREFERENCE);
+                                },
                                 child: Container(
                                   height: screenHeight * 0.3176,
                                   alignment: Alignment.center,
@@ -481,26 +486,25 @@ class HomeView extends GetView<HomeController> {
                                           Container(
                                             height: screenHeight * 0.0516,
                                             width: screenHeight * 0.0516,
+                                            padding: EdgeInsets.all(screenHeight * 0.005),
                                             decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      screenHeight * 0.0108),
+                                              borderRadius: BorderRadius.circular(screenHeight * 0.007),
                                               color: ApkColors.orangeColor,
                                             ),
                                             child: GestureDetector(
                                               child: ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          screenHeight * 0.0269),
+                                                  BorderRadius.circular(
+                                                      screenHeight * 0.0258),
                                                   child: Image.asset(
-                                                    'assets/images/googlepng.png',
+                                                    IconPath.blackBox,
                                                     height: screenHeight * 0.0237,
                                                     width: screenHeight * 0.0237,
                                                   )),
                                             ),
                                           ),
                                           SizedBox(
-                                            width: 8.px,
+                                            width: screenHeight * 0.0086,
                                           ),
                                           Column(
                                             crossAxisAlignment:
@@ -538,7 +542,7 @@ class HomeView extends GetView<HomeController> {
                                             horizontal: screenHeight * 0.0215),
                                         child: Divider(
                                           height: 1.px,
-                                          color: ApkColors.orangeColor,
+                                          color: ApkColors.dividerHome,
                                         ),
                                       ),
                                       SizedBox(
@@ -580,7 +584,7 @@ class HomeView extends GetView<HomeController> {
                                           ),
                                           SizedBox(
                                             child: SvgPicture.asset(
-                                              IconPath.locationIcon,
+                                              IconPath.walletIcon,
                                               height: screenHeight * 0.0237,
                                               width: screenHeight * 0.0237,
                                             ),
@@ -589,7 +593,7 @@ class HomeView extends GetView<HomeController> {
                                             width: screenHeight * 0.0086,
                                           ),
                                           Text(
-                                            "Indore, India",
+                                            "\$40.00 /month",
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500,
@@ -609,7 +613,7 @@ class HomeView extends GetView<HomeController> {
                                           ),
                                           SizedBox(
                                             child: SvgPicture.asset(
-                                              IconPath.locationIcon,
+                                              IconPath.briefcaseIcon,
                                               height: screenHeight * 0.0237,
                                               width: screenHeight * 0.0237,
                                             ),
@@ -618,7 +622,7 @@ class HomeView extends GetView<HomeController> {
                                             width: screenHeight * 0.0086,
                                           ),
                                           Text(
-                                            "Indore, India",
+                                            "Work from home",
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500,
@@ -705,7 +709,7 @@ class HomeView extends GetView<HomeController> {
                               decoration: TextDecoration.underline,
                               fontWeight: FontWeight.w500,
                               color: ApkColors.primaryColor,
-                              fontSize: 18.px),
+                              fontSize: screenHeight * 0.0194),
                         ),
                       ],
                     ),
@@ -715,7 +719,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                   Container(
                       width: double.infinity,
-                      margin: EdgeInsets.symmetric(horizontal: 24.px),
+                      margin: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -738,7 +742,7 @@ class HomeView extends GetView<HomeController> {
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       itemCount: SampleModel.cateItem.length,
-                      padding: EdgeInsets.symmetric(horizontal: 24.px),
+                      padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.0258),
                       gridDelegate:
                           SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 1,
@@ -749,6 +753,9 @@ class HomeView extends GetView<HomeController> {
                       itemBuilder: (context, index) {
                         // final item = SampleModel.cateItem[index];
                         return GestureDetector(
+                          onTap: (){
+                            Get.toNamed(Routes.BLOG_READING_SCREEN);
+                          },
                           child: Container(
                             height: screenHeight * 0.321,
 
@@ -776,12 +783,15 @@ class HomeView extends GetView<HomeController> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
-                                  child: SvgPicture.asset(
-                                    IconPath.rectangleDesign,
-                                    height: screenHeight * 0.3219,
-                                    width: screenHeight * 0.2975,
-                                    // color: ApkColors.primaryColor,
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    padding: EdgeInsets.only(bottom: screenHeight * 0.0129),
+                                    child: SvgPicture.asset(
+                                      IconPath.rectangleDesign,
+                                      fit: BoxFit.fill,
+                                      // color: ApkColors.primaryColor,
+                                    ),
                                   ),
                                 ),
                                 Column(
@@ -794,9 +804,9 @@ class HomeView extends GetView<HomeController> {
                                     SizedBox(
                                       height: screenHeight * 0.0194,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: screenHeight * 0.0172,
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                        horizontal: screenHeight * 0.0258,
                                       ),
                                       child: Text(
                                         "New job? These 6 things you should consider",
@@ -815,7 +825,7 @@ class HomeView extends GetView<HomeController> {
                                     Row(
                                       children: [
                                         SizedBox(
-                                          width: screenHeight * 0.0086,
+                                          width:screenHeight * 0.0194,
                                         ),
                                         Text(
                                           "You may be excited because \n"

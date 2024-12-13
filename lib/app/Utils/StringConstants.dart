@@ -6,6 +6,7 @@ class StringConstants {
   static const String welcomeBack = 'Welcome Back!';
   static const String loginToContinue = 'Log in to continue your journey and explore new career possibilities!';
   static const String enterEmail = 'Enter Email';
+  static const String enterYourEmail = 'Enter Your Email';
   static const String enterHint = 'Ex : john@gmail.com';
   static const String numHint = '9874561230';
   static const String postHint = 'graphic designer';
@@ -67,6 +68,12 @@ class StringConstants {
 
   static String applicationForm = "Application form";
   static String applicationStatus = "Application status";
+
+
+
+  static String allJobs = "All Jobs";
+  static String allCategories = "All Categories";
+  static String blog = "Blog";
 
 
 
